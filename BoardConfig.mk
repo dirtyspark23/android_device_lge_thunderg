@@ -22,7 +22,7 @@ TARGET_USES_OLD_LIBSENSORS_HAL:=true
 TARGET_OTA_ASSERT_DEVICE := thunderg
 
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_RECOVERY := true
+#TARGET_NO_RECOVERY := true
 TARGET_NO_RADIOIMAGE := true
 
 BOARD_USES_QCOM_HARDWARE := true
@@ -30,6 +30,7 @@ BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+WITH_A2DP := true
 BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
@@ -49,9 +50,13 @@ WIFI_DRIVER_MODULE_NAME := wireless
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
 
+#Optimization 
+ENABLE_WTF_USE_ACCELERATED_COMPOSITING := true
+ENABLE_JSC_JIT := true
+
 BOARD_EGL_CFG := vendor/lge/thunderg/proprietary/lib/egl/egl.cfg
 
-BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderg
+BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderg uart.mode=arm11_uart_disable crash=off
 BOARD_KERNEL_BASE := 0x12800000
 BOARD_PAGE_SIZE := 0x00000800
 
@@ -74,11 +79,13 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 
+# Use nasty hack to make Kineto work
+BOARD_USE_KINETO_COMPATIBILITY := true
+
 WITH_DEXPREOPT := true
 JS_ENGINE := v8
 
 BUILD_WITH_FULL_STAGEFRIGHT := true
+BOARD_USES_GENERIC_AUDIO := false
 TARGET_PROVIDES_LIBAUDIO := true 
 #TARGET_PROVIDES_LIBRIL := true
-TARGET_HIDES_QCRIL_FROM_LOGCAT := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"

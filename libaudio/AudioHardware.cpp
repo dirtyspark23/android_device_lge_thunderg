@@ -34,7 +34,7 @@
 #include "AudioHardware.h"
 #include <media/AudioRecord.h>
 
-#define LOG_SND_RPC 0  // Set to 1 to log sound RPC's
+#define LOG_SND_RPC 1  // Set to 1 to log sound RPC's
 
 #define COMBO_DEVICE_SUPPORTED 0 // Headset speaker combo device not supported on this target
 #define DUALMIC_KEY "dualmic_enabled"
@@ -434,11 +434,14 @@ int check_and_set_audpp_parameters(char *buf, int size)
     uint16_t denominator[4];
     uint16_t shift[2];
 
+    //LOGD("Attempting to parse: %s",buf);
+
     if ((buf[0] == 'A') && ((buf[1] == '1') || (buf[1] == '2') || (buf[1] == '3'))) {
         /* IIR filter */
         if(buf[1] == '1') device_id=0;
         if(buf[1] == '2') device_id=1;
         if(buf[1] == '3') device_id=2;
+
         if (!(p = strtok(buf, ",")))
             goto token_err;
 
@@ -1035,7 +1038,7 @@ status_t AudioHardware::setVoiceVolume(float v)
     int vol = 0;
     if(mCurSndDevice == SND_DEVICE_SPEAKER)
     {
-        vol = lrint(v * 18.0);
+        vol = (lrint(v * 7.0) * 3);
     }
     else
     {
