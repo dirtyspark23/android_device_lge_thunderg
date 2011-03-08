@@ -30,7 +30,6 @@ BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-WITH_A2DP := true
 BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
@@ -42,7 +41,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 
 # VER_0_6_X does not search networks
-WPA_SUPPLICANT_VERSION := VER_0_6_X
+WPA_SUPPLICANT_VERSION := VER_0_5_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 BOARD_WLAN_DEVICE := wlan0
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
@@ -51,10 +50,6 @@ WIFI_DRIVER_MODULE_NAME := wireless
 ## Tethering is not working now
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
-
-#Optimization 
-ENABLE_WTF_USE_ACCELERATED_COMPOSITING := true
-ENABLE_JSC_JIT := true
 
 BOARD_EGL_CFG := vendor/lge/thunderg/proprietary/lib/egl/egl.cfg
 
