@@ -17,8 +17,6 @@ PRODUCT_PACKAGES += \
     librs_jni \
     libmm-omxcore \
     libOmxCore \
-    libOmxVenc \
-    libOmxVdec \
     brcm_patchram_plus \
     gps.thunderg \
     lights.thunderg
