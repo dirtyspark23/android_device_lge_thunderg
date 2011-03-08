@@ -34,10 +34,12 @@ WITH_A2DP := true
 BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
-# Using GPSSHIM because our protocol has other version then at hardware/qcom/gps sources available
-BOARD_USES_GPSSHIM := true
-BOARD_GPS_NEEDS_XTRA := true
-BOARD_GPS_LIBRARIES := libloc
+BOARD_USES_QCOM_GPS := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := thunderg
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
+
+
+BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 
 # VER_0_6_X does not search networks
 WPA_SUPPLICANT_VERSION := VER_0_6_X
@@ -82,10 +84,11 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 # Use nasty hack to make Kineto work
 BOARD_USE_KINETO_COMPATIBILITY := true
 
+# Tag: Odex
 WITH_DEXPREOPT := true
+WITH_JIT := true
+ENABLE_JSC_JIT := true
 JS_ENGINE := v8
 
 BUILD_WITH_FULL_STAGEFRIGHT := true
-BOARD_USES_GENERIC_AUDIO := false
 TARGET_PROVIDES_LIBAUDIO := true 
-#TARGET_PROVIDES_LIBRIL := true
