@@ -26,6 +26,17 @@ PRODUCT_PACKAGES += \
     dump_image \
     erase_image
 
+PRODUCT_PROPERTY_OVERRIDES += \
+   ro.com.google.clientidbase=android-hms-tmobile-us \
+   ro.com.google.clientidbase.gmm=android-lge \
+   ro.com.google.clientidbase.yt=android-lge \
+   ro.com.google.clientidbase.am=android-tmobile-us \
+   ro.com.google.clientidbase.vs=android-lge \
+   ro.com.google.locationfeatures=1 \
+   ro.com.google.networklocation=1 \
+   ro.com.google.gmsversion=2.2_r5 \
+   ro.setupwizard.enable_bypass=1 
+
 # Backlight
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/hw/lights.thunderg.so:system/lib/hw/lights.thunderg.so \
@@ -38,7 +49,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/usr/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
     vendor/lge/thunderg/proprietary/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-    vendor/lge/thunderg/proprietary/usr/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
+    vendor/lge/thunderg/proprietary/usr/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin 
 
 # Board-specific init (does not support charging in "power off" state yet)
 PRODUCT_COPY_FILES += \
@@ -82,13 +93,13 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
     vendor/lge/thunderg/proprietary/lib/libgsl.so:system/lib/libgsl.so \
     vendor/lge/thunderg/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-    vendor/lge/thunderg/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
+    vendor/lge/thunderg/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw 
 
 # Camera
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
     vendor/lge/thunderg/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
-    vendor/lge/thunderg/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    vendor/lge/thunderg/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so 
 
 
 # Wifi
