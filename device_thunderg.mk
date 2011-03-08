@@ -28,23 +28,9 @@ PRODUCT_PACKAGES += \
     dump_image \
     erase_image
 
-# Ringtones required for bootanimation
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/sounds/lgeSounds/PowerOn.mp3:system/sounds/lgeSounds/PowerOn.mp3 \
-    vendor/lge/thunderg/proprietary/sounds/lgeSounds/Startup.mp3:system/sounds/lgeSounds/Startup.mp3 \
-
 # Backlight
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/hw/lights.thunderg.so:system/lib/hw/lights.thunderg.so \
-
-# GPS
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/etc/loc_parameter.ini:system/etc/loc_parameter.ini \
-    vendor/lge/thunderg/proprietary/lib/libloc_api.so:system/lib/libloc_api.so \
-    vendor/lge/thunderg/proprietary/lib/libgps.so:system/lib/libgps.so \
-    vendor/lge/thunderg/proprietary/lib/libloc.so:system/lib/libloc.so \
-    vendor/lge/thunderg/proprietary/lib/libcommondefs.so:system/lib/libcommondefs.so \
-    vendor/lge/thunderg/proprietary/lib/libloc-rpc.so:system/lib/libloc-rpc.so \
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
@@ -54,30 +40,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/usr/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
     vendor/lge/thunderg/proprietary/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-    vendor/lge/thunderg/proprietary/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-    vendor/lge/thunderg/proprietary/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     vendor/lge/thunderg/proprietary/usr/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
-    vendor/lge/thunderg/proprietary/usr/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
-    vendor/lge/thunderg/proprietary/usr/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin
 
 # Board-specific init (does not support charging in "power off" state yet)
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/init.thunderg.rc:root/init.thunderg.rc \
-    vendor/lge/thunderg/proprietary/init.rc:root/init.rc \
+    vendor/lge/thunderg/proprietary/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
     vendor/lge/thunderg/proprietary/initlogo.rle:root/initlogo.rle \
-    vendor/lge/thunderg/proprietary/sbin/bootlogo:root/sbin/bootlogo \
-    vendor/lge/thunderg/proprietary/sbin/chargerlogo:root/sbin/chargerlogo \
-    vendor/lge/thunderg/proprietary/sbin/ftm_power:root/sbin/ftm_power \
-    vendor/lge/thunderg/proprietary/bin/battery_charging:system/bin/battery_charging \
-    vendor/lge/thunderg/proprietary/bin/bootanimation:system/bin/bootanimation \
-    vendor/lge/thunderg/proprietary/bootimages/opening_01.rle:root/bootimages/opening_01.rle \
-    vendor/lge/thunderg/proprietary/bootimages/opening_02.rle:root/bootimages/opening_02.rle \
-    vendor/lge/thunderg/proprietary/bootimages/opening_03.rle:root/bootimages/opening_03.rle \
-    vendor/lge/thunderg/proprietary/bootimages/opening_04.rle:root/bootimages/opening_04.rle \
-    vendor/lge/thunderg/proprietary/bootimages/opening_05.rle:root/bootimages/opening_05.rle \
-    vendor/lge/thunderg/proprietary/bootimages/opening_06.rle:root/bootimages/opening_06.rle \
-    vendor/lge/thunderg/proprietary/bootimages/opening_07.rle:root/bootimages/opening_07.rle \
-    vendor/lge/thunderg/proprietary/bootimages/opening_08.rle:root/bootimages/opening_08.rle \
+    vendor/lge/thunderg/proprietary/chargerlogo:root/chargerlogo \
     vendor/lge/thunderg/proprietary/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
     vendor/lge/thunderg/proprietary/chargerimages/battery_ani_02.rle:root/chargerimages/battery_ani_02.rle \
     vendor/lge/thunderg/proprietary/chargerimages/battery_ani_03.rle:root/chargerimages/battery_ani_03.rle \
@@ -93,8 +63,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_02.rle \
     vendor/lge/thunderg/proprietary/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
     vendor/lge/thunderg/proprietary/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle \
-    vendor/lge/thunderg/proprietary/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
-    vendor/lge/thunderg/proprietary/ueventd.rc:root/ueventd.rc \
+    vendor/lge/thunderg/proprietary/ueventd.thunderg.rc:root/ueventd.thunderg.rc 
 
 # 2D (using proprietary because of poor perfomance of open source libs)
 PRODUCT_COPY_FILES += \
@@ -127,7 +96,7 @@ PRODUCT_COPY_FILES += \
 # Wifi
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/modules/wireless.ko:system/lib/modules/wireless.ko \
-    vendor/lge/thunderg/proprietary/lib/modules/tun.ko:system/lib/modules/tun.ko \
+    vendor/lge/thunderg/proprietary/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     vendor/lge/thunderg/proprietary/etc/wl/nvram.txt:system/etc/wl/nvram.txt \
     vendor/lge/thunderg/proprietary/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpd/dhcpcd.conf \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
@@ -141,7 +110,6 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    vendor/lge/thunderg/proprietary/lib/libaudioalsa.so:system/lib/libaudioalsa.so \
     vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
 
 # Device permissions
@@ -233,16 +201,27 @@ PRODUCT_COPY_FILES += \
 # OMX
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxAacDec.so:system/lib/libOmxAacDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxAacEnc.so:system/lib/libOmxAacEnc.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxAdpcmDec.so:system/lib/libOmxAdpcmDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxAmrDec.so:system/lib/libOmxAmrDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxAmrEnc.so:system/lib/libOmxAmrEnc.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxAmrRtpDec.so:system/lib/libOmxAmrRtpDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxAmrwbDec.so:system/lib/libOmxAmrwbDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxEvrcDec.so:system/lib/libOmxEvrcDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxEvrcEnc.so:system/lib/libOmxEvrcEnc.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxMp3Dec.so:system/lib/libOmxMp3Dec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxQcelp13Enc.so:system/lib/libOmxQcelp13Enc.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxQcelpDec.so:system/lib/libOmxQcelpDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/bin/BCM4325D1_004.002.004.0218.0248.hcd:system/bin/BCM4325D1_004.002.004.0218.0248.hcd \
-    vendor/lge/thunderg/proprietary/bin/btld:system/bin/btld \
-    vendor/lge/thunderg/proprietary/etc/bluetooth/audio.conf:system/etc/bluetooth/audio.conf \
-    vendor/lge/thunderg/proprietary/etc/bluetooth/auto_pairing.conf:system/etc/bluetooth/auto_pairing.conf \
-    vendor/lge/thunderg/proprietary/etc/bluetooth/blacklist.conf:system/etc/bluetooth/blacklist.conf \
-    vendor/lge/thunderg/proprietary/etc/bluetooth/input.conf:system/etc/bluetooth/input.conf \
-    vendor/lge/thunderg/proprietary/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf \
 
 # A "special" libcrypto for Kineto
 PRODUCT_COPY_FILES += \
@@ -251,7 +230,7 @@ PRODUCT_COPY_FILES += \
 # Files Needed For Wifi Calling
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk \
-    vendor/lge/thunderg/proprietary/lib/libkineto.so:/system/lib/linkineto.so \
+    vendor/lge/thunderg/proprietary/lib/libkineto.so:/system/lib/libkineto.so \
     vendor/lge/thunderg/proprietary/lib/libganril.so:system/lib/libganril.so \
     vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so \
 
