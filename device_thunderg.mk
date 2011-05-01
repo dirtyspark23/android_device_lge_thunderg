@@ -86,11 +86,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
-# Keylayouts
+# Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/usr/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
-    vendor/lge/thunderg/proprietary/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-    vendor/lge/thunderg/proprietary/usr/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
+    vendor/lge/thunderg/keylayout/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
+    vendor/lge/thunderg/keylayout/keylayout/AVCRP.kl:system/usr/keylayout/AVCRP.kl \
+    vendor/lge/thunderg/keylayout/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
+    vendor/lge/thunderg/keylayout/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
+    vendor/lge/thunderg/keychars/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
+    vendor/lge/thunderg/keychars/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
+    vendor/lge/thunderg/keychars/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin
    
 
 # Board-specific init (does not support charging in "power off" state yet)
@@ -181,29 +185,14 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml 
 
-# LGE services
+# Neccesary Files
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/bin/qmuxd:system/bin/qmuxd \
-
-# rmt_storage (What is this?)
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/bin/rmt_storage:system/bin/rmt_storage \
-
-# wipeirface (What is this?)
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/bin/wiperiface:system/bin/wiperiface \
 
 # Touchscreen firmware updater
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/bin/tsdown:system/bin/tsdown \
     vendor/lge/thunderg/proprietary/etc/MELFAS_FIRM.bin:system/etc/MELFAS_FIRM.bin \
-
-# netmgr (What is this?)
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/bin/netmgrd:system/bin/netmgrd \
-    vendor/lge/thunderg/proprietary/lib/libdsutils.so:system/lib/libdsutils.so \
-    vendor/lge/thunderg/proprietary/lib/libnetmgr.so:system/lib/libnetmgr.so
-
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.lge.vibrator_amp=125 \
@@ -262,7 +251,6 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxQcelp13Enc.so:system/lib/libOmxQcelp13Enc.so \
     vendor/lge/thunderg/proprietary/lib/libOmxQcelpDec.so:system/lib/libOmxQcelpDec.so \
-    vendor/lge/thunderg/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
     vendor/lge/thunderg/proprietary/lib/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so \
 

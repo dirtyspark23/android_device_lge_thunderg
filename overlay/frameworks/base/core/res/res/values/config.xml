@@ -123,7 +123,6 @@
          tethering on a new interface called "foo2" add <item>"foo\\d"</item> to the array -->
      <string-array translatable="false" name="config_tether_upstream_regexs">
     	<item>"rmnet\\d"</item>
-    	<item>"wlan\\d"</item>
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
@@ -150,5 +149,10 @@
     <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
          specified -->
     <string name="default_wallpaper_component">com.android.wallpaper/.nexus.NexusWallpaper</string>
+
+    <!-- The orientation in which case volume buttins should be swapped.
+         See ROTATION_0, ROTATION_90, ROTATION_180, ROTATION_270 in android.view.Surface
+         for more details about values -->
+    <integer name="swap_volume_keys_orientation">1</integer>
 
 </resources>
