@@ -88,13 +88,13 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
-    device/lge/thunderg/keylayout/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-    device/lge/thunderg/keylayout/keylayout/AVCRP.kl:system/usr/keylayout/AVCRP.kl \
-    device/lge/thunderg/keylayout/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-    device/lge/thunderg/keylayout/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
-    device/lge/thunderg/keychars/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
-    device/lge/thunderg/keychars/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
-    device/lge/thunderg/keychars/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin
+    device/lge/thunderg/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
+    device/lge/thunderg/keylayout/AVCRP.kl:system/usr/keylayout/AVCRP.kl \
+    device/lge/thunderg/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
+    device/lge/thunderg/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
+    device/lge/thunderg/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
+    device/lge/thunderg/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
+    device/lge/thunderg/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin
    
 
 # Board-specific init (does not support charging in "power off" state yet)
