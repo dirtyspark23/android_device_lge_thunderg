@@ -89,7 +89,7 @@ PRODUCT_COPY_FILES += \
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-    device/lge/thunderg/keylayout/AVCRP.kl:system/usr/keylayout/AVCRP.kl \
+    device/lge/thunderg/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/lge/thunderg/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/lge/thunderg/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
     device/lge/thunderg/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
