@@ -1,8 +1,29 @@
-#$(call inherit-product, build/target/product/full.mk)
+#
+# Copyright (C) 2010 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+#
+# This is the product configuration for a T-Mobile GSM Optimus T,
+# Specifically for use in USA.
+#
+
+$(call inherit-product, build/target/product/full_base.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/lge/thunderg/overlay
 
-TARGET_PREBUILT_KERNEL := device/lge/thunderg/kernel_test
+TARGET_PREBUILT_KERNEL := device/lge/thunderg/kernel
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := device/lge/thunderg/kernel
@@ -17,16 +38,15 @@ PRODUCT_PACKAGES += \
     librs_jni \
     libmm-omxcore \
     libOmxCore \
-    brcm_patchram_plus \
-    gps.thunderg \
-    lights.thunderg
-
-PRODUCT_PACKAGES += \
-    flash_image \
-    dump_image \
-    erase_image
+    libOmxVenc \
+    libOmxVdec \
+    lights.thunderg \
+    gralloc.thunderg \
+    copybit.thunderg \
+    gps.thunderg
 
 PRODUCT_PROPERTY_OVERRIDES += \
+   ro.sf.lcd_density=160 \
    ro.com.google.clientidbase=android-hms-tmobile-us \
    ro.com.google.clientidbase.gmm=android-lge \
    ro.com.google.clientidbase.yt=android-lge \
@@ -35,11 +55,32 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.com.google.locationfeatures=1 \
    ro.com.google.networklocation=1 \
    ro.com.google.gmsversion=2.2_r5 \
-   ro.setupwizard.enable_bypass=1 
+   ro.setupwizard.enable_bypass=1 \
+   ro.ril.disable.power.collapse=1 \
+   rild.libpath=/system/lib/libril-qc-1.so
+   rilswitch.vendorlibpath=/system/lib/libril-qc-1.so \
+   rilswitch.ganlibpath=/system/lib/libganril.so \
+   ro.ril.gprsclass=12 \
+   ro.ril.hsxpa=2 \
+   wifi.supplicant_scan_interval=45 \
+   ro.opengles.version=131072 \
+   ro.ril.enable.dtm=0 \
+   ro.ril.hsdpa.category=8 \
+   ro.ril.hsupa.category=5 \
+   debug.sf.hw=1 \
+   mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
 
-# Backlight
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/hw/lights.thunderg.so:system/lib/hw/lights.thunderg.so \
+# Default network type
+# 0 => WCDMA Preferred.
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.default_network=0 \
+
+# Performences tweaks
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.execution-mode=int:jit \
+    dalvik.vm.heapsize=32m \
+    ro.compcache.default=0 \
+    persist.sys.use_dithering=1 \
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
@@ -49,36 +90,38 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/usr/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
     vendor/lge/thunderg/proprietary/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-    vendor/lge/thunderg/proprietary/usr/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin 
+    vendor/lge/thunderg/proprietary/usr/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
+   
 
 # Board-specific init (does not support charging in "power off" state yet)
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/init.thunderg.rc:root/init.thunderg.rc \
-    vendor/lge/thunderg/proprietary/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
-    vendor/lge/thunderg/proprietary/initlogo.rle:root/initlogo.rle \
-    vendor/lge/thunderg/proprietary/chargerlogo:root/chargerlogo \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_ani_02.rle:root/chargerimages/battery_ani_02.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_ani_03.rle:root/chargerimages/battery_ani_03.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_ani_04.rle:root/chargerimages/battery_ani_04.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_ani_05.rle:root/chargerimages/battery_ani_05.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_charging_01.rle:root/chargerimages/battery_charging_01.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_charging_02.rle:root/chargerimages/battery_charging_02.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_charging_03.rle:root/chargerimages/battery_charging_03.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_charging_04.rle:root/chargerimages/battery_charging_04.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_charging_05.rle:root/chargerimages/battery_charging_05.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_charging_06.rle:root/chargerimages/battery_charging_06.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_01.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_02.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
-    vendor/lge/thunderg/proprietary/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle \
-    vendor/lge/thunderg/proprietary/ueventd.thunderg.rc:root/ueventd.thunderg.rc 
+    device/lge/thunderg/init.thunderg.rc:root/init.thunderg.rc \
+    device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
+    device/lge/thunderg/ramdisk/init.qcom.rc:root/init.qcom.rc \
+    device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle \
+    device/lge/thunderg/ramdisk/sbin/chargerlogo:root/sbin/chargerlogo \
+    device/lge/thunderg/ramdisk/sbin/bootlogo:root/sbin/bootlogo \
+    device/lge/thunderg/ramdisk/sbin/ftm_power:root/sbin/ftm_power \
+    device/lge/thunderg/ramdisk/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_ani_02.rle:root/chargerimages/battery_ani_02.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_ani_03.rle:root/chargerimages/battery_ani_03.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_ani_04.rle:root/chargerimages/battery_ani_04.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_ani_05.rle:root/chargerimages/battery_ani_05.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_charging_01.rle:root/chargerimages/battery_charging_01.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_charging_02.rle:root/chargerimages/battery_charging_02.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_charging_03.rle:root/chargerimages/battery_charging_03.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_charging_04.rle:root/chargerimages/battery_charging_04.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_charging_05.rle:root/chargerimages/battery_charging_05.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_charging_06.rle:root/chargerimages/battery_charging_06.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_01.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_02.rle \
+    device/lge/thunderg/ramdisk/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
+    device/lge/thunderg/ramdisk/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle
 
-# 2D (using proprietary because of poor perfomance of open source libs)
+
+# Media Configuration XML File
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.thunderg.so:system/lib/hw/gralloc.thunderg.so \
-    vendor/lge/thunderg/proprietary/lib/hw/copybit.thunderg.so:system/lib/hw/copybit.thunderg.so \
+    device/lge/thunderg/media_profiles.xml:system/etc/media_profiles.xml
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -101,25 +144,29 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
     vendor/lge/thunderg/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so 
 
-
 # Wifi
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/modules/wireless.ko:system/lib/modules/wireless.ko \
-    vendor/lge/thunderg/proprietary/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    device/lge/thunderg/prebuilt/lib/modules/wireless.ko:system/lib/modules/wireless.ko \
+    device/lge/thunderg/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     vendor/lge/thunderg/proprietary/etc/wl/nvram.txt:system/etc/wl/nvram.txt \
-    vendor/lge/thunderg/proprietary/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpd/dhcpcd.conf \
+    vendor/lge/thunderg/proprietary/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
-    vendor/lge/thunderg/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin
+    vendor/lge/thunderg/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin \
 
 # SD Card
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/etc/vold.fstab:system/etc/vold.fstab \
+    device/lge/thunderg/vold.fstab:system/etc/vold.fstab \
 
 # Audio
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
     vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
+    device/lge/thunderg/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+
+# GPS
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/etc/gps.conf:system/etc/gps.conf
 
 # Device permissions
 PRODUCT_COPY_FILES += \
@@ -132,24 +179,15 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml 
 
 # LGE services
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/bin/qmuxd:system/bin/qmuxd \
-    vendor/lge/thunderg/proprietary/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    vendor/lge/thunderg/proprietary/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    vendor/lge/thunderg/proprietary/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
-    vendor/lge/thunderg/proprietary/etc/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-    vendor/lge/thunderg/proprietary/init.qcom.rc:root/init.qcom.rc
-    
 
 # rmt_storage (What is this?)
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/bin/rmt_storage:system/bin/rmt_storage \
-
-# port-bridge (What is this?)
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/bin/port-bridge:system/bin/port-bridge \
 
 # wipeirface (What is this?)
 PRODUCT_COPY_FILES += \
@@ -232,23 +270,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/bin/BCM4325D1_004.002.004.0218.0248.hcd:system/bin/BCM4325D1_004.002.004.0218.0248.hcd \
 
-# A "special" libcrypto for Kineto
-PRODUCT_COPY_FILES += \
-    device/lge/thunderg/prebuilt/libcryp98.so:system/lib/libcryp98.so \
-
 # Files Needed For Wifi Calling
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk \
-    vendor/lge/thunderg/proprietary/lib/libkineto.so:/system/lib/libkineto.so \
     vendor/lge/thunderg/proprietary/lib/libganril.so:system/lib/libganril.so \
-    vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so \
+    vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so
+
+PRODUCT_LOCALES += mdpi
 
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_thunderg
-PRODUCT_BRAND := LGE
 PRODUCT_DEVICE := thunderg
-PRODUCT_MODEL := LG-P509
-PRODUCT_MANUFACTURER := LGE
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=thunderg

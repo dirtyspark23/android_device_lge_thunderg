@@ -11,18 +11,19 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_BOOTLOADER_BOARD_NAME := thunderg
 
-TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
+
+# Current drivers don't support new EGL config
 BOARD_NO_RGBX_8888 := true
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
 
 TARGET_PROVIDES_INIT_TARGET_RC := true
 
-TARGET_USES_OLD_LIBSENSORS_HAL:=true
+TARGET_USES_OLD_LIBSENSORS_HAL:= true
 
 TARGET_OTA_ASSERT_DEVICE := thunderg
 
 TARGET_NO_BOOTLOADER := true
-#TARGET_NO_RECOVERY := true
 TARGET_NO_RADIOIMAGE := true
 
 BOARD_USES_QCOM_HARDWARE := true
@@ -30,30 +31,30 @@ BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+
+BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/lge/thunderg/recovery_ui.c
+
 
 BOARD_USES_QCOM_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := thunderg
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
-
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun
+BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
-# VER_0_6_X does not search networks
 WPA_SUPPLICANT_VERSION := VER_0_5_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-BOARD_WLAN_DEVICE := wlan0
+BOARD_WLAN_DEVICE := bcm4325
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
 WIFI_DRIVER_MODULE_NAME := wireless
-## Tethering is not working now
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
 
-BOARD_EGL_CFG := vendor/lge/thunderg/proprietary/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/lge/thunderg/egl.cfg
 
-BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderg uart.mode=arm11_uart_disable crash=off
+BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderg
 BOARD_KERNEL_BASE := 0x12800000
 BOARD_PAGE_SIZE := 0x00000800
 
@@ -76,14 +77,13 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 
-# Use nasty hack to make Kineto work
-BOARD_USE_KINETO_COMPATIBILITY := true
+#BOARD_USE_KINETO_COMPATIBILITY := true
 
-# Tag: Odex
-WITH_DEXPREOPT := true
-WITH_JIT := true
-ENABLE_JSC_JIT := true
-JS_ENGINE := v8
+# FM Radio
+BOARD_HAVE_FM_RADIO := true
+TARGET_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+TARGET_GLOBAL_CPPFLAGS += -DHAVE_FM_RADIO
+BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
 
-BUILD_WITH_FULL_STAGEFRIGHT := true
-TARGET_PROVIDES_LIBAUDIO := true 
+BOARD_USES_GENERIC_AUDIO := false
+TARGET_PROVIDES_LIBAUDIO := true
