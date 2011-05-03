@@ -1452,11 +1452,11 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
             new_snd_device = SND_DEVICE_FM_SPEAKER;
             new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
 #endif
-        } else if (outputDevices & AudioSystem::DEVICE_SPEAKER_IN_CALL) {
+        } else if (outputDevices & AudioSystem::DEVICE_OUT_SPEAKER_IN_CALL) {
             LOGI("Routing audio to In-call Speaker\n");
             new_snd_device = SND_DEVICE_SPEAKER_IN_CALL;
             new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
-        } else if (outputDevices & AudioSystem::DEVICE_SPEAKER_RING) {
+        } else if (outputDevices & AudioSystem::DEVICE_OUT_SPEAKER_RING) {
             LOGI("Routing audio to In-call Speaker\n");
             new_snd_device = SND_DEVICE_SPEAKER_RING;
             new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
@@ -1468,10 +1468,10 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
     }
     if (mDualMicEnabled && mMode == AudioSystem::MODE_IN_CALL) {
         if (new_snd_device == SND_DEVICE_HANDSET) {
-            LOGI("Routing audio to handset with DualMic enabled\n");
+            LOGI("Routing audio to handset with DualMike enabled\n");
             new_snd_device = SND_DEVICE_IN_S_SADC_OUT_HANDSET;
         } else if (new_snd_device == SND_DEVICE_SPEAKER) {
-            LOGI("Routing audio to speakerphone with DualMic enabled\n");
+            LOGI("Routing audio to speakerphone with DualMike enabled\n");
             new_snd_device = SND_DEVICE_IN_S_SADC_OUT_SPEAKER_PHONE;
         }
     }
