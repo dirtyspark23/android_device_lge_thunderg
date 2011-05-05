@@ -172,8 +172,8 @@ PRODUCT_COPY_FILES += \
 
 # Mik9 Help
 PRODUCT_COPY_FILES += \
-    device/lge/thunderg/files/bin/make-storage.sh:system/bin/make-storage.sh \
-    device/lge/thunderg/files/bin/make-adb.sh:system/bin/make-adb.sh \
+    device/lge/thunderg/make-storage.sh:system/bin/make-storage.sh \
+    device/lge/thunderg/make-adb.sh:system/bin/make-adb.sh \
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -285,7 +285,8 @@ PRODUCT_COPY_FILES += \
 # Files Needed For Wifi Calling
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libganril.so:system/lib/libganril.so \
-    vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so
+    vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so \
+    vendor/lge/thunderg/proprietary/lib/libkineto.so:system/lib/libkineto.so
 
 PRODUCT_LOCALES += mdpi
 
