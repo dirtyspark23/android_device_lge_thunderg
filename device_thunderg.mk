@@ -41,8 +41,6 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     lights.thunderg \
-    gralloc.thunderg \
-    copybit.thunderg \
     gps.thunderg \
     bdaddr_read
 
@@ -134,6 +132,13 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/hw/sensors.thunderg.so:system/lib/hw/sensors.thunderg.so \
     vendor/lge/thunderg/proprietary/bin/ami304d:system/bin/ami304d \
 
+# 2D (using proprietary because of poor perfomance of open source libs)
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
+    vendor/lge/thunderg/proprietary/lib/hw/gralloc.thunderg.so:system/lib/hw/gralloc.thunderg.so \
+    vendor/lge/thunderg/proprietary/lib/hw/copybit.thunderg.so:system/lib/hw/copybit.thunderg.so \
+   
+
 # 3D
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
@@ -178,7 +183,8 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/etc/gps.conf:system/etc/gps.conf
+    device/lge/thunderg/gps.conf:system/etc/gps.conf \
+    device/lge/thunderg/loc_parameter.ini:system/etc/loc_parameter.ini \
 
 # Device permissions
 PRODUCT_COPY_FILES += \
