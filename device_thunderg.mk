@@ -41,6 +41,7 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     lights.thunderg \
+    copybit.thunderg \
     gps.thunderg \
     bdaddr_read
 
@@ -56,7 +57,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.com.google.gmsversion=2.2_r5 \
    ro.setupwizard.enable_bypass=1 \
    ro.ril.disable.power.collapse=1 \
-   rild.libpath=/system/lib/libril-qc-1.so
+   rild.libpath=/system/lib/libril-qc-1.so \
    rilswitch.vendorlibpath=/system/lib/libril-qc-1.so \
    rilswitch.ganlibpath=/system/lib/libganril.so \
    ro.ril.gprsclass=12 \
@@ -136,8 +137,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
     vendor/lge/thunderg/proprietary/lib/hw/gralloc.thunderg.so:system/lib/hw/gralloc.thunderg.so \
-    vendor/lge/thunderg/proprietary/lib/hw/copybit.thunderg.so:system/lib/hw/copybit.thunderg.so \
-   
 
 # 3D
 PRODUCT_COPY_FILES += \
