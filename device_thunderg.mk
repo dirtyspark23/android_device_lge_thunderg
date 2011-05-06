@@ -58,10 +58,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.setupwizard.enable_bypass=1 \
    ro.ril.disable.power.collapse=1 \
    rild.libpath=/system/lib/libril-qc-1.so \
+   rild.libpath=/system/lib/librilswitch.so \
    rilswitch.vendorlibpath=/system/lib/libril-qc-1.so \
    rilswitch.ganlibpath=/system/lib/libganril.so \
    ro.ril.gprsclass=12 \
    ro.ril.hsxpa=2 \
+   debug.sf.hw=0 \
    wifi.supplicant_scan_interval=45 \
    ro.opengles.version=131072 \
    ro.ril.enable.dtm=0 \
@@ -91,13 +93,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
     device/lge/thunderg/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    device/lge/thunderg/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/lge/thunderg/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
-    device/lge/thunderg/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
-    device/lge/thunderg/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
     device/lge/thunderg/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin
    
-
 # Board-specific init (does not support charging in "power off" state yet)
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/init.thunderg.rc:root/init.thunderg.rc \
