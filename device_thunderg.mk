@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 #
 # This is the product configuration for a T-Mobile GSM Optimus T,
 # Specifically for use in USA.
@@ -41,12 +40,15 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     lights.thunderg \
+    gralloc.thunderg \
     copybit.thunderg \
     gps.thunderg \
     bdaddr_read
 
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.sf.lcd_density=160 \
+   ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
+   ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
    ro.com.google.clientidbase=android-hms-tmobile-us \
    ro.com.google.clientidbase.gmm=android-lge \
    ro.com.google.clientidbase.yt=android-lge \
@@ -64,13 +66,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.ril.gprsclass=12 \
    ro.ril.hsxpa=2 \
    debug.sf.hw=0 \
+   media.stagefright.enable-player=false \
+   media.stagefright.enable-meta=false \
+   media.stagefright.enable-scan=false \
+   media.stagefright.enable-http=false \
    wifi.supplicant_scan_interval=45 \
    ro.opengles.version=131072 \
    ro.ril.enable.dtm=0 \
    ro.ril.hsdpa.category=8 \
    ro.ril.hsupa.category=5 \
+   ro.ril.def.agps.mode=2 \
+   ro.ril.def.agps.feature=1 \
    ro.telephony.call_ring.multiple=false \
    windowsmgr.max_events_per_sec=260 \
+   dalvik.vm.lockprof.threshold=500 \
+   dalvik.vm.dexopt-flags=m=y \
+   net.tcp.buffersize.hsdpa = 4094,87380,393216,4096,16384,110208 \
    mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
 
 # Default network type
@@ -99,6 +110,7 @@ PRODUCT_COPY_FILES += \
 # Board-specific init (does not support charging in "power off" state yet)
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/init.thunderg.rc:root/init.thunderg.rc \
+    device/lge/thunderg/init.rc:root/init.rc \
     device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
     device/lge/thunderg/ramdisk/init.qcom.rc:root/init.qcom.rc \
     device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle \
@@ -131,11 +143,6 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/hw/sensors.thunderg.so:system/lib/hw/sensors.thunderg.so \
     vendor/lge/thunderg/proprietary/bin/ami304d:system/bin/ami304d \
 
-# 2D (using proprietary because of poor perfomance of open source libs)
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.thunderg.so:system/lib/hw/gralloc.thunderg.so \
-
 # 3D
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
@@ -162,6 +169,12 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin \
     device/lge/thunderg/prebuilt/lib/modules/tun.ko:system/lib/modules/tun.ko \
+    device/lge/thunderg/prebuilt/lib/modules/cifs.ko:system/lib/modules/cifs.ko 
+
+# Mik9 Wifi Script
+PRODUCT_COPY_FILES += \
+    device/lge/thunderg/init.local.rc:system/etc/init.local.rc \
+
 
 # SD Card
 PRODUCT_COPY_FILES += \
@@ -239,6 +252,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libbcmwl.so:system/lib/libbcmwl.so \
     vendor/lge/thunderg/proprietary/lib/libdss.so:system/lib/libdss.so \
     vendor/lge/thunderg/proprietary/bin/rild:system/bin/rild \
+     
 
 # propietary libril
 PRODUCT_COPY_FILES += \
