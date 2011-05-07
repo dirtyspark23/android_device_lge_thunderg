@@ -81,7 +81,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
    windowsmgr.max_events_per_sec=260 \
    dalvik.vm.lockprof.threshold=500 \
    dalvik.vm.dexopt-flags=m=y \
-   net.tcp.buffersize.hsdpa = 4094,87380,393216,4096,16384,110208 \
+   net.tcp.buffersize.hsdpa=4094,87380,393216,4096,16384,110208 \
    mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
 
 # Default network type
@@ -104,7 +104,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
     device/lge/thunderg/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+    device/lge/thunderg/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/lge/thunderg/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
+    device/lge/thunderg/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
+    device/lge/thunderg/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
     device/lge/thunderg/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin
    
 # Board-specific init (does not support charging in "power off" state yet)
