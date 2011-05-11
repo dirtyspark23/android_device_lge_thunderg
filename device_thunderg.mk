@@ -40,7 +40,6 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     lights.thunderg \
-    gralloc.thunderg \
     copybit.thunderg \
     gps.thunderg \
     bdaddr_read
@@ -59,9 +58,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.com.google.gmsversion=2.2_r5 \
    ro.setupwizard.enable_bypass=1 \
    ro.ril.disable.power.collapse=1 \
-   rild.libpath=/system/lib/librilswitch.so \
-   rilswitch.vendorlibpath=/system/lib/libril-qc-1.so \
-   rilswitch.ganlibpath=/system/lib/libganril.so \
    ro.ril.gprsclass=12 \
    ro.ril.hsxpa=2 \
    media.stagefright.enable-player=false \
@@ -81,11 +77,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    dalvik.vm.dexopt-flags=m=y \
    net.tcp.buffersize.hsdpa=4094,87380,393216,4096,16384,110208 \
    mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
-
-# Default network type
-# 0 => WCDMA Preferred.
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.default_network=0 \
 
 # Performences tweaks
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -144,6 +135,11 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/hw/sensors.thunderg.so:system/lib/hw/sensors.thunderg.so \
     vendor/lge/thunderg/proprietary/bin/ami304d:system/bin/ami304d \
 
+# 2D (using proprietary because of poor perfomance of open source libs)
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
+    vendor/lge/thunderg/proprietary/lib/hw/gralloc.thunderg.so:system/lib/hw/gralloc.thunderg.so \
+
 # 3D
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
@@ -184,6 +180,7 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    vendor/lge/thunderg/proprietary/lib/liba2dp.so:system/lib/liba2dp.so \
     vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
     device/lge/thunderg/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
 
@@ -297,7 +294,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libganril.so:system/lib/libganril.so \
     vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so \
-    vendor/lge/thunderg/proprietary/lib/libkineto.so:system/lib/libkineto.so
+    vendor/lge/thunderg/proprietary/lib/libkineto.so:system/lib/libkineto.so \
+    vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk \
 
 PRODUCT_LOCALES += mdpi
 

@@ -1,5 +1,4 @@
 USE_CAMERA_STUB := false
-BOARD_USE_FROYO_LIBCAMERA := true
 
 # inherit from the proprietary version
 #-include vendor/lge/thunderg/BoardConfigVendor.mk
@@ -10,7 +9,6 @@ TARGET_CPU_ABI := armeabi-v6l
 TARGET_CPU_ABI2 := armeabi
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_BOOTLOADER_BOARD_NAME := thunderg
-
 
 # Current drivers don't support new EGL config
 BOARD_NO_RGBX_8888 := true
@@ -54,8 +52,6 @@ WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
 WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
-BOARD_USE_KINETO_COMPATIBILITY := true
-
 BOARD_EGL_CFG := device/lge/thunderg/egl.cfg
 
 BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderg
@@ -90,6 +86,5 @@ BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
 JS_ENGINE := v8
 
 BUILD_WITH_FULL_STAGEFRIGHT := true
-BOARD_USES_GENERIC_AUDIO := false
-TARGET_PROVIDES_LIBAUDIO := true
+TARGET_PROVIDES_LIBAUDIO := true 
 TARGET_SF_NEEDS_REAL_DIMENSIONS := true
