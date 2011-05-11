@@ -25,9 +25,11 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
+#include <linux/ashmem.h>
 
 #include <cutils/log.h>
 #include <cutils/atomic.h>
+#include <cutils/ashmem.h>
 
 #include <hardware/hardware.h>
 #include <hardware/gralloc.h>
@@ -35,7 +37,7 @@
 #include <linux/android_pmem.h>
 
 #include "gralloc_priv.h"
-
+#include "gr.h"
 
 // we need this for now because pmem cannot mmap at an offset
 #define PMEM_HACK   1
@@ -48,6 +50,11 @@ pid_t gettid() { return syscall(__NR_gettid);}
 #undef __KERNEL__
 #endif
 
+#define ASHMEM_CACHE_CLEAN_RANGE	_IO(__ASHMEMIOC, 12)
+#define GRALLOC_MODULE_PERFORM_DECIDE_PUSH_BUFFER_HANDLING 0x080000002
+
+// End of CAF values
+
 /*****************************************************************************/
 
 static int gralloc_map(gralloc_module_t const* module,
@@ -55,13 +62,19 @@ static int gralloc_map(gralloc_module_t const* module,
         void** vaddr)
 {
     private_handle_t* hnd = (private_handle_t*)handle;
+    void *mappedAddress;
     if (!(hnd->flags & private_handle_t::PRIV_FLAGS_FRAMEBUFFER)) {
         size_t size = hnd->size;
 #if PMEM_HACK
         size += hnd->offset;
 #endif
-        void* mappedAddress = mmap(0, size,
+        if (hnd->flags & private_handle_t::PRIV_FLAGS_USES_ASHMEM) {
+            mappedAddress = mmap(0, size,
+                PROT_READ|PROT_WRITE, MAP_SHARED | MAP_POPULATE, hnd->fd, 0);
+        } else {
+            mappedAddress = mmap(0, size,
                 PROT_READ|PROT_WRITE, MAP_SHARED, hnd->fd, 0);
+        }
         if (mappedAddress == MAP_FAILED) {
             LOGE("Could not mmap handle %p, fd=%d (%s)",
                     handle, hnd->fd, strerror(errno));
@@ -171,7 +184,8 @@ int terminateBuffer(gralloc_module_t const* module,
 
     if (hnd->lockState & private_handle_t::LOCK_STATE_MAPPED) {
         // this buffer was mapped, unmap it now
-        if (hnd->flags & private_handle_t::PRIV_FLAGS_USES_PMEM) {
+        if (hnd->flags & private_handle_t::PRIV_FLAGS_USES_PMEM ||
+            hnd->flags & private_handle_t::PRIV_FLAGS_USES_ASHMEM) {
             if (hnd->pid != getpid()) {
                 // ... unless it's a "master" pmem buffer, that is a buffer
                 // mapped in the process it's been allocated.
@@ -237,8 +251,9 @@ int gralloc_lock(gralloc_module_t const* module,
 
     // if requesting sw write for non-framebuffer handles, flag for
     // flushing at unlock
+
     if ((usage & GRALLOC_USAGE_SW_WRITE_MASK) &&
-        !(hnd->flags & private_handle_t::PRIV_FLAGS_FRAMEBUFFER)) {
+            !(hnd->flags & private_handle_t::PRIV_FLAGS_FRAMEBUFFER)) {
         hnd->flags |= private_handle_t::PRIV_FLAGS_NEEDS_FLUSH;
     }
 
@@ -271,20 +286,23 @@ int gralloc_unlock(gralloc_module_t const* module,
     private_handle_t* hnd = (private_handle_t*)handle;
     int32_t current_value, new_value;
 
-
-/*#ifndef BOARD_NO_CACHED_BUFFERS
-   if (hnd->flags & private_handle_t::PRIV_FLAGS_NEEDS_FLUSH) {
-        struct pmem_region region;
+    if (hnd->flags & private_handle_t::PRIV_FLAGS_NEEDS_FLUSH) {
         int err;
-        region.offset = hnd->offset;
-        region.len = hnd->size;
+        if (hnd->flags & private_handle_t::PRIV_FLAGS_USES_PMEM) {
+            struct pmem_addr pmem_addr;
+            pmem_addr.vaddr = hnd->base;
+            pmem_addr.offset = hnd->offset;
+            pmem_addr.length = hnd->size;
+            err = ioctl( hnd->fd, PMEM_CLEAN_CACHES,  &pmem_addr);
+        } else if ((hnd->flags & private_handle_t::PRIV_FLAGS_USES_ASHMEM)) {
+            unsigned long addr = hnd->base + hnd->offset;
+            err = ioctl(hnd->fd, ASHMEM_CACHE_CLEAN_RANGE, NULL);
+        }         
 
-      err = ioctl(hnd->fd, PMEM_CACHE_FLUSH, &region);
         LOGE_IF(err < 0, "cannot flush handle %p (offs=%x len=%x)\n",
                 hnd, hnd->offset, hnd->size);
         hnd->flags &= ~private_handle_t::PRIV_FLAGS_NEEDS_FLUSH;
     }
-#endif*/
 
     do {
         current_value = hnd->lockState;
@@ -307,13 +325,6 @@ int gralloc_unlock(gralloc_module_t const* module,
 
     } while (android_atomic_cmpxchg(current_value, new_value, 
             (volatile int32_t*)&hnd->lockState));
-
-            struct pmem_addr pmem_addr;
-            pmem_addr.vaddr = hnd->base;
-            pmem_addr.offset = hnd->offset;
-            pmem_addr.length = hnd->size;
-            ioctl( hnd->fd, PMEM_CLEAN_CACHES,  &pmem_addr);
-
 
     return 0;
 }
@@ -350,12 +361,128 @@ int gralloc_perform(struct gralloc_module_t const* module,
             hnd->offset = offset;
             hnd->base = intptr_t(base) + offset;
             hnd->lockState = private_handle_t::LOCK_STATE_MAPPED;
+            hnd->gpuaddr = 0;
             *handle = (native_handle_t *)hnd;
             res = 0;
             break;
         }
+        case GRALLOC_MODULE_PERFORM_DECIDE_PUSH_BUFFER_HANDLING: {
+            int format = va_arg(args, int);
+            int width = va_arg(args, int);
+            int height = va_arg(args, int);
+            char *compositionUsed = va_arg(args, char*);
+            int hasBlitEngine = va_arg(args, int);
+            int *needConversion = va_arg(args, int*);
+            int *useBufferDirectly = va_arg(args, int*);
+            size_t *size = va_arg(args, size_t*);
+            *size = calculateBufferSize(width, height, format);
+            int conversion = 0;
+            int direct = 0;
+            res = decideBufferHandlingMechanism(format, compositionUsed, hasBlitEngine,
+                                                needConversion, useBufferDirectly);
+	    break;
+	}
+	default:
+	    break;
     }
 
     va_end(args);
     return res;
+}
+
+int decideBufferHandlingMechanism(int format, const char *compositionUsed, int hasBlitEngine,
+                                  int *needConversion, int *useBufferDirectly)
+{
+    *needConversion = FALSE;
+    *useBufferDirectly = FALSE;
+    if(compositionUsed == NULL) {
+        LOGE("null pointer");
+        return -1;
+    }
+
+    if(format == HAL_PIXEL_FORMAT_RGB_565) {
+       // Software video renderer gives the output in RGB565 format.
+       // This can be handled by all compositors
+       *needConversion = FALSE;
+       *useBufferDirectly = TRUE;
+    } else if(strncmp(compositionUsed, "cpu", 3) == 0){
+        *needConversion = FALSE;
+        *useBufferDirectly = FALSE;
+    } else if(strncmp(compositionUsed, "gpu", 3) == 0) {
+        if(format == HAL_PIXEL_FORMAT_YCbCr_420_SP_TILED
+           || format == HAL_PIXEL_FORMAT_YCrCb_420_SP_ADRENO) {
+            *needConversion = FALSE;
+            *useBufferDirectly = TRUE;
+        } else if(hasBlitEngine) {
+            *needConversion = TRUE;
+            *useBufferDirectly = FALSE;
+        }
+    } else if ((strncmp(compositionUsed, "mdp", 3) == 0) ||
+               (strncmp(compositionUsed, "c2d", 3) == 0)){
+        if(format == HAL_PIXEL_FORMAT_YCbCr_420_SP ||
+           format == HAL_PIXEL_FORMAT_YCrCb_420_SP) {
+            *needConversion = FALSE;
+            *useBufferDirectly = TRUE;
+        } else if((strncmp(compositionUsed, "c2d", 3) == 0) &&
+           format == HAL_PIXEL_FORMAT_YCbCr_420_SP_TILED) {
+           *needConversion = FALSE;
+           *useBufferDirectly = TRUE;
+        } else if(hasBlitEngine) {
+            *needConversion = TRUE;
+            *useBufferDirectly = FALSE;
+        }
+    } else {
+        LOGE("Invalid composition type %s", compositionUsed);
+        return -1;
+    }
+    return 0;
+}
+
+size_t calculateBufferSize(int width, int height, int format)
+{
+    if(!width || !height)
+        return 0;
+
+    size_t size = 0;
+
+    switch (format)
+    {
+        case HAL_PIXEL_FORMAT_YCbCr_420_SP_TILED: {
+            int aligned_height = (height + 31) & ~31;
+            int pitch     = (width + 127) & ~127;
+            size = pitch * aligned_height;
+            size = (size + 8191) & ~8191;
+            int secondPlaneOffset = size;
+
+            aligned_height = ((height >> 1) + 31) & ~31;
+            size += pitch * aligned_height;
+            size = (size + 8191) & ~8191;
+            break;
+        }
+        case HAL_PIXEL_FORMAT_YCrCb_420_SP_ADRENO: {
+            int aligned_height = (height + 31) & ~31;
+            int pitch = (width + 31) & ~31;
+            size = pitch * aligned_height;
+            size  = (size + 4095) & ~4095;
+            int secondPlaneOffset = size;
+
+            pitch = 2 * (((width >> 1) + 31) & ~31);
+            aligned_height = ((height >> 1) + 31) & ~31;
+            size += pitch * aligned_height;
+            size = (size + 4095) & ~4095;
+            break;
+        }
+        case HAL_PIXEL_FORMAT_YCrCb_420_SP:
+        case HAL_PIXEL_FORMAT_YCbCr_420_SP: {
+            /* Camera and video YUV 420 semi-planar buffers are allocated   with
+            size equal to w * h * 1.5 */
+            int aligned_width = (width + 15) & ~15;
+            int aligned_chroma_width = ((width/2) + 15) & ~15;
+            size = (aligned_width * height) + ((aligned_chroma_width * height/2) *2);
+            break;
+        }
+        default:
+            break;
+    }
+    return size;
 }

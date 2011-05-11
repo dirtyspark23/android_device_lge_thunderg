@@ -59,13 +59,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.com.google.gmsversion=2.2_r5 \
    ro.setupwizard.enable_bypass=1 \
    ro.ril.disable.power.collapse=1 \
-   rild.libpath=/system/lib/libril-qc-1.so \
    rild.libpath=/system/lib/librilswitch.so \
    rilswitch.vendorlibpath=/system/lib/libril-qc-1.so \
    rilswitch.ganlibpath=/system/lib/libganril.so \
    ro.ril.gprsclass=12 \
    ro.ril.hsxpa=2 \
-   debug.sf.hw=0 \
    media.stagefright.enable-player=false \
    media.stagefright.enable-meta=false \
    media.stagefright.enable-scan=false \
@@ -183,11 +181,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/vold.fstab:system/etc/vold.fstab \
 
-# Mik9 Help
-PRODUCT_COPY_FILES += \
-    device/lge/thunderg/make-storage.sh:system/bin/make-storage.sh \
-    device/lge/thunderg/make-adb.sh:system/bin/make-adb.sh \
-
 # Audio
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
@@ -291,6 +284,10 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libomx_nextreaming_wmadec_sharedlibrary.so:system/lib/libomx_nextreaming_wmadec_sharedlibrary.so \
     vendor/lge/thunderg/proprietary/lib/libomx_nextreaming_wmvdec_sharedlibrary.so:system/lib/libomx_nextreaming_wmvdec_sharedlibrary.so \
     vendor/lge/thunderg/proprietary/lib/libomx_sharedlibrary.so:system/lib/libomx_sharedlibrary.so \
+
+# wipeirface (What is this?)
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/bin/wiperiface:system/bin/wiperiface \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \

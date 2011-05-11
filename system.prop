@@ -1,0 +1,10 @@
+#
+# system.prop for thunderg
+#
+
+rild.libpath=/system/lib/libril-qc-1.so
+rild.libargs=-d /dev/smd0
+# Vibrator amp default value
+ro.lge.vibrator_amp=125
+## wifi
+wifi.interface=wlan0

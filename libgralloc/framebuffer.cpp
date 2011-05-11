@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (c) 2010, Code Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +43,6 @@
 
 #include "gralloc_priv.h"
 #include "gr.h"
-#define NO_SURFACEFLINGER_SWAPINTERVAL
 #ifdef NO_SURFACEFLINGER_SWAPINTERVAL
 #include <cutils/properties.h>
 #endif
@@ -66,6 +66,7 @@ struct fb_context_t {
     framebuffer_device_t  device;
 };
 
+static int neworientation;
 /*****************************************************************************/
 
 static void
@@ -131,14 +132,12 @@ static void *disp_loop(void *ptr)
             LOGE("ERROR FBIOPUT_VSCREENINFO failed; frame not displayed");
         }
 
-        if (m->mddi_panel || (cur_buf == -1)) {
-            // MDDI: mark buf as avail since it has been copied
+        if (cur_buf == -1) {
             pthread_mutex_lock(&(m->avail[nxtBuf.idx].lock));
             m->avail[nxtBuf.idx].is_avail = true;
             pthread_cond_signal(&(m->avail[nxtBuf.idx].cond));
             pthread_mutex_unlock(&(m->avail[nxtBuf.idx].lock));
         } else {
-            // LCDC: can't release this buffer till another post happens
             pthread_mutex_lock(&(m->avail[cur_buf].lock));
             m->avail[cur_buf].is_avail = true;
             pthread_cond_signal(&(m->avail[cur_buf].cond));
@@ -179,27 +178,13 @@ static int fb_post(struct framebuffer_device_t* dev, buffer_handle_t buffer)
                     reuse = true;
                 pthread_mutex_unlock(&(m->avail[nxtIdx].lock));
             }
-        } else {    // swapInterval = 1
-            if ((m->mddi_panel) && (m->currentIdx >= 0))  {
-                // make sure prior posting of this buf is avail
-                pthread_mutex_lock(&(m->avail[m->currentIdx].lock));
-                if (! m->avail[m->currentIdx].is_avail) {
-                        pthread_cond_wait(&(m->avail[m->currentIdx].cond),
-                                         &(m->avail[m->currentIdx].lock));
-                        m->avail[m->currentIdx].is_avail = true;
-                    }
-                    pthread_mutex_unlock(&(m->avail[m->currentIdx].lock));
-            }
         }
 
         if(!reuse){
             // unlock previous ("current") Buffer and lock the new buffer
-                if (m->currentBuffer && m->mddi_panel) {
-                    m->base.unlock(&m->base, m->currentBuffer);
-                }
-                m->base.lock(&m->base, buffer,
-                         private_module_t::PRIV_USAGE_LOCKED_FOR_POST,
-                         0,0, m->info.xres, m->info.yres, NULL);
+            m->base.lock(&m->base, buffer,
+                    private_module_t::PRIV_USAGE_LOCKED_FOR_POST,
+                    0,0, m->info.xres, m->info.yres, NULL);
 
             // post/queue the new buffer
             pthread_mutex_lock(&(m->avail[nxtIdx].lock));
@@ -215,7 +200,7 @@ static int fb_post(struct framebuffer_device_t* dev, buffer_handle_t buffer)
 
             // LCDC: after new buffer grabbed by MDP can unlock previous
             // (current) buffer
-            if (!m->mddi_panel && m->currentBuffer) {
+            if (m->currentBuffer) {
                 if (m->swapInterval != 0) {
                     pthread_mutex_lock(&(m->avail[m->currentIdx].lock));
                     if (! m->avail[m->currentIdx].is_avail) {
@@ -265,17 +250,6 @@ static int fb_post(struct framebuffer_device_t* dev, buffer_handle_t buffer)
     }
 
     return 0;
-}
-
-bool is_MDDI_panel(struct fb_fix_screeninfo &finfo)
-{
-    int len = strlen("msmfbXX_");
-
-    if ((finfo.id)[len] == MDDI_PANEL)
-        return true;
-    else
-        // treat all other panels as LCDC-like: can't release until post new one
-        return false;
 }
 
 static int fb_compositionComplete(struct framebuffer_device_t* dev)
@@ -334,43 +308,45 @@ int mapFrameBufferLocked(struct private_module_t* module)
     * big-endian byte order if bits_per_pixel is greater than 8.
     */
 
-    /*
-     * Explicitly request RGBA_8888
-    
-    info.bits_per_pixel = 32;
-    info.red.offset     = 24;
-    info.red.length     = 8;
-    info.green.offset   = 16;
-    info.green.length   = 8;
-    info.blue.offset    = 8;
-    info.blue.length    = 8;
-    info.transp.offset  = 0;
-    info.transp.length  = 0; */
+    if(info.bits_per_pixel == 32) {
+	/*
+	* Explicitly request RGBA_8888
+	*/
+	info.bits_per_pixel = 32;
+	info.red.offset     = 24;
+	info.red.length     = 8;
+	info.green.offset   = 16;
+	info.green.length   = 8;
+	info.blue.offset    = 8;
+	info.blue.length    = 8;
+	info.transp.offset  = 0;
+	info.transp.length  = 8;
 
-    /*
-     * Explicitly request 5/6/5
-     */
-    info.bits_per_pixel = 16;
-    info.red.offset     = 11;
-    info.red.length     = 5;
-    info.green.offset   = 5;
-    info.green.length   = 6;
-    info.blue.offset    = 0;
-    info.blue.length    = 5;
-    info.transp.offset  = 0;
-    info.transp.length  = 0;
-
-
-
-    /* Note: the GL driver does not have a r=8 g=8 b=8 a=0 config, so if we do
-     * not use the MDP for composition (i.e. hw composition == 0), ask for
-     * RGBA instead of RGBX. */
-    char property[PROPERTY_VALUE_MAX];
-    if (property_get("debug.sf.hw", property, NULL) > 0 && atoi(property) == 0)
-        module->fbFormat = HAL_PIXEL_FORMAT_RGB_565;
-    else
-        module->fbFormat = HAL_PIXEL_FORMAT_RGB_565;
-
+	/* Note: the GL driver does not have a r=8 g=8 b=8 a=0 config, so if we do
+	* not use the MDP for composition (i.e. hw composition == 0), ask for
+	* RGBA instead of RGBX. */
+	char property[PROPERTY_VALUE_MAX];
+	if (property_get("debug.sf.hw", property, NULL) > 0 && atoi(property) == 0)
+		module->fbFormat = HAL_PIXEL_FORMAT_RGBX_8888;
+	else if(property_get("debug.composition.type", property, NULL) > 0 && (strncmp(property, "mdp", 3) == 0))
+		module->fbFormat = HAL_PIXEL_FORMAT_RGBX_8888;
+	else
+		module->fbFormat = HAL_PIXEL_FORMAT_RGBA_8888;
+    } else {
+	/*
+	* Explicitly request 5/6/5
+	*/
+	info.bits_per_pixel = 16;
+	info.red.offset     = 11;
+	info.red.length     = 5;
+	info.green.offset   = 5;
+	info.green.length   = 6;
+	info.blue.offset    = 0;
+	info.blue.length    = 5;
+	info.transp.offset  = 0;
+	info.transp.length  = 0;
+	module->fbFormat = HAL_PIXEL_FORMAT_RGB_565;
+    }
     /*
      * Request NUM_BUFFERS screens (at lest 2 for page flipping)
      */
@@ -403,7 +379,7 @@ int mapFrameBufferLocked(struct private_module_t* module)
     );
 
     if (refreshRate == 0) {
-   //      bleagh, bad info from the driver
+        // bleagh, bad info from the driver
         refreshRate = 60*1000;  // 60 Hz
     }
 
@@ -416,8 +392,7 @@ int mapFrameBufferLocked(struct private_module_t* module)
 
     float xdpi = (info.xres * 25.4f) / info.width;
     float ydpi = (info.yres * 25.4f) / info.height;
-//    float fps  = refreshRate / 1000.0f;
-    float fps  = 0;
+    float fps  = refreshRate / 1000.0f;
 
     LOGI(   "using (fd=%d)\n"
             "id           = %s\n"
@@ -488,8 +463,7 @@ int mapFrameBufferLocked(struct private_module_t* module)
         pthread_mutex_init(&(module->avail[i].lock), NULL);
         pthread_cond_init(&(module->avail[i].cond), NULL);
         module->avail[i].is_avail = true;
-    }
-    module->mddi_panel = is_MDDI_panel(module->finfo);
+    }    
 
     /* create display update thread */
     pthread_t thread1;
@@ -516,6 +490,7 @@ int mapFrameBufferLocked(struct private_module_t* module)
     }
     module->framebuffer->base = intptr_t(vaddr);
     memset(vaddr, 0, fbSize);
+
     return 0;
 }
 
@@ -585,6 +560,9 @@ int fb_device_open(hw_module_t const* module, const char* name,
 
             *device = &dev->device.common;
         }
+
+        // Close the gralloc module
+        gralloc_close(gralloc_device);
     }
     return status;
 }
@@ -618,7 +596,7 @@ msm_copy_buffer(buffer_handle_t handle, int fd,
     blit.req.dst.height = height;
     blit.req.dst.offset = 0;
     blit.req.dst.memory_id = fd; 
-    blit.req.dst.format = MDP_RGB_565;
+    blit.req.dst.format = format;
 
     blit.req.src_rect.x = blit.req.dst_rect.x = x;
     blit.req.src_rect.y = blit.req.dst_rect.y = y;
