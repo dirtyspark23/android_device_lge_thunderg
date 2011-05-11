@@ -296,6 +296,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so \
     vendor/lge/thunderg/proprietary/lib/libkineto.so:system/lib/libkineto.so \
     vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk \
+    vendor/lge/thunderg/proprietary/lib/libcrypto:system/lib/libcrypto98.so \
 
 PRODUCT_LOCALES += mdpi
 

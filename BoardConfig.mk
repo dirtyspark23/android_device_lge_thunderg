@@ -31,6 +31,8 @@ BOARD_USES_QCOM_LIBRPC := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
+BOARD_USE_KINETO_COMPATIBILITY := true
+
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/lge/thunderg/recovery_ui.c
 
 
@@ -42,7 +44,7 @@ BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
-WPA_SUPPLICANT_VERSION := VER_0_5_X
+WPA_SUPPLICANT_VERSION := VER_0_6_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 BOARD_WLAN_DEVICE := bcm4325
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
