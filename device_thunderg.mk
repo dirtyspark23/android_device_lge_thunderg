@@ -41,11 +41,13 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     lights.thunderg \
     copybit.thunderg \
+    gralloc.thunderg \
     gps.thunderg \
     bdaddr_read
 
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.sf.lcd_density=160 \
+   debug.sf.hw=1 \
    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
    ro.com.google.clientidbase=android-hms-tmobile-us \
@@ -134,12 +136,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/hw/sensors.thunderg.so:system/lib/hw/sensors.thunderg.so \
     vendor/lge/thunderg/proprietary/bin/ami304d:system/bin/ami304d \
-
-# 2D (using proprietary because of poor perfomance of open source libs)
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.thunderg.so:system/lib/hw/gralloc.thunderg.so \
-
 # 3D
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
@@ -153,8 +149,8 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
-    vendor/lge/thunderg/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
-    vendor/lge/thunderg/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so 
+    vendor/lge/thunderg/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
+    vendor/lge/thunderg/proprietary/lib/libcamera.so:system/lib/libcamera.so
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -180,9 +176,6 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    vendor/lge/thunderg/proprietary/lib/liba2dp.so:system/lib/liba2dp.so \
-    vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
-    device/lge/thunderg/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -296,7 +289,6 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so \
     vendor/lge/thunderg/proprietary/lib/libkineto.so:system/lib/libkineto.so \
     vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk \
-    vendor/lge/thunderg/proprietary/lib/libcrypto:system/lib/libcrypto98.so \
 
 PRODUCT_LOCALES += mdpi
 
