@@ -1,0 +1,333 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: res/drawable/bubble_enabled.png
+SHA1-Digest: ECfDseebfS2/p88Aa3dyNyGtq5g=
+
+Name: res/drawable/kineto_android_settings_gray.png
+SHA1-Digest: 7e+mLwIAyeqB3z2SImROR/iSlys=
+
+Name: res/drawable/ic_status_notify.png
+SHA1-Digest: ekdS8B1qcE+HVJmP6QATVyqa+bM=
+
+Name: res/drawable/wfc_wifi_setting_off_mdpi.png
+SHA1-Digest: RgBavJevMSqYMuu1hEKLUzcfVCw=
+
+Name: res/drawable/ic_dialog_alert.png
+SHA1-Digest: cAR6AyNxhSULWXZzFKYObPjRwB0=
+
+Name: res/drawable/background_land_mdpi.png
+SHA1-Digest: uu6+toLv1Sf6tA3ofODF6yLRm4I=
+
+Name: res/drawable/ic_menu_preferences.png
+SHA1-Digest: WbBtrtT3S3sA3uoTOpPeAine5Vw=
+
+Name: res/drawable/wifi_enabled.png
+SHA1-Digest: ABjSXsL5IjDAjTaxjFKqRkcfjtU=
+
+Name: res/drawable/kineto_android_smart_wifi_logo.png
+SHA1-Digest: /QtDv3RJKKSpyon1XrLPSgaMvQE=
+
+Name: res/drawable/bubble_disabled.png
+SHA1-Digest: EzTd0HVo5ZHqjlLepL+CTv/tpsY=
+
+Name: res/layout-land/jordan_main.xml
+SHA1-Digest: Ulmbw8z9Efihc00W3tiySd5V9jI=
+
+Name: res/drawable/icon_v1.png
+SHA1-Digest: z+58xBCwqUrp7HEKXhn26cClvHI=
+
+Name: res/drawable/kineto_android_on_button.png
+SHA1-Digest: Z2/wvCu8hF59V4dETVtznxFdIE4=
+
+Name: res/layout/about_listitem.xml
+SHA1-Digest: aJt0HR34A4bMKfS6fdZ3ozACW7g=
+
+Name: res/drawable/wfc_gray_icon_mdpi.png
+SHA1-Digest: G4cd7ykJi7JvKLGIvUEZl1BAmo8=
+
+Name: res/layout/orange_main.xml
+SHA1-Digest: q3hpOQiMMEvE4Mp8+xdQSMpVIEo=
+
+Name: res/drawable/wifi_home_green.png
+SHA1-Digest: /7XJZuRUod/Bz5l2vhIf+qL/hAU=
+
+Name: res/drawable/toggle_on_grey.png
+SHA1-Digest: lTRdMEYdP1gA1eH7bRRFiuflZBg=
+
+Name: res/drawable/list_icon.png
+SHA1-Digest: VFa+OXS9YRiN3NUEH9kdkdzFlDE=
+
+Name: res/drawable/arrow.png
+SHA1-Digest: hOXOuRrOqVMkdAb+iWTN6B7c3G0=
+
+Name: res/drawable/wfc_desk_icon_blue_mdpi.png
+SHA1-Digest: 7xsso3QiSIJWMY46i8q04lgQi3s=
+
+Name: res/drawable/kineto_android_powered_by.png
+SHA1-Digest: 4b5WPmAWpDubxh/ipdsm8hGMgQk=
+
+Name: res/drawable/arrow_land.png
+SHA1-Digest: Rpf9Ywk8qBR38UAwcBuIRMbSz70=
+
+Name: res/drawable/set_wifi_btn_adp2.xml
+SHA1-Digest: vaelHlUNxoSQSe0Tdc/V9NlMF60=
+
+Name: res/drawable/wfc_green_arrow_right.png
+SHA1-Digest: HbpYac3FkKX2r8KZnzr68huiWgA=
+
+Name: res/drawable/wfc_icon_blue.png
+SHA1-Digest: tavgth3cNP2Jd13qOeezIl9Segs=
+
+Name: res/layout/licence.xml
+SHA1-Digest: QQ+Tb4PXKlJo92USGR6XytOAyuU=
+
+Name: res/drawable/background.png
+SHA1-Digest: Zm4WF2AQgI/SXP3kcubBj5NMz6Y=
+
+Name: res/drawable/arrow_green_land.png
+SHA1-Digest: PC2bBUqNNzIcJuKrJHZ3G8/NeaI=
+
+Name: resources.arsc
+SHA1-Digest: GrhQnNOSz5pXg6YpYDjhAiKa3w4=
+
+Name: AndroidManifest.xml
+SHA1-Digest: PnRYjsqU0vmO5lC+ofqFOgSub0k=
+
+Name: res/drawable/ic_launcher.png
+SHA1-Digest: KgQuUu5VNjMgMs56mb1qoZSInKQ=
+
+Name: res/drawable/wfc_wifi_full.png
+SHA1-Digest: AD0JHm47fpPMHIVeF5fArfZzYY8=
+
+Name: res/xml/wfc_tut1.xml
+SHA1-Digest: TlmQztwnsDuFm1GLDv1euWK1T3E=
+
+Name: res/drawable/kineto_android_wifi_off.png
+SHA1-Digest: XUDydIn5/DzX6m8SJqsVys10Xpw=
+
+Name: res/drawable/uma_icon.png
+SHA1-Digest: bVAkb/vJcVjqy8vmmx+dAqNwx00=
+
+Name: res/drawable/ic_btn_next.png
+SHA1-Digest: SkfDtGSta4eTOdEGzflvcl2s6wI=
+
+Name: res/drawable/wfc_gray_icon.png
+SHA1-Digest: kVtcy1JECg4rbMJX8vB0SlEvnRQ=
+
+Name: res/drawable/wfc_green_arrow_right_mdpi.png
+SHA1-Digest: vwL3pV2liIl9PC8rsZvW+jOKsVo=
+
+Name: res/drawable/wfc_wifi_setting_on_mdpi.png
+SHA1-Digest: aQfDSrTJkAloOl0xaMkG2jAdrXU=
+
+Name: lib/armeabi/libkineto.so
+SHA1-Digest: j22fw1qOUGDug8h3ahmgMUIP7Ps=
+
+Name: assets/oss.html
+SHA1-Digest: 79B9G/Nqi3UfKk3q8kRsqWvzsXQ=
+
+Name: res/layout/kineto_main.xml
+SHA1-Digest: OC1tkmWBheHFmmVClA4crxqgTj0=
+
+Name: res/drawable/wfc_green_arrow_left_mdpi.png
+SHA1-Digest: 3YgSjIBJWVskmUFVOeVeTbIZLp8=
+
+Name: res/drawable/kineto_android_help_green.png
+SHA1-Digest: KZgoJwCN3AEtMV8xKUVwG3MAb3I=
+
+Name: res/drawable/wfc_home_basil.png
+SHA1-Digest: 9kq3FFnLNEGm6ffA7dFOJRdFuHo=
+
+Name: res/drawable/btn_up.png
+SHA1-Digest: 8kZ9n916EhjIG0yl4G2x2v1tXnA=
+
+Name: res/drawable/no_wifi_home_red.png
+SHA1-Digest: IrcwLgVSr6NL7LfKY7THQ/1oKss=
+
+Name: classes.dex
+SHA1-Digest: e22h3ODuR1Z9GoD/ol5LUFNx1DU=
+
+Name: res/drawable/ic_menu_help.png
+SHA1-Digest: Os3pbcdw3tE8Ctjv4LM6cjTiAg8=
+
+Name: res/xml/engmenu.xml
+SHA1-Digest: rWcYlsDXpdycX769vB2+sD5oNLA=
+
+Name: res/layout/basil_main.xml
+SHA1-Digest: j5nJJF3tGxF9Tl4MXfBaZ1fLaZc=
+
+Name: res/drawable/wfc_wifi_full_mdpi.png
+SHA1-Digest: ABjSXsL5IjDAjTaxjFKqRkcfjtU=
+
+Name: res/xml/wfc_tut2.xml
+SHA1-Digest: I6cw1Q2u0CvWUX0a7guDcEvy4J8=
+
+Name: res/drawable/wfc_gray_arrow_right_mdpi.png
+SHA1-Digest: +xfRhOVu7RAGilGVcUpk2+ejVAw=
+
+Name: res/drawable/wfc_wifi_setting_btn_mdpi.png
+SHA1-Digest: lguQ311yKLzJFNfGlhlzH/0qFw0=
+
+Name: res/xml/engkineto.xml
+SHA1-Digest: WwGXiaIb6U0H2tynB5t1CQRpfnY=
+
+Name: res/xml/preferences.xml
+SHA1-Digest: n1HVWzyVYOlHCn1879HD7gA9S04=
+
+Name: res/drawable/wfc_icon_red.png
+SHA1-Digest: s/ZrNjNIPFNwlF2AH5MYXbOUMcY=
+
+Name: res/drawable/kineto_android_off_button.png
+SHA1-Digest: Dwk7yyUJqDhHzO6HzziwrwhHlyw=
+
+Name: res/drawable/kineto_android_help_gray.png
+SHA1-Digest: FBnkJrNhtuzbZVEgP67y4hzV0Q8=
+
+Name: res/xml/settingsscreen.xml
+SHA1-Digest: kQKDOSkeiFbn0K0NXtRhrRnpUfU=
+
+Name: res/drawable/background_mdpi.png
+SHA1-Digest: e2h/yM58GZCju8fPDqit+OB3eLk=
+
+Name: res/drawable/wifi_disabled.png
+SHA1-Digest: +OhgAqpVLTnFC2jJv8Ls7RmtPGY=
+
+Name: res/layout/wifidisplay.xml
+SHA1-Digest: Qb/n67SkxqgQj5AFna+3lYCAbGc=
+
+Name: res/xml/helpmenu.xml
+SHA1-Digest: ZdPNYK5L7ZuskkFdX31LFvP+CbA=
+
+Name: res/drawable/set_help_button_adp2.xml
+SHA1-Digest: OJ0PCnrJtpUjDN3y5UQEpb2E+tE=
+
+Name: res/drawable/wfc_wifi_setting_btn.png
+SHA1-Digest: 7aFpjUq9QIQdMcCLOnqBijc5hXY=
+
+Name: res/drawable/wfc_desk_icon.png
+SHA1-Digest: PC4yXLzKGf/YaBeYpCz3ouogQno=
+
+Name: res/drawable/wfc_desk_icon_gray.png
+SHA1-Digest: qdZCeitpcqQR/hen2eRsTWSa1Hs=
+
+Name: res/drawable/wfc_gray_arrow_right.png
+SHA1-Digest: GE0T8Ccrotl9Gb0KbrbgICr04aU=
+
+Name: res/drawable/wfc_set_wifi_btn_adp2.xml
+SHA1-Digest: 9YhsNHTelErVTRRFJm0O35wGjXA=
+
+Name: res/drawable/kineto_android_logo_sans_head.png
+SHA1-Digest: SSfPJGzqnruQR1MbTjEeu/XZp5Y=
+
+Name: res/drawable/wfc_wifi_setting_on.png
+SHA1-Digest: IbMgGJSO5VoEy/deDv2+vz1BF7w=
+
+Name: res/drawable/wfc_set_wifi_btn.xml
+SHA1-Digest: PsXRAxWhOxowDlChnROVtLEezFE=
+
+Name: res/xml/settings.xml
+SHA1-Digest: 2z3t3wlbmzekp2E5WogqiRfkJug=
+
+Name: res/layout/jordan_main.xml
+SHA1-Digest: ywKEgOTAbmmTCoGLY3IKan0T7/g=
+
+Name: res/drawable/toggle_off.png
+SHA1-Digest: vFf7Old1WjzPyuUQ59QtPMcf16c=
+
+Name: res/drawable/set_setting_button_adp2.xml
+SHA1-Digest: j4Ji28JaH68BvtjdMNFCdPgyRbk=
+
+Name: res/drawable/kineto_android_wifi_blank_button_pressed.png
+SHA1-Digest: vvMEmAe+G4PQR3brmRiIzuQUb4w=
+
+Name: res/drawable/line.png
+SHA1-Digest: YB0micJOa8ueAwl0pA3ZLAh4DPk=
+
+Name: res/drawable/wfc_set_wifi_btn_jdn.xml
+SHA1-Digest: TKEdMEnb0MT4u7Cngh7S77sV9LM=
+
+Name: res/drawable/kineto_android_settings_green.png
+SHA1-Digest: RRz3SdRS7f+6STLX4Tj4WMx3Xfg=
+
+Name: res/layout/about.xml
+SHA1-Digest: 4e+p/CHkqFhT8R60h3joW5wz6yY=
+
+Name: res/drawable/background_land.png
+SHA1-Digest: tHaSnyC1vs+uJfbUAoDwlDfwJjA=
+
+Name: res/drawable/kineto_android_bubble_gray.png
+SHA1-Digest: uKEqpqgVUOQSeou9tC3yil+wszo=
+
+Name: res/layout-land/adp_main.xml
+SHA1-Digest: hCo/LnWSRmN4kaMfKERamJKb8dk=
+
+Name: res/drawable/status_bar_icon_alert_v1.png
+SHA1-Digest: GXqIE/0GAkVC73OPQy8xWf7EZTk=
+
+Name: res/drawable/kineto_android_wifi_blank_button.png
+SHA1-Digest: ZJd6/gG3PXHYlH9Y/3BnyzbyLSU=
+
+Name: res/drawable/wfc_desk_icon_gray_mdpi.png
+SHA1-Digest: roEb3he5aa60wnEBIp/bgYdBInc=
+
+Name: res/drawable/wfc_green_arrow_left.png
+SHA1-Digest: ILjLUGhV+hPxzFozbXyTEVz+9is=
+
+Name: res/layout/listitem.xml
+SHA1-Digest: pDogRsARfHQ6545DlgEdbFHbUoQ=
+
+Name: res/drawable/wfc_gray_arrow_left.png
+SHA1-Digest: 1IZEECjzhdpnNDKCZuEVAn6d3Bs=
+
+Name: res/drawable/wfc_wifi_off.png
+SHA1-Digest: etfb573aSZKcEt/9xytGn2NL6QY=
+
+Name: res/xml/pingmain.xml
+SHA1-Digest: dLXdr+wVzKZWMXcBkkDv6X0Uu74=
+
+Name: res/xml/wificalling_top_qns.xml
+SHA1-Digest: TRRsjRjz1vhoR4sG3mOGfeuxokg=
+
+Name: res/drawable/normal.png
+SHA1-Digest: u04JlK6El4k8WsyhB1pI4kTU42I=
+
+Name: res/drawable/arrow_green.png
+SHA1-Digest: OnChz8RqbD+ZnRZkXxNksSfg9aQ=
+
+Name: res/drawable/stat_notify_error.png
+SHA1-Digest: 9gVf2iHQ5UCRBPDC8jZ7Pplv+tU=
+
+Name: res/drawable/kineto_android_wifi_on_ssid.png
+SHA1-Digest: BIcMmLE0LgVN7TrNliVoW9xAhE8=
+
+Name: res/drawable/kineto_android_bubble_connected.png
+SHA1-Digest: 4iE8XuO8lM7e2pSBvZW85zzM3mY=
+
+Name: res/drawable/wfc_wifi_off_mdpi.png
+SHA1-Digest: +OhgAqpVLTnFC2jJv8Ls7RmtPGY=
+
+Name: res/drawable/toggle_on.png
+SHA1-Digest: 61hNkOHi3WMu6RjzH6wY/AwkReg=
+
+Name: res/drawable/wfc_wifi_setting_off.png
+SHA1-Digest: YmJumhULA9gWsul+HEJpdFnoYsE=
+
+Name: res/drawable/icon_v2_bw.png
+SHA1-Digest: 84QEEZUIy/dpirZCYVWDMDPKy6w=
+
+Name: res/layout/adp_main.xml
+SHA1-Digest: J8rcWFfOKeIAGDO2mbhcYyBGtb4=
+
+Name: res/drawable/selected.png
+SHA1-Digest: bO47cgIcYiX7mM/53K1lc+gfqlo=
+
+Name: res/drawable/wfc_desk_icon_blue.png
+SHA1-Digest: Pb0aEbREssBcF7xukFQrrZU4ZOQ=
+
+Name: res/drawable/wfc_gray_arrow_left_mdpi.png
+SHA1-Digest: r0qTf4AT9q/JJbreYQ/DvIM+rsM=
+
+Name: res/drawable/wfc_set_wifi_btn_mdpi.xml
+SHA1-Digest: S/A5YWl+hpIx26AUEq6SMLnAj7Y=
+

@@ -23,6 +23,7 @@ TARGET_USES_OLD_LIBSENSORS_HAL:= true
 TARGET_OTA_ASSERT_DEVICE := thunderg
 
 TARGET_NO_BOOTLOADER := true
+#TARGET_NO_RECOVERY := true
 TARGET_NO_RADIOIMAGE := true
 
 BOARD_USES_QCOM_HARDWARE := true
@@ -30,8 +31,6 @@ BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-
-BOARD_USE_KINETO_COMPATIBILITY := true
 
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/lge/thunderg/recovery_ui.c
 
@@ -41,18 +40,19 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := thunderg
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+BOARD_HAS_NO_MISC_PARTITION := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
-WPA_SUPPLICANT_VERSION := VER_0_5_X
+WPA_SUPPLICANT_VERSION := VER_0_6_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-BOARD_WLAN_DEVICE := bcm4325
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
-WIFI_DRIVER_MODULE_NAME := wireless
-WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
-WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
-WIFI_DRIVER_HAS_LGE_SOFTAP := true
+BOARD_WLAN_DEVICE := bcm4329
+WIFI_DRIVER_FW_STA_PATH	    := "/system/etc/wl/rtecdc.bin"
+WIFI_DRIVER_FW_AP_PATH      := "/system/etc/wl/rtecdc-apsta.bin"
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/wireless.ko"
+WIFI_DRIVER_MODULE_ARG      := "iface_name=wlan0"
+WIFI_DRIVER_MODULE_NAME     := "wireless"
+WIFI_DRIVER_HAS_LGE_SOFTAP  := true
 
 BOARD_EGL_CFG := device/lge/thunderg/egl.cfg
 
@@ -86,8 +86,9 @@ TARGET_GLOBAL_CPPFLAGS += -DHAVE_FM_RADIO
 BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
 
 JS_ENGINE := v8
+WITH_JIT := true
+ENABLE_JSC_JIT := true
 
+TARGET_PROVIDES_LIBAUDIO := true
 BOARD_USES_GENERIC_AUDIO := false
-BOARD_USE_FROYO_LIBCAMERA := true
-BUILD_WITH_FULL_STAGEFRIGHT := true
 TARGET_SF_NEEDS_REAL_DIMENSIONS := true

@@ -1,0 +1,1789 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html;">
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Batang;
+	panose-1:2 3 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:"\@Batang";
+	panose-1:2 3 6 0 0 1 1 1 1 1;}
+ /* Style Definitions */
+ p.Normal, li.Normal, div.Normal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.PlainText, li.PlainText, div.PlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 65.95pt 1.0in 65.95pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=Section1>
+
+<p class=PlainText style='margin-right:-64.4pt'>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>isakmp_cfg.c</p>
+
+<p class=PlainText>isakmp_cfg.h</p>
+
+<p class=PlainText>isakmp_frag.c</p>
+
+<p class=PlainText>isakmp_frag.h</p>
+
+<p class=PlainText>isakmp_unity.c</p>
+
+<p class=PlainText>isakmp_unity.h</p>
+
+<p class=PlainText>isakmp_xauth.c</p>
+
+<p class=PlainText>isakmp_xauth.h</p>
+
+<p class=PlainText>script.c</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Copyright (C) 2004 Emmanuel Dreyfus</p>
+
+<p class=PlainText>All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText>2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText>3. Neither the name of the project nor the names of its
+contributors may be used to endorse or promote products derived from this
+software without specific prior written permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>THIS SOFTWARE IS PROVIDED BY THE PROJECT AND CONTRIBUTORS
+``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE PROJECT OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>sha2.c</p>
+
+<p class=PlainText>sha2.h</p>
+
+<p class=PlainText>sha2.c</p>
+
+<p class=PlainText>sha2.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Copyright 2000 Aaron D. Gifford.  All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. Neither the name of the copyright holder nor the
+names of contributors may be used to endorse or promote products derived from
+this software without specific prior written permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR(S) AND
+CONTRIBUTOR(S) ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR(S) OR
+CONTRIBUTOR(S) BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>radlib.c</p>
+
+<p class=PlainText>radlib.h</p>
+
+<p class=PlainText>radlib_private.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Copyright 1998 Juniper Networks, Inc.</p>
+
+<p class=PlainText> All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS
+``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>rsa_oaep.c</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Written by Ulf Moeller. This software is distributed on
+an &quot;AS IS&quot; basis, WITHOUT WARRANTY OF ANY KIND, either express or
+implied.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>aes_cbc.c</p>
+
+<p class=PlainText>aes_ctr.c</p>
+
+<p class=PlainText>aes_locl.h</p>
+
+<p class=PlainText>dh_err.c</p>
+
+<p class=PlainText>bn_err.c</p>
+
+<p class=PlainText>md32_common.h</p>
+
+<p class=PlainText>aes.h</p>
+
+<p class=PlainText>ossl_typ.h</p>
+
+<p class=PlainText>rsa_chk.c</p>
+
+<p class=PlainText>rsa_err.c</p>
+
+<p class=PlainText>aes_ctr.c</p>
+
+<p class=PlainText>md32_common.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Copyright (c) 1999 The OpenSSL Project.  All rights
+reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 3. All advertising materials mentioning features or use
+of this software must display the following acknowledgment: &quot;This product
+includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit.
+(http://www.OpenSSL.org/)&quot;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 4. The names &quot;OpenSSL Toolkit&quot; and
+&quot;OpenSSL Project&quot; must not be used to endorse or promote products
+derived from this software without prior written permission. For written
+permission, please contact licensing@OpenSSL.org.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 5. Products derived from this software may not be called
+&quot;OpenSSL&quot; nor may &quot;OpenSSL&quot; appear in their names without
+prior written permission of the OpenSSL Project.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 6. Redistributions of any form whatsoever must retain
+the following acknowledgment: &quot;This product includes software developed by
+the OpenSSL Project for use in the OpenSSL Toolkit
+(http://www.OpenSSL.org/)&quot;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS
+IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR ITS CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>queue.h</p>
+
+<p class=PlainText>cksum.c</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Copyright (c) 1991, 1993</p>
+
+<p class=PlainText>      The Regents of the University of California.  All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. All advertising materials mentioning features or use
+of this software must display the following acknowledgement:</p>
+
+<p class=PlainText>      This product includes software developed by the University of California, Berkeley and its contributors. 4. Neither the name of the
+University nor the names of its contributors may be used to endorse or promote
+products derived from this software without specific prior written permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE REGENTS AND
+CONTRIBUTORS ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>rd_fst.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Optimised ANSI C code for the Rijndael cipher (now AES)</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> @author Vincent Rijmen
+&lt;vincent.rijmen@esat.kuleuven.ac.be&gt;</p>
+
+<p class=PlainText> @author Antoon Bosselaers
+&lt;antoon.bosselaers@esat.kuleuven.ac.be&gt;</p>
+
+<p class=PlainText> @author Paulo Barreto &lt;paulo.barreto@terra.com.br&gt;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> This code is hereby placed in the public domain.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHORS ''AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>radlib_vs.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Copyright (c) 2002 Brian Somers
+&lt;brian@Awfulhak.org&gt;</p>
+
+<p class=PlainText> All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS
+``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>algorithm.c</p>
+
+<p class=PlainText>algorithm.h</p>
+
+<p class=PlainText>cfparse.c</p>
+
+<p class=PlainText>cfparse.h</p>
+
+<p class=PlainText>cftoken.h</p>
+
+<p class=PlainText>crypto_openssl.c</p>
+
+<p class=PlainText>crypto_openssl.h</p>
+
+<p class=PlainText>debug.h</p>
+
+<p class=PlainText>dhgroup.h</p>
+
+<p class=PlainText>grabmyaddr.h</p>
+
+<p class=PlainText>handler.c</p>
+
+<p class=PlainText>handler.h</p>
+
+<p class=PlainText>ipsec_doi.c</p>
+
+<p class=PlainText>ipsec_doi.h</p>
+
+<p class=PlainText>isakmp.c</p>
+
+<p class=PlainText>isakmp.h</p>
+
+<p class=PlainText>isakmp_agg.c</p>
+
+<p class=PlainText>isakmp_agg.h</p>
+
+<p class=PlainText>isakmp_base.c</p>
+
+<p class=PlainText>isakmp_base.h</p>
+
+<p class=PlainText>isakmp_ident.c</p>
+
+<p class=PlainText>isakmp_ident.h</p>
+
+<p class=PlainText>isakmp_inf.c</p>
+
+<p class=PlainText>isakmp_inf.h</p>
+
+<p class=PlainText>isakmp_newg.c</p>
+
+<p class=PlainText>isakmp_newg.h</p>
+
+<p class=PlainText>isakmp_quick.c</p>
+
+<p class=PlainText>isakmp_quick.h</p>
+
+<p class=PlainText>isakmp_var.h</p>
+
+<p class=PlainText>localconf.c</p>
+
+<p class=PlainText>localconf.h</p>
+
+<p class=PlainText>logger.c</p>
+
+<p class=PlainText>logger.h</p>
+
+<p class=PlainText>main.c</p>
+
+<p class=PlainText>misc.c</p>
+
+<p class=PlainText>misc.h</p>
+
+<p class=PlainText>myaddr.c</p>
+
+<p class=PlainText>oakley.c</p>
+
+<p class=PlainText>oakley.h</p>
+
+<p class=PlainText>plog.c</p>
+
+<p class=PlainText>plog.h</p>
+
+<p class=PlainText>policy.c</p>
+
+<p class=PlainText>policy.h</p>
+
+<p class=PlainText>proposal.c</p>
+
+<p class=PlainText>proposal.h</p>
+
+<p class=PlainText>remoteconf.c</p>
+
+<p class=PlainText>remoteconf.h</p>
+
+<p class=PlainText>safefile.c</p>
+
+<p class=PlainText>safefile.h</p>
+
+<p class=PlainText>sainfo.c</p>
+
+<p class=PlainText>sainfo.h</p>
+
+<p class=PlainText>schedule.c</p>
+
+<p class=PlainText>schedule.h</p>
+
+<p class=PlainText>sendrecv.c</p>
+
+<p class=PlainText>sockmisc.c</p>
+
+<p class=PlainText>sockmisc.h</p>
+
+<p class=PlainText>str2val.c</p>
+
+<p class=PlainText>str2val.h</p>
+
+<p class=PlainText>strnames.c</p>
+
+<p class=PlainText>strnames.h</p>
+
+<p class=PlainText>var.h</p>
+
+<p class=PlainText>vendorid.h</p>
+
+<p class=PlainText>vmbuf.c</p>
+
+<p class=PlainText>vmbuf.h</p>
+
+<p class=PlainText>xptime.c</p>
+
+<p class=PlainText>sha1.c</p>
+
+<p class=PlainText>sha1.h</p>
+
+<p class=PlainText>sockmisc.c</p>
+
+<p class=PlainText>eaytest.c</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Copyright (C) 1995, 1996, 1997, and 1998 WIDE Project.</p>
+
+<p class=PlainText> All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. Neither the name of the project nor the names of its
+contributors may be used to endorse or promote products derived from this
+software without specific prior written permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE PROJECT AND
+CONTRIBUTORS ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE PROJECT OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>cbc_enc.c</p>
+
+<p class=PlainText>cversion.c</p>
+
+<p class=PlainText>des_enc.c</p>
+
+<p class=PlainText>des_locl.h</p>
+
+<p class=PlainText>dh_check.c</p>
+
+<p class=PlainText>dh_gen.c</p>
+
+<p class=PlainText>dh_key.c</p>
+
+<p class=PlainText>dh_lib.c</p>
+
+<p class=PlainText>digest.c</p>
+
+<p class=PlainText>hmac.c</p>
+
+<p class=PlainText>m_md5.c</p>
+
+<p class=PlainText>m_sha1.c</p>
+
+<p class=PlainText>md5_dgst.c</p>
+
+<p class=PlainText>md5_locl.h</p>
+
+<p class=PlainText>md5_one.c</p>
+
+<p class=PlainText>ncbc_enc.c</p>
+
+<p class=PlainText>set_key.c</p>
+
+<p class=PlainText>sha_locl.h</p>
+
+<p class=PlainText>sha1_one.c</p>
+
+<p class=PlainText>sha1dgst.c</p>
+
+<p class=PlainText>spr.h</p>
+
+<p class=PlainText>bn_add.c</p>
+
+<p class=PlainText>bn_asm.c</p>
+
+<p class=PlainText>bn_blind.c</p>
+
+<p class=PlainText>bn_div.c</p>
+
+<p class=PlainText>bn_exp.c</p>
+
+<p class=PlainText>bn_gcd.c</p>
+
+<p class=PlainText>bn_lcl.h</p>
+
+<p class=PlainText>bn_lib.c</p>
+
+<p class=PlainText>bn_mont.c</p>
+
+<p class=PlainText>bn_mpi.c</p>
+
+<p class=PlainText>bn_mul.c</p>
+
+<p class=PlainText>bn_prime.c</p>
+
+<p class=PlainText>bn_prime.h</p>
+
+<p class=PlainText>bn_print.c</p>
+
+<p class=PlainText>bn_rand.c</p>
+
+<p class=PlainText>bn_recp.c</p>
+
+<p class=PlainText>bn_shift.c</p>
+
+<p class=PlainText>bn_sqr.c</p>
+
+<p class=PlainText>bn_word.c</p>
+
+<p class=PlainText>bn.h</p>
+
+<p class=PlainText>crypto.h</p>
+
+<p class=PlainText>des.h</p>
+
+<p class=PlainText>dh.h</p>
+
+<p class=PlainText>err.h</p>
+
+<p class=PlainText>evp.h</p>
+
+<p class=PlainText>hmac.h</p>
+
+<p class=PlainText>md5.h</p>
+
+<p class=PlainText>objects.h</p>
+
+<p class=PlainText>rand.h</p>
+
+<p class=PlainText>rsa.h</p>
+
+<p class=PlainText>sha.h</p>
+
+<p class=PlainText>rsa.h</p>
+
+<p class=PlainText>rsa_eay.c</p>
+
+<p class=PlainText>rsa_gen.c</p>
+
+<p class=PlainText>rsa_lib.c</p>
+
+<p class=PlainText>rsa_none.c</p>
+
+<p class=PlainText>rsa_pk1.c</p>
+
+<p class=PlainText>rsa_saos.c</p>
+
+<p class=PlainText>rsa_sign.c</p>
+
+<p class=PlainText>rsa_ssl.c</p>
+
+<p class=PlainText>des_enc.c</p>
+
+<p class=PlainText>des_locl.h</p>
+
+<p class=PlainText>md5_dgst.c</p>
+
+<p class=PlainText>md5_locl.h</p>
+
+<p class=PlainText>ncbc_enc.c</p>
+
+<p class=PlainText>set_key.c</p>
+
+<p class=PlainText>spr.h</p>
+
+<p class=PlainText>xp_des.h</p>
+
+<p class=PlainText>xp_md5.h</p>
+
+<p class=PlainText>speed.c</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>/Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)</p>
+
+<p class=PlainText> All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> This package is an SSL implementation written by Eric
+Young (eay@cryptsoft.com). The implementation was written so as to conform with
+Netscapes SSL.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> This library is free for commercial and non-commercial
+use as long as the following conditions are aheared to.  The following
+conditions apply to all code found in this distribution, be it the RC4, RSA,
+lhash, DES, etc., code; not just the SSL code.  The SSL documentation included
+with this distribution is covered by the same copyright terms except that the
+holder is Tim Hudson (tjh@cryptsoft.com).</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright Remains Eric Young's, And As Such Any
+Copyright Notices In The Code Are Not To Be Removed. If This Package Is Used In
+A Product, Eric Young Should Be Given Attribution As The Author Of The Parts Of
+The Library Used. This Can Be In The Form Of A Textual Message At Program
+Startup Or In Documentation (Online Or Textual) Provided With The Package.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. All advertising materials mentioning features or use
+of this software must display the following acknowledgement: &quot;This product
+includes cryptographic software written by Eric Young (eay@cryptsoft.com)&quot;
+The word 'cryptographic' can be left out if the rouines from the library being
+used are not cryptographic related :-).</p>
+
+<p class=PlainText> 4. If you include any Windows specific code (or a
+derivative thereof) from the apps directory (application code) you must include
+an acknowledgement: &quot;This product includes software written by Tim Hudson
+(tjh@cryptsoft.com)&quot;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> The licence and distribution terms for any publically
+available version or derivative of this code cannot be changed.  i.e. this code
+cannot simply be copied and put under another distribution licence [including
+the GNU Public Licence.]</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>igmp.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (c) 2002 CITEL Technologies Ltd.</p>
+
+<p class=PlainText> All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. Neither the name of CITEL Technologies Ltd nor the
+names of its contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY CITEL TECHNOLOGIES AND
+CONTRIBUTORS ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL CITEL TECHNOLOGIES OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> This file is a contribution to the lwIP TCP/IP stack.
+The Swedish Institute of Computer Science and Adam Dunkels are specifically
+granted permission to redistribute this source code.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>autoip.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (c) 2007 Dominik Spies
+&lt;kontakt@dspies.de&gt;</p>
+
+<p class=PlainText> All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. The name of the author may not be used to endorse or
+promote products derived from this software without specific prior written
+permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>icmp.h</p>
+
+<p class=PlainText>inet.h</p>
+
+<p class=PlainText>inet_chksum.h</p>
+
+<p class=PlainText>ip.h</p>
+
+<p class=PlainText>ip_addr.h</p>
+
+<p class=PlainText>ip_frag.h</p>
+
+<p class=PlainText>lwipopts.h</p>
+
+<p class=PlainText>cc.h</p>
+
+<p class=PlainText>perf.h</p>
+
+<p class=PlainText>sys_arch.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (c) 2001-2004 Swedish Institute of Computer
+Science. All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. The name of the author may not be used to endorse or
+promote products derived from this software without specific prior written
+permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>netdb.c</p>
+
+<p class=PlainText>netdb.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. The name of the author may not be used to endorse or
+promote products derived from this software without specific prior written
+permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>netifapi.c</p>
+
+<p class=PlainText>netifapi.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. The name of the author may not be used to endorse or
+promote products derived from this software without specific prior written
+permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>dns.c</p>
+
+<p class=PlainText>dns.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Author: Jim Pettinato</p>
+
+<p class=PlainText>   April 2007</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> ported from uIP resolv.c Copyright (c) 2002-2003, Adam
+Dunkels.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. The name of the author may not be used to endorse or
+promote products derived from this software without specific prior written
+permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>snmp_asn1.h</p>
+
+<p class=PlainText>snmp_msg.h</p>
+
+<p class=PlainText>snmp_structs.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (c) 2006 Axon Digital Design B.V., The Netherlands.</p>
+
+<p class=PlainText> All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. The name of the author may not be used to endorse or
+promote products derived from this software without specific prior written
+permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>timer.c</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (c) 2006 Christiaan Simons.</p>
+
+<p class=PlainText> All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. The name of the author may not be used to endorse or
+promote products derived from this software without specific prior written
+permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>igmp.c</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (c) 2002 CITEL Technologies Ltd.</p>
+
+<p class=PlainText> All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. Neither the name of CITEL Technologies Ltd nor the
+names of its contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY CITEL TECHNOLOGIES AND
+CONTRIBUTORS ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT
+NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL CITEL TECHNOLOGIES OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> This file is a contribution to the lwIP TCP/IP stack.
+The Swedish Institute of Computer Science and Adam Dunkels are specifically
+granted permission to redistribute this source code.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>autoip.c</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (c) 2007 Dominik Spies
+&lt;kontakt@dspies.de&gt; All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. The name of the author may not be used to endorse or
+promote products derived from this software without specific prior written
+permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>dhcp.c</p>
+
+<p class=PlainText>snmp.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (c) 2001, 2002 Leon Woestenberg
+&lt;leon.woestenberg@axon.tv&gt;</p>
+
+<p class=PlainText> Copyright (c) 2001, 2002 Axon Digital Design B.V., The Netherlands. All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. The name of the author may not be used to endorse or
+promote products derived from this software without specific prior written
+permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>api_lib.c</p>
+
+<p class=PlainText>api_msg.c</p>
+
+<p class=PlainText>err.c</p>
+
+<p class=PlainText>netbuf.c</p>
+
+<p class=PlainText>sockets.c</p>
+
+<p class=PlainText>tcpip.c</p>
+
+<p class=PlainText>init.c</p>
+
+<p class=PlainText>mem.c</p>
+
+<p class=PlainText>memp.c</p>
+
+<p class=PlainText>netif.c</p>
+
+<p class=PlainText>pbuf.c</p>
+
+<p class=PlainText>raw.c</p>
+
+<p class=PlainText>stats.c</p>
+
+<p class=PlainText>sys.c</p>
+
+<p class=PlainText>tcp.c</p>
+
+<p class=PlainText>tcp_in.c</p>
+
+<p class=PlainText>tcp_out.c</p>
+
+<p class=PlainText>udp.c</p>
+
+<p class=PlainText>icmp.c</p>
+
+<p class=PlainText>inet.c</p>
+
+<p class=PlainText>inet_chksum.c</p>
+
+<p class=PlainText>ip.c</p>
+
+<p class=PlainText>ip_addr.c</p>
+
+<p class=PlainText>ip_frag.c</p>
+
+<p class=PlainText>api.h</p>
+
+<p class=PlainText>api_msg.h</p>
+
+<p class=PlainText>arch.h</p>
+
+<p class=PlainText>debug.h</p>
+
+<p class=PlainText>def.h</p>
+
+<p class=PlainText>err.h</p>
+
+<p class=PlainText>init.h</p>
+
+<p class=PlainText>mem.h</p>
+
+<p class=PlainText>memp.h</p>
+
+<p class=PlainText>netbuf.h</p>
+
+<p class=PlainText>netif.h</p>
+
+<p class=PlainText>opt.h</p>
+
+<p class=PlainText>pbuf.h</p>
+
+<p class=PlainText>raw.h</p>
+
+<p class=PlainText>sio.h</p>
+
+<p class=PlainText>sockets.h</p>
+
+<p class=PlainText>stats.h</p>
+
+<p class=PlainText>sys.h</p>
+
+<p class=PlainText>tcp.h</p>
+
+<p class=PlainText>tcpip.h</p>
+
+<p class=PlainText>udp.h</p>
+
+<p class=PlainText>loopif.h</p>
+
+<p class=PlainText>slipif.h</p>
+
+<p class=PlainText>sys_arch.c</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (c) 2001-2004 Swedish Institute of Computer
+Science. All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. The name of the author may not be used to endorse or
+promote products derived from this software without specific prior written
+permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>etharp.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (c) 2001-2003 Swedish Institute of Computer
+Science.</p>
+
+<p class=PlainText> Copyright (c) 2003-2004 Leon Woestenberg
+&lt;leon.woestenberg@axon.tv&gt;</p>
+
+<p class=PlainText> Copyright (c) 2003-2004 Axon Digital Design B.V., The Netherlands. All rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. The name of the author may not be used to endorse or
+promote products derived from this software without specific prior written
+permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>ppp_oe.h</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Copyright (c) 2006 by Marc Boucher, Services
+Informatiques (MBSI) inc.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>The authors hereby grant permission to use, copy, modify,
+distribute, and license this software and its documentation for any purpose,
+provided that existing copyright notices are retained in all copies and that
+this notice and the following disclaimer are included verbatim in any
+distributions. No written agreement, license, or royalty fee is required for
+any of the authorized uses.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>THIS SOFTWARE IS PROVIDED BY THE CONTRIBUTORSAS ISAND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>REVISION HISTORY</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>06-01-01 Marc Boucher &lt;marc@mbsi.ca&gt;</p>
+
+<p class=PlainText>Ported to lwIP.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>based on NetBSD: if_pppoe.c,v 1.64 2006/01/31 23:50:15
+martin Exp</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (c) 2002 The NetBSD Foundation, Inc. All
+rights reserved.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> This code is derived from software contributed to The
+NetBSD Foundation by Martin Husemann &lt;martin@NetBSD.org&gt;.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following conditions
+are met:</p>
+
+<p class=PlainText> 1. Redistributions of source code must retain the above
+copyright notice, this list of conditions and the following disclaimer.</p>
+
+<p class=PlainText> 2. Redistributions in binary form must reproduce the
+above copyright notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.</p>
+
+<p class=PlainText> 3. All advertising materials mentioning features or use
+of this software must display the following acknowledgement:</p>
+
+<p class=PlainText>        This product includes software developed by the
+NetBSD Foundation, Inc. and its contributors.</p>
+
+<p class=PlainText> 4. Neither the name of The NetBSD Foundation nor the
+names of its contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> THIS SOFTWARE IS PROVIDED BY THE NETBSD FOUNDATION, INC.
+AND CONTRIBUTORS &quot;AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE
+FOUNDATION OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText><b><span style='font-size:12.0pt'>Notices for files(s):</span></b></p>
+
+<p class=PlainText>amr_decode_frame.cpp</p>
+
+<p class=PlainText>d_homing.cpp</p>
+
+<p class=PlainText>omx_amr_component.cpp 12</p>
+
+<p class=PlainText>amr_enc.cpp</p>
+
+<p class=PlainText>omx_amrenc_component.cpp</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Copyright (C) 1998-2009 PacketVideo</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Licensed under the Apache License, Version 2.0 (the
+&quot;License&quot;); you may not use this file except in compliance with the
+License. You may obtain a copy of the License at</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>      http://www.apache.org/licenses/LICENSE-2.0</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText> Unless required by applicable law or agreed to in
+writing, software distributed under the License is distributed on an &quot;AS
+IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing permissions and
+limitations under the License.</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>Portions of this file are derived from the following 3GPP
+standard:</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>    3GPP TS 26.073</p>
+
+<p class=PlainText>    ANSI-C code for the Adaptive Multi-Rate (AMR) speech
+codec</p>
+
+<p class=PlainText>    Available from http://www.3gpp.org</p>
+
+<p class=PlainText>&nbsp;</p>
+
+<p class=PlainText>(C) 2004, 3GPP Organizational Partners (ARIB, ATIS, CCSA,
+ETSI, TTA, TTC) Permission to distribute, modify and use this file under the
+standard license terms listed above has been obtained from the copyright
+holder.</p>
+
+
+
+</div>
+
+</body>
+
+</html>

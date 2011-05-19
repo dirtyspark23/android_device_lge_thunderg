@@ -60,7 +60,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.com.google.gmsversion=2.2_r5 \
    ro.setupwizard.enable_bypass=1 \
    ro.ril.disable.power.collapse=1 \
-   ro.ril.gprsclass=12 \
+   ro.ril.gprsclass=10 \
    ro.ril.hsxpa=2 \
    media.stagefright.enable-player=false \
    media.stagefright.enable-meta=false \
@@ -71,8 +71,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.ril.enable.dtm=0 \
    ro.ril.hsdpa.category=8 \
    ro.ril.hsupa.category=5 \
-   ro.ril.def.agps.mode=2 \
-   ro.ril.def.agps.feature=1 \
    ro.telephony.call_ring.multiple=false \
    windowsmgr.max_events_per_sec=260 \
    dalvik.vm.lockprof.threshold=500 \
@@ -149,8 +147,8 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
-    vendor/lge/thunderg/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
-    vendor/lge/thunderg/proprietary/lib/libcamera.so:system/lib/libcamera.so
+    vendor/lge/thunderg/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
+    vendor/lge/thunderg/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -159,14 +157,11 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/wl/nvram.txt:system/etc/wl/nvram.txt \
     vendor/lge/thunderg/proprietary/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
+    vendor/lge/thunderg/proprietary/bin/wl:system/bin/wl \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin \
     device/lge/thunderg/prebuilt/lib/modules/tun.ko:system/lib/modules/tun.ko \
     device/lge/thunderg/prebuilt/lib/modules/cifs.ko:system/lib/modules/cifs.ko 
-
-# Mik9 Wifi Script
-PRODUCT_COPY_FILES += \
-    device/lge/thunderg/init.local.rc:system/etc/init.local.rc \
 
 
 # SD Card
@@ -175,7 +170,8 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
+    device/lge/thunderg/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -278,6 +274,7 @@ PRODUCT_COPY_FILES += \
 # wipeirface (What is this?)
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/bin/wiperiface:system/bin/wiperiface \
+    vendor/lge/thunderg/proprietary/etc/wiperconfig.xml:system/etc/wiperconfig.xml \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
@@ -288,7 +285,12 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libganril.so:system/lib/libganril.so \
     vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so \
     vendor/lge/thunderg/proprietary/lib/libkineto.so:system/lib/libkineto.so \
-    vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk \
+    #vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk \
+
+# Flex (Wifi Calling Daemon In My Opinion)
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/etc/flex/flex.db:system/etc/flex/flex.db \
+    vendor/lge/thunderg/proprietary/etc/flex/flex.xml:system/etc/flex/flex.xml \
 
 PRODUCT_LOCALES += mdpi
 
