@@ -47,7 +47,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.sf.lcd_density=160 \
-   debug.sf.hw=1 \
    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
    ro.com.google.clientidbase=android-hms-tmobile-us \
@@ -62,10 +61,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.ril.disable.power.collapse=1 \
    ro.ril.gprsclass=10 \
    ro.ril.hsxpa=2 \
-   media.stagefright.enable-player=false \
-   media.stagefright.enable-meta=false \
-   media.stagefright.enable-scan=false \
-   media.stagefright.enable-http=false \
    wifi.supplicant_scan_interval=45 \
    ro.opengles.version=131072 \
    ro.ril.enable.dtm=0 \
@@ -161,7 +156,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin \
     device/lge/thunderg/prebuilt/lib/modules/tun.ko:system/lib/modules/tun.ko \
-    device/lge/thunderg/prebuilt/lib/modules/cifs.ko:system/lib/modules/cifs.ko 
+    # device/lge/thunderg/prebuilt/lib/modules/cifs.ko:system/lib/modules/cifs.ko 
 
 
 # SD Card
@@ -172,6 +167,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
     device/lge/thunderg/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    device/lge/thunderg/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt 
 
 # GPS
 PRODUCT_COPY_FILES += \

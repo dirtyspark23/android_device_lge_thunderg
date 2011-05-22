@@ -44,15 +44,15 @@ BOARD_HAS_NO_MISC_PARTITION := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
-WPA_SUPPLICANT_VERSION := VER_0_6_X
+WPA_SUPPLICANT_VERSION := VER_0_5_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-BOARD_WLAN_DEVICE := bcm4329
-WIFI_DRIVER_FW_STA_PATH	    := "/system/etc/wl/rtecdc.bin"
-WIFI_DRIVER_FW_AP_PATH      := "/system/etc/wl/rtecdc-apsta.bin"
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/wireless.ko"
-WIFI_DRIVER_MODULE_ARG      := "iface_name=wlan0"
-WIFI_DRIVER_MODULE_NAME     := "wireless"
-WIFI_DRIVER_HAS_LGE_SOFTAP  := true
+BOARD_WLAN_DEVICE := bcm4325
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
+WIFI_DRIVER_MODULE_NAME := wireless
+WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
+WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
+WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
 BOARD_EGL_CFG := device/lge/thunderg/egl.cfg
 
@@ -88,6 +88,7 @@ BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
 JS_ENGINE := v8
 WITH_JIT := true
 ENABLE_JSC_JIT := true
+WITH_DEXPREOPT := true
 
 TARGET_PROVIDES_LIBAUDIO := true
 BOARD_USES_GENERIC_AUDIO := false
