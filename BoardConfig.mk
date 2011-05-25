@@ -54,6 +54,8 @@ WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
 WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
+BOARD_USE_KINETO_COMPATIBILITY := true
+
 BOARD_EGL_CFG := device/lge/thunderg/egl.cfg
 
 BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderg
@@ -88,7 +90,6 @@ BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
 JS_ENGINE := v8
 WITH_JIT := true
 ENABLE_JSC_JIT := true
-WITH_DEXPREOPT := true
 
 TARGET_PROVIDES_LIBAUDIO := true
 BOARD_USES_GENERIC_AUDIO := false

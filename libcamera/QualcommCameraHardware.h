@@ -64,7 +64,6 @@ struct board_property{
 /* Values originally in proprietary headers */
 
 #define MSM_CAMERA_CONTROL "/dev/msm_camera/control0"
-#define MSM_CAMERA_CONFIG "/dev/msm_camera/config0"
 
 #define TRUE 1
 #define FALSE 0
@@ -491,7 +490,6 @@ private:
     sp<PmemPool> mDisplayHeap;
     sp<AshmemPool> mJpegHeap;
     sp<PmemPool> mRawSnapShotPmemHeap;
-    sp<AshmemPool> mRawSnapshotAshmemHeap;
     sp<PmemPool> mPostViewHeap;
 
 

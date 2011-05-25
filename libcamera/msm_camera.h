@@ -19,8 +19,6 @@
 #ifndef __LINUX_MSM_CAMERA_H
 #define __LINUX_MSM_CAMERA_H
 
-#define CONFIG_ISX005
-
 #ifdef MSM_CAMERA_BIONIC
 #include <sys/types.h>
 #endif
@@ -401,6 +399,10 @@ struct msm_snapshot_pp_status {
 #define CFG_SEND_WB_INFO    28
 #define CFG_MAX 			29
 
+/* LGE_CHANGE_S [junyeong.han@lge.com] Add CFG values for auto focus */
+/* 2010-05-02: Add auto-focus values */
+/* 2010-05-05: Add setting iso values */
+/* 2010-05-14: Add setting scene values */
 #if defined (CONFIG_ISX005)
 #define CFG_START_AF_FOCUS	101
 #define CFG_CHECK_AF_DONE	102

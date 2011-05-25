@@ -77,7 +77,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.execution-mode=int:jit \
     dalvik.vm.heapsize=32m \
-    ro.compcache.default=0 \
     persist.sys.use_dithering=1 \
 
 # Publish that we support the live wallpaper feature.
@@ -144,6 +143,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
     vendor/lge/thunderg/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
     vendor/lge/thunderg/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+   
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -156,7 +156,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin \
     device/lge/thunderg/prebuilt/lib/modules/tun.ko:system/lib/modules/tun.ko \
-    # device/lge/thunderg/prebuilt/lib/modules/cifs.ko:system/lib/modules/cifs.ko 
+    device/lge/thunderg/prebuilt/lib/modules/cifs.ko:system/lib/modules/cifs.ko 
 
 
 # SD Card
@@ -281,12 +281,19 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libganril.so:system/lib/libganril.so \
     vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so \
     vendor/lge/thunderg/proprietary/lib/libkineto.so:system/lib/libkineto.so \
-    #vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk \
+    device/lge/thunderg/prebuilt/lib/modules/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
+    vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk 
 
 # Flex (Wifi Calling Daemon In My Opinion)
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/flex/flex.db:system/etc/flex/flex.db \
     vendor/lge/thunderg/proprietary/etc/flex/flex.xml:system/etc/flex/flex.xml \
+
+# netmgr (What is this?)
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/bin/netmgrd:system/bin/netmgrd \
+    vendor/lge/thunderg/proprietary/lib/libdsutils.so:system/lib/libdsutils.so \
+    vendor/lge/thunderg/proprietary/lib/libnetmgr.so:system/lib/libnetmgr.so
 
 PRODUCT_LOCALES += mdpi
 
