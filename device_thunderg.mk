@@ -96,7 +96,6 @@ PRODUCT_COPY_FILES += \
 # Board-specific init (does not support charging in "power off" state yet)
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/init.thunderg.rc:root/init.thunderg.rc \
-    device/lge/thunderg/init.rc:root/init.rc \
     device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
     device/lge/thunderg/ramdisk/init.qcom.rc:root/init.qcom.rc \
     device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle \
@@ -281,8 +280,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libganril.so:system/lib/libganril.so \
     vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so \
     vendor/lge/thunderg/proprietary/lib/libkineto.so:system/lib/libkineto.so \
-    device/lge/thunderg/prebuilt/lib/modules/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
-    vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk 
+    #vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk 
 
 # Flex (Wifi Calling Daemon In My Opinion)
 PRODUCT_COPY_FILES += \
