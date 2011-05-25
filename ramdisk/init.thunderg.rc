@@ -1,3 +1,4 @@
+## hopemini@lge.com, 20100416
 
 on boot-ftm-power
     exec sbin/ftm_power
@@ -200,6 +201,17 @@ service cnd /system/bin/cnd
 service qmuxd /system/bin/qmuxd 
 
 service ami304d /system/bin/ami304d
+
+## USB
+#service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyHSUSB0
+service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyGS0
+    socket port_bridge stream 660 root radio
+	disabled
+
+on property:init.svc.bootlogo=stopped
+on property:init.svc.bootanim=stopped
+	start port-bridge
+
 
 # LGE_CHANGE_S, [jisung.yang@lge.com], 2010-04-24,<register WLAN services>
 service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf #-dd

@@ -81,7 +81,7 @@
 
         <EncoderProfile quality="high" fileFormat="mp4" duration="60">
             <Video codec="h263"
-                   bitRate="1500000"
+                   bitRate="1000000"
                    width="640"
                    height="480"
                    frameRate="24" />
@@ -95,10 +95,10 @@
 
         <EncoderProfile quality="low" fileFormat="3gp" duration="30">
             <Video codec="m4v"
-                   bitRate="256000"
+                   bitRate="2000000"
                    width="176"
                    height="144"
-                   frameRate="15" />
+                   frameRate="24" />
 
             <Audio codec="amrnb"
                    bitRate="12200"
@@ -108,8 +108,8 @@
         </EncoderProfile>
 
         <ImageEncoding quality="90" />
-        <ImageEncoding quality="75" />
-        <ImageEncoding quality="60" />
+        <ImageEncoding quality="80" />
+        <ImageEncoding quality="70" />
         <ImageDecoding memCap="20000000" />
 
         <Camera previewFrameRate="0" />
@@ -126,13 +126,13 @@
          or query the capabilities of the codec at all if it is disabled
     -->
     <VideoEncoderCap name="h263" enabled="true"
-        minBitRate="64000" maxBitRate="1500000"
+        minBitRate="64000" maxBitRate="1000000"
         minFrameWidth="176" maxFrameWidth="640"
         minFrameHeight="144" maxFrameHeight="480"
         minFrameRate="1" maxFrameRate="24" />
 
     <VideoEncoderCap name="m4v" enabled="true"
-        minBitRate="64000" maxBitRate="1500000"
+        minBitRate="64000" maxBitRate="2000000"
         minFrameWidth="176" maxFrameWidth="640"
         minFrameHeight="144" maxFrameHeight="480"
         minFrameRate="1" maxFrameRate="24" />
@@ -152,5 +152,15 @@
         minBitRate="8192" maxBitRate="96000"
         minSampleRate="16000" maxSampleRate="16000"
         minChannels="1" maxChannels="1" />
+
+    <!--
+        FIXME:
+        We do not check decoder capabilities at present
+        At present, we only check whether windows media is visible
+        for TEST applications. For other applications, we do
+        not perform any checks at all.
+    -->
+    <VideoDecoderCap name="wmv" enabled="true"/>
+    <AudioDecoderCap name="wma" enabled="true"/>
 
 </MediaSettings>

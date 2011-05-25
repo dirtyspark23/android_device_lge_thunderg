@@ -56,12 +56,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.com.google.clientidbase.vs=android-lge \
    ro.com.google.locationfeatures=1 \
    ro.com.google.networklocation=1 \
-   ro.com.google.gmsversion=2.2_r5 \
+   ro.com.google.gmsversion=2.2_r9 \
    ro.setupwizard.enable_bypass=1 \
    ro.ril.disable.power.collapse=1 \
    ro.ril.gprsclass=10 \
    ro.ril.hsxpa=2 \
-   wifi.supplicant_scan_interval=45 \
+   wifi.supplicant_scan_interval=20 \
+   debug.sf.hw=0 \
    ro.opengles.version=131072 \
    ro.ril.enable.dtm=0 \
    ro.ril.hsdpa.category=8 \
@@ -76,7 +77,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Performences tweaks
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.execution-mode=int:jit \
-    dalvik.vm.heapsize=32m \
+    dalvik.vm.heapsize=24m \
     persist.sys.use_dithering=1 \
 
 # Publish that we support the live wallpaper feature.
