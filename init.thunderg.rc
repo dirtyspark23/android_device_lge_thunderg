@@ -173,6 +173,13 @@ on boot
     mkdir /data/misc/dhcp 0777 system system
     chmod 0666 /data/bdaddr
 
+# Kineto Porting
+service ril-daemon /system/bin/rild -l /system/lib/librilswitch.so -- -d /dev/ttysmd0
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    user root
+    group radio cache inet misc audio sdcard_rw
+
 
 service bdaddr /system/bin/bdaddr_read
     user root
