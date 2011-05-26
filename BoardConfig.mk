@@ -54,8 +54,6 @@ WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
 WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
-BOARD_USE_KINETO_COMPATIBILITY := true
-
 BOARD_EGL_CFG := device/lge/thunderg/egl.cfg
 
 BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderg

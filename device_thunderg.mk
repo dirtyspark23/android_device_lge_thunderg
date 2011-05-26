@@ -283,6 +283,11 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libkineto.so:system/lib/libkineto.so \
     #vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk 
 
+# LG Scripts
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
+
+
 # Flex (Wifi Calling Daemon In My Opinion)
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/flex/flex.db:system/etc/flex/flex.db \
