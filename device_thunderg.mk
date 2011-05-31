@@ -77,6 +77,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Performences tweaks
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.execution-mode=int:jit \
+    ro.compcache.default=1 \
     dalvik.vm.heapsize=24m \
     persist.sys.use_dithering=1 \
 
@@ -88,10 +89,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
     device/lge/thunderg/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    device/lge/thunderg/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/lge/thunderg/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
-    device/lge/thunderg/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
-    device/lge/thunderg/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
     device/lge/thunderg/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin
    
 # Board-specific init (does not support charging in "power off" state yet)
@@ -166,7 +164,7 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
-    device/lge/thunderg/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    vendor/lge/thunderg/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -276,8 +274,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libganril.so:system/lib/libganril.so \
     vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so \
-    vendor/lge/thunderg/proprietary/lib/libkineto.so:system/lib/libkineto.so \
-    #vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk 
+    device/lge/thunderg/Kineto/libkineto.so:system/lib/libkineto.so \
+    device/lge/thunderg/Kineto/Kineto.apk:system/app/Kineto.apk 
 
 # LG Scripts
 PRODUCT_COPY_FILES += \
