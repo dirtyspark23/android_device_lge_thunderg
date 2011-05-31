@@ -62,7 +62,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.ril.gprsclass=10 \
    ro.ril.hsxpa=2 \
    wifi.supplicant_scan_interval=20 \
-   debug.sf.hw=0 \
+   debug.sf.hw=1 \
    ro.opengles.version=131072 \
    ro.ril.enable.dtm=0 \
    ro.ril.hsdpa.category=8 \
@@ -167,7 +167,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
     device/lge/thunderg/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    device/lge/thunderg/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt 
 
 # GPS
 PRODUCT_COPY_FILES += \
