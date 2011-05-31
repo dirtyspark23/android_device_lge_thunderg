@@ -195,9 +195,6 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/bin/tsdown:system/bin/tsdown \
     vendor/lge/thunderg/proprietary/etc/MELFAS_FIRM.bin:system/etc/MELFAS_FIRM.bin \
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lge.vibrator_amp=125 \
-
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
