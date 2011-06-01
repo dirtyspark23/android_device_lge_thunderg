@@ -33,6 +33,8 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/lge/thunderg/recovery_ui.c
 
+# Use nasty hack to make Kineto work
+BOARD_USE_KINETO_COMPATIBILITY := true
 
 BOARD_USES_QCOM_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := thunderg
