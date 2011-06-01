@@ -4,6 +4,5 @@
 /dev/smdcntl0               0640   radio       radio
 /dev/smdcntl1               0640   radio       radio
 /dev/smdcntl2               0640   radio       radio
-/dev/kgsl-2d0		    0666   root        root
 /dev/kgsl-3d0               0666   root        root
 /dev/hw3d                   0666   root        root
