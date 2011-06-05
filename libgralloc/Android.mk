@@ -36,9 +36,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := gralloc.$(TARGET_BOOTLOADER_BOARD_NAME)
 LOCAL_CFLAGS:= -DLOG_TAG=\"$(TARGET_BOOTLOADER_BOARD_NAME).gralloc\"
 
-#ifneq (, $(filter msm7625_ffa msm7625_surf msm7627_ffa msm7627_surf msm7627_7x_ffa msm7627_7x_surf, $(QCOM_TARGET_PRODUCT)))
 LOCAL_CFLAGS += -DTARGET_MSM7x27
-#endif
 
 ifeq ($(TARGET_HAVE_HDMI_OUT),true)
 LOCAL_CFLAGS += -DHDMI_DUAL_DISPLAY
