@@ -165,6 +165,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
     vendor/lge/thunderg/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    device/lge/thunderg/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -282,7 +283,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
 
 
-# Flex (Wifi Calling Daemon In My Opinion)
+# Flex
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/flex/flex.db:system/etc/flex/flex.db \
     vendor/lge/thunderg/proprietary/etc/flex/flex.xml:system/etc/flex/flex.xml \

@@ -62,6 +62,7 @@ on boot
     chown system system /sys/kernel/ipv4/tcp_rmem_def
     chown system system /sys/kernel/ipv4/tcp_rmem_max
     chown root radio /proc/cmdline
+    chmod 0666 /dev/msm_snd
 
     chown system system /sys/module/g_android/parameters/product_id
     chown system system /sys/devices/platform/msm_sdcc.1/polling
@@ -113,15 +114,14 @@ on boot
 	chmod 0666 /dev/KR3DM	
 ## PROXIMITY SENSOR
 	chmod 0666 /sys/bus/i2c/drivers/proximity_gp2ap/4-0044/enable
+
 ## USB
 	chmod 0666 /sys/devices/platform/msm_hsusb_periphera/composition
-	
-	chmod 0666 /dev/oncrpc/3000008c:00050000
-
-	chown root root /dev/hw3d
-	chmod 0666 /dev/hw3d
-	chown root root /dev/kgsl-3d0
-	chmod 0666 /dev/kgsl-3d0
+        chmod 0666 /dev/oncrpc/3000008c:00050000
+	chown system graphics /dev/hw3d
+	chmod 0660 /dev/hw3d
+	chown root root /dev/kgsl
+	chmod 0666 /dev/kgsl
 	chmod 0666 /dev/pmem
 	chown system graphics /dev/pmem_gpu
 	chmod 0666 /dev/pmem_gpu
@@ -143,6 +143,8 @@ on boot
 	chmod 0660 /dev/msm_rotator
 	chown system audio /dev/msm_preproc_ctl
 	chmod 0660 /dev/msm_preproc_ctl
+
+
 ## AUDIO - SBA52101007
 	chown system audio /dev/pmem_smipool
 	chmod 0660 /dev/pmem_smipool
@@ -179,12 +181,6 @@ on boot
 
 # Kineto(:
 
-service ril-daemon /system/bin/rild -l /system/lib/libril-qc-1.so -- -d /dev/smd0
-    socket rild stream 660 root radio
-    socket rild-debug stream 660 radio system
-    user root
-    group radio cache inet misc audio sdcard_rw
-
 service ril-daemon /system/bin/rild -l /system/lib/librilswitch.so -- -d /dev/smd0
     socket rild stream 660 root radio
     socket rild-debug stream 660 radio system
@@ -205,7 +201,7 @@ service btwlancoex /system/bin/sh /system/etc/init.qcom.coex.sh
     disabled
     oneshot
 
-service hciattach /system/bin/brcm_patchram_plus --enable_hci --baudrate 3000000 --patchram /system/bin/BCM4325D1_004.002.004.0218.0248.hcd /dev/ttyHS0
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --baudrate 3000000 --patchram /system/bin/BCM4325D1_004.002.004.0218.0248.hcd /dev/ttyHS0
     user bluetooth
     group bluetooth net_bt_admin
     disabled
