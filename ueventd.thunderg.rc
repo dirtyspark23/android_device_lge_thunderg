@@ -6,6 +6,6 @@
 /dev/kgsl-3d0               0666   root        root
 /dev/hw3d                   0666   root        root
 /dev/msm_preproc_ctl        0660   system      audio
-/dev/ami304                 0666   compass     system
+/dev/ami304                 0666   system      system
 /dev/KR3DM                  0666   system      system
 
