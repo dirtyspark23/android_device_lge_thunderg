@@ -167,7 +167,7 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderg/temp/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
     device/lge/thunderg/temp/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
 
-# Qcom Kernel Base (Temp)
+# Qcom Kernel Base
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/temp/init.qcom.rc:root/init.qcom.rc \
     device/lge/thunderg/temp/init.qcom.sh:root/init.qcom.sh \
