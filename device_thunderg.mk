@@ -40,6 +40,8 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     lights.thunderg \
+    gralloc.msm7k \
+    copybit.msm7k \
     gps.thunderg \
     bdaddr_read
 
@@ -152,26 +154,6 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin \
     device/lge/thunderg/prebuilt/lib/modules/tun.ko:system/lib/modules/tun.ko \
     device/lge/thunderg/prebuilt/lib/modules/cifs.ko:system/lib/modules/cifs.ko
-
-# Wifi Additional
-PRODUCT_COPY_FILES += \
-    device/lge/thunderg/prebuilt/etc/firmware/wlan/cfg.dat:system/etc/firmware/wlan/cfg.dat \
-    device/lge/thunderg/prebuilt/etc/firmware/wlan/qcom_cfg.ini:system/etc/firmware/wlan/qcom_cfg.ini \
-    device/lge/thunderg/prebuilt/etc/firmware/wlan/qcom_fw.bin:system/etc/firmware/wlan/qcom_fw.bin \
-
-#Qcom Scripts (temporary path)
-PRODUCT_COPY_FILES += \
-    device/lge/thunderg/temp/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    device/lge/thunderg/temp/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
-    device/lge/thunderg/temp/etc/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-    device/lge/thunderg/temp/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
-    device/lge/thunderg/temp/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
-
-# Qcom Kernel Base (Temp)
-PRODUCT_COPY_FILES += \
-    device/lge/thunderg/temp/init.qcom.rc:root/init.qcom.rc \
-    device/lge/thunderg/temp/init.qcom.sh:root/init.qcom.sh \
-    device/lge/thunderg/temp/init.qcom.post_boot.sh:root/init.qcom.post_boot.sh \
    
 # SD Card
 PRODUCT_COPY_FILES += \

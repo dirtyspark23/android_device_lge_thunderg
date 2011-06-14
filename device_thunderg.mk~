@@ -40,6 +40,8 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     lights.thunderg \
+    gralloc.msm7k \
+    copybit.msm7k \
     gps.thunderg \
     bdaddr_read
 
@@ -167,7 +169,7 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderg/temp/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
     device/lge/thunderg/temp/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
 
-# Qcom Kernel Base
+# Qcom Kernel Base (Temp)
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/temp/init.qcom.rc:root/init.qcom.rc \
     device/lge/thunderg/temp/init.qcom.sh:root/init.qcom.sh \
