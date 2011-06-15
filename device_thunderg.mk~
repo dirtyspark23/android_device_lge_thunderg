@@ -40,8 +40,8 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     lights.thunderg \
-    gralloc.thunderg \
-    copybit.thunderg \
+    gralloc.msm7k \
+    copybit.msm7k \
     gps.thunderg \
     bdaddr_read
 
