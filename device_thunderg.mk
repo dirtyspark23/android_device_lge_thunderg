@@ -40,8 +40,9 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     lights.thunderg \
-    gralloc.thunderg \
-    copybit.thunderg \
+    gralloc.msm7k \
+    copybit.msm7k \
+    gadget_id \
     gps.thunderg \
     bdaddr_read
 
@@ -60,7 +61,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.setupwizard.enable_bypass=1 \
    ro.ril.gprsclass=12 \
    ro.ril.hsxpa=2 \
-   debug.composition.type=mdp \
    wifi.supplicant_scan_interval=20 \
    debug.sf.hw=1 \
    ro.opengles.version=131072 \
