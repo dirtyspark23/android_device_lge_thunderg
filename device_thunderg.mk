@@ -40,8 +40,8 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     lights.thunderg \
-    gralloc.msm7k \
-    copybit.msm7k \
+    gralloc.thunderg \
+    copybit.thunderg \
     gadget_id \
     gps.thunderg \
     bdaddr_read
@@ -95,6 +95,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/init.thunderg.rc:root/init.thunderg.rc \
     device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
+    device/lge/thunderg/init.rc:root/init.rc \
     device/lge/thunderg/ramdisk/init.qcom.rc:root/init.qcom.rc \
     device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle \
     device/lge/thunderg/ramdisk/sbin/chargerlogo:root/sbin/chargerlogo \
