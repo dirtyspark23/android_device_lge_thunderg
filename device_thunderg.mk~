@@ -38,8 +38,8 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     lights.thunderg \
-    gralloc.thunderg \
-    copybit.thunderg \
+    gralloc.msm7k \
+    copybit.msm7k \
     gadget_id \
     gps.thunderg \
     bdaddr_read
