@@ -1,5 +1,4 @@
 USE_CAMERA_STUB := false
-BOARD_USE_FROYO_LIBCAMERA := true
 
 # inherit from the proprietary version
 #-include vendor/lge/thunderg/BoardConfigVendor.mk
@@ -12,7 +11,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_BOOTLOADER_BOARD_NAME := thunderg
 
 # Current drivers don't support new EGL config
-BOARD_NO_RGBX_888 := true
+BOARD_NO_RGBX_8888 := true
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
@@ -31,6 +30,8 @@ BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+
+BOARD_USE_KINETO_COMPATIBILITY := true
 
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/lge/thunderg/recovery_ui.c
 
@@ -87,6 +88,8 @@ TARGET_GLOBAL_CPPFLAGS += -DHAVE_FM_RADIO
 BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
 
 JS_ENGINE := v8
+WITH_JIT := true
+ENABLE_JSC_JIT := true
 
 TARGET_PROVIDES_LIBAUDIO := true
 BOARD_USES_GENERIC_AUDIO := false

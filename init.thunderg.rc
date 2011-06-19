@@ -1,6 +1,5 @@
 on init
     exec sbin/ftm_power
-    exec sbin/chargerlogo
 
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
