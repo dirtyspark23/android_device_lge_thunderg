@@ -20,5 +20,3 @@ persist.rild.nitz_short_ons_3=
 persist.cust.tel.eons=1
 ## wifi
 wifi.interface=wlan0
-## Graphics
-debug.composition.type=mdp
