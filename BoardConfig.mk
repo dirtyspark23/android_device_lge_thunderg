@@ -45,11 +45,9 @@ BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 WPA_SUPPLICANT_VERSION := VER_0_6_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 BOARD_WLAN_DEVICE := bcm4325
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
-WIFI_DRIVER_MODULE_NAME := wireless
-WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
-WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/libra.ko"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/qcom_fw.bin nvram_path=/system/etc/firmware/qcom_cfg.ini
+WIFI_DRIVER_MODULE_NAME := libra
 WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
 BOARD_EGL_CFG := device/lge/thunderg/egl.cfg
@@ -90,4 +88,3 @@ ENABLE_JSC_JIT := true
 
 TARGET_PROVIDES_LIBAUDIO := true
 BOARD_USES_GENERIC_AUDIO := false
-TARGET_SF_NEEDS_REAL_DIMENSIONS := true
