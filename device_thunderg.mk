@@ -160,6 +160,8 @@ PROUDCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/firmware/wlan/cfg.dat:system/etc/firmware/wlan/cfg.dat \
     vendor/lge/thunderg/proprietary/etc/firmware/wlan/qcom_cfg.ini:system/etc/firmware/wlan/qcom_cfg.ini \
     vendor/lge/thunderg/proprietary/etc/firmware/wlan/qcom_fw.bin:system/etc/firmware/wlan/qcom_fw.bin \
+    device/lge/thunderg/prebuilt/lib/modules/librasdioif.ko:system/lib/modules/librasdioif.so \
+    vendor/lge/thunderg/proprietary/lib/modules/libra.ko:system/lib/modules/libra.ko \
    
 # SD Card
 PRODUCT_COPY_FILES += \
