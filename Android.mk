@@ -13,4 +13,4 @@
 # limitations under the License.
 
 
-include $(call all-named-subdir-makefiles, bdaddr_read gadget_id libaudio libcamera libcopybit libgralloc liblights)
+include $(call all-named-subdir-makefiles, libaudio libcamera libcopybit libgralloc liblights)
