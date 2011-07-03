@@ -96,7 +96,6 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
     device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle \
     device/lge/thunderg/ramdisk/sbin/chargerlogo:root/sbin/chargerlogo \
-    device/lge/thunderg/ramdisk/sbin/bootlogo:root/sbin/bootlogo \
     device/lge/thunderg/ramdisk/sbin/ftm_power:root/sbin/ftm_power \
     device/lge/thunderg/ramdisk/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
     device/lge/thunderg/ramdisk/chargerimages/battery_ani_02.rle:root/chargerimages/battery_ani_02.rle \
