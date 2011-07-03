@@ -40,9 +40,7 @@ PRODUCT_PACKAGES += \
     lights.thunderg \
     gralloc.thunderg \
     copybit.thunderg \
-    gadget_id \
-    gps.thunderg \
-    bdaddr_read
+    gps.thunderg
 
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.sf.lcd_density=160 \
@@ -62,7 +60,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    wifi.supplicant_scan_interval=120 \
    debug.sf.hw=1 \
    ro.opengles.version=131072 \
-   ro.ril.enable.dtm=0 \
    ro.ril.hsdpa.category=8 \
    ro.ril.hsupa.category=5 \
    ro.telephony.call_ring.multiple=false \
@@ -89,8 +86,12 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderg/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
     device/lge/thunderg/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin
    
-# Board-specific init (does not support charging in "power off" state yet)
+# Board-specific init (Supports off-state charging) Still working on boot animation
 PRODUCT_COPY_FILES += \
+    device/lge/thunderg/init:root/init \
+    device/lge/thunderg/init.qcom.rc:root/init.qcom.rc \
+    device/lge/thunderg/init.qcom.sh:root/init.qcom.sh \
+    device/lge/thunderg/init.rc:root/init.rc \
     device/lge/thunderg/init.thunderg.rc:root/init.thunderg.rc \
     device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
     device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle \
@@ -112,6 +113,10 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderg/ramdisk/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_02.rle \
     device/lge/thunderg/ramdisk/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
     device/lge/thunderg/ramdisk/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle
+
+# CND
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/bin/cnd:system/bin/cnd \
 
 
 # Media Configuration XML File
@@ -149,9 +154,13 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
     vendor/lge/thunderg/proprietary/bin/wl:system/bin/wl \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
-    vendor/lge/thunderg/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin \
-    device/lge/thunderg/prebuilt/lib/modules/tun.ko:system/lib/modules/tun.ko \
-    device/lge/thunderg/prebuilt/lib/modules/cifs.ko:system/lib/modules/cifs.ko
+    vendor/lge/thunderg/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin 
+
+# Qualcomm Libra Wireless Firmware
+PROUDCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/etc/firmware/wlan/cfg.dat:system/etc/firmware/wlan/cfg.dat \
+    vendor/lge/thunderg/proprietary/etc/firmware/wlan/qcom_cfg.ini:system/etc/firmware/wlan/qcom_cfg.ini \
+    vendor/lge/thunderg/proprietary/etc/firmware/wlan/qcom_fw.bin:system/etc/firmware/wlan/qcom_fw.bin \
    
 # SD Card
 PRODUCT_COPY_FILES += \
@@ -161,11 +170,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
     vendor/lge/thunderg/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    device/lge/thunderg/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
 
 # GPS
 PRODUCT_COPY_FILES += \
-    device/lge/thunderg/gps.conf:system/etc/gps.conf \
     device/lge/thunderg/loc_parameter.ini:system/etc/loc_parameter.ini \
 
 # Device permissions
@@ -179,11 +186,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
-    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml 
-
-# Neccesary Files
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/bin/qmuxd:system/bin/qmuxd \
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml
 
 # Touchscreen firmware updater
 PRODUCT_COPY_FILES += \
@@ -195,7 +198,9 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 # RIL
 PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/bin/qmuxd:system/bin/qmuxd \
     vendor/lge/thunderg/proprietary/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
+    vendor/lge/thunderg/proprietary/lib/libril-qc-qmi-1.so:system/lib/libril-qc-qmi-1.so \
     vendor/lge/thunderg/proprietary/lib/liboncrpc.so:system/lib/liboncrpc.so \
     vendor/lge/thunderg/proprietary/lib/libdsm.so:system/lib/libdsm.so \
     vendor/lge/thunderg/proprietary/lib/libqueue.so:system/lib/libqueue.so \
@@ -213,14 +218,19 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/liboem_rapi.so:system/lib/liboem_rapi.so \
     vendor/lge/thunderg/proprietary/lib/libsnd.so:system/lib/libsnd.so \
     vendor/lge/thunderg/proprietary/lib/libqmi.so:system/lib/libqmi.so \
-    vendor/lge/thunderg/proprietary/lib/libdll.so:system/lib/libdll.so \
-    vendor/lge/thunderg/proprietary/lib/liblgeat.so:system/lib/liblgeat.so \
-    vendor/lge/thunderg/proprietary/lib/liblgdrm.so:system/lib/liblgdrm.so \
-    vendor/lge/thunderg/proprietary/lib/liblgdrmwbxml.so:system/lib/liblgdrmwbxml.so \
-    vendor/lge/thunderg/proprietary/lib/liblgerft.so:system/lib/liblgerft.so \
     vendor/lge/thunderg/proprietary/lib/libbcmwl.so:system/lib/libbcmwl.so \
     vendor/lge/thunderg/proprietary/lib/libdss.so:system/lib/libdss.so \
     vendor/lge/thunderg/proprietary/bin/rild:system/bin/rild \
+
+# LG DivX
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/lib/liblgeat.so:system/lib/liblgeat.so \
+    vendor/lge/thunderg/proprietary/lib/liblgdrm.so:system/lib/liblgdrm.so \
+    vendor/lge/thunderg/proprietary/lib/libdivxdrmdecrypt.so:system/lib/libdivxdrmdecrypt.so \
+    vendor/lge/thunderg/proprietary/lib/liblgerft.so:system/lib/liblgerft.so \
+    vendor/lge/thunderg/proprietary/lib/libmmparser_divxdrmlib.so:system/lib/libmmparser_divxdrmlib.so \
+    vendor/lge/thunderg/proprietary/lib/libnextstreaming_divx_drm16_service.so:system/lib/libnextstreaming_divx_drm16_service.so \
+    
      
 
 # propietary libril
@@ -237,21 +247,16 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libOmxAmrEnc.so:system/lib/libOmxAmrEnc.so \
     vendor/lge/thunderg/proprietary/lib/libOmxAmrRtpDec.so:system/lib/libOmxAmrRtpDec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxAmrwbDec.so:system/lib/libOmxAmrwbDec.so \
-    vendor/lge/thunderg/proprietary/lib/libOmxEvrcDec.so:system/lib/libOmxEvrcDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxEvrcHwDec.so:system/lib/libOmxEvrcDec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxEvrcEnc.so:system/lib/libOmxEvrcEnc.so \
     vendor/lge/thunderg/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxMp3Dec.so:system/lib/libOmxMp3Dec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxQcelp13Enc.so:system/lib/libOmxQcelp13Enc.so \
-    vendor/lge/thunderg/proprietary/lib/libOmxQcelpDec.so:system/lib/libOmxQcelpDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxQcelpHwDec.so:system/lib/libOmxQcelpDec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
     vendor/lge/thunderg/proprietary/lib/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so \
-
-# wipeirface (What is this?)
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/bin/wiperiface:system/bin/wiperiface \
-    vendor/lge/thunderg/proprietary/etc/wiperconfig.xml:system/etc/wiperconfig.xml \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
@@ -259,16 +264,19 @@ PRODUCT_COPY_FILES += \
 
 # Files Needed For Wifi Calling
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/libganril.so:system/lib/libganril.so \
-    vendor/lge/thunderg/proprietary/lib/librilswitch.so:system/lib/librilswitch.so \
-    vendor/lge/thunderg/proprietary/lib/libkineto.so:system/lib/libkineto.so \
-    vendor/lge/thunderg/proprietary/app/Kineto.apk:system/app/Kineto.apk 
+    device/lge/thunderg/Kineto/libganril.so:system/lib/libganril.so \
+    device/lge/thunderg/Kineto/librilswitch.so:system/lib/librilswitch.so \
+    device/lge/thunderg/Kineto/libkineto.so:system/lib/libkineto.so \
+    device/lge/thunderg/Kineto/Kineto.apk:system/app/Kineto.apk 
 
 # LG Scripts
 PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/etc/init.brcm.sh:system/etc/init.brcm.sh \
+    vendor/lge/thunderg/proprietary/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
     vendor/lge/thunderg/proprietary/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
-
-
+    vendor/lge/thunderg/proprietary/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
+    vendor/lge/thunderg/proprietary/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh 
+    
 # Flex
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/flex/flex.db:system/etc/flex/flex.db \
