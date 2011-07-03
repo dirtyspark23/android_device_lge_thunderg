@@ -263,10 +263,10 @@ PRODUCT_COPY_FILES += \
 
 # Files Needed For Wifi Calling
 PRODUCT_COPY_FILES += \
-    device/lge/thunderg/Kineto/libganril.so:system/lib/libganril.so \
-    device/lge/thunderg/Kineto/librilswitch.so:system/lib/librilswitch.so \
-    device/lge/thunderg/Kineto/libkineto.so:system/lib/libkineto.so \
-    device/lge/thunderg/Kineto/Kineto.apk:system/app/Kineto.apk 
+    #device/lge/thunderg/Kineto/libganril.so:system/lib/libganril.so \
+    #device/lge/thunderg/Kineto/librilswitch.so:system/lib/librilswitch.so \
+    #device/lge/thunderg/Kineto/libkineto.so:system/lib/libkineto.so \
+    #device/lge/thunderg/Kineto/Kineto.apk:system/app/Kineto.apk 
 
 # LG Scripts
 PRODUCT_COPY_FILES += \
