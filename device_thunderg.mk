@@ -230,7 +230,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libdivxdrmdecrypt.so:system/lib/libdivxdrmdecrypt.so \
     vendor/lge/thunderg/proprietary/lib/liblgerft.so:system/lib/liblgerft.so \
     vendor/lge/thunderg/proprietary/lib/libmmparser_divxdrmlib.so:system/lib/libmmparser_divxdrmlib.so \
-    vendor/lge/thunderg/proprietary/lib/libnextstreaming_divx_drm16_service.so:system/lib/libnextstreaming_divx_drm16_service.so \
+    vendor/lge/thunderg/proprietary/lib/libnextreaming_divx_drm16_service.so:system/lib/libnextreaming_divx_drm16_service.so \
     
      
 
