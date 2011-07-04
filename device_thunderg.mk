@@ -44,8 +44,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.sf.lcd_density=160 \
-   ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
-   ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
    ro.com.google.clientidbase=android-hms-tmobile-us \
    ro.com.google.clientidbase.gmm=android-lge \
    ro.com.google.clientidbase.yt=android-lge \
