@@ -38,9 +38,11 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     lights.thunderg \
-    gralloc.thunderg \
-    copybit.thunderg \
-    gps.thunderg
+    gralloc.msm7k \
+    copybit.msm7k \
+    gps.thunderg \
+    libOmxVidEnc \
+    com.android.future.usb.accessory
 
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.sf.lcd_density=160 \
@@ -57,6 +59,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.ril.hsxpa=2 \
    wifi.supplicant_scan_interval=120 \
    debug.sf.hw=1 \
+   
    ro.opengles.version=131072 \
    ro.ril.hsdpa.category=8 \
    ro.ril.hsupa.category=5 \
@@ -181,7 +184,8 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
-    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 
 # Touchscreen firmware updater
 PRODUCT_COPY_FILES += \
