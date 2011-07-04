@@ -138,10 +138,8 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
-    #vendor/lge/thunderg/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
-    #vendor/lge/thunderg/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
-    vendor/lge/thunderg/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
-    vendor/lge/thunderg/proprietary/lib/libcamera.so:system/lib/libcamera.so \
+    vendor/lge/thunderg/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
+    vendor/lge/thunderg/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
    
 
 # Wifi
