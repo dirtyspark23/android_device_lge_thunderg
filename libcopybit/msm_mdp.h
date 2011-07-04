@@ -40,7 +40,10 @@
 					struct mdp_page_protection)
 #define MSMFB_OVERLAY_GET      _IOR(MSMFB_IOCTL_MAGIC, 140, \
 						struct mdp_overlay)
-#define MSMFB_OVERLAY_PLAY_ENABLE     _IOW(MSMFB_IOCTL_MAGIC, 141, unsigned int)
+
+/* new ioctls for async MDP ops */
+#define MSMFB_ASYNC_BLIT _IOW(MSMFB_IOCTL_MAGIC, 141, unsigned int)
+#define MSMFB_BLIT_FLUSH _IOR(MSMFB_IOCTL_MAGIC, 142, unsigned int)
 
 #define MDP_IMGTYPE2_START 0x10000
 
@@ -56,7 +59,6 @@ enum {
 	MDP_Y_CBCR_H2V1,   /* Y and CrCb, pseduo planer w/ Cr is in MSB */
 	MDP_RGBA_8888,    /* ARGB 888 */
 	MDP_BGRA_8888,	  /* ABGR 888 */
-	MDP_RGBX_8888,	  /* RGBX 888 */
 	MDP_Y_CRCB_H2V2_TILE,  /* Y and CrCb, pseudo planer tile */
 	MDP_Y_CBCR_H2V2_TILE,  /* Y and CbCr, pseudo planer tile */
 	MDP_IMGTYPE_LIMIT,
@@ -80,8 +82,10 @@ enum {
 #define MDP_DITHER 0x8
 #define MDP_BLUR 0x10
 #define MDP_BLEND_FG_PREMULT 0x20000
-#define MDP_DEINTERLACE 0x80000000
-#define MDP_SHARPENING  0x40000000
+
+#define MDP_DEINTERLACE 	0x80000000
+#define MDP_SHARPENING  	0x40000000
+
 #define MDP_NO_DMA_BARRIER_START	0x20000000
 #define MDP_NO_DMA_BARRIER_END		0x10000000
 #define MDP_NO_BLIT			0x08000000
@@ -90,6 +94,9 @@ enum {
 	(MDP_NO_DMA_BARRIER_START | MDP_NO_DMA_BARRIER_END)
 #define MDP_TRANSP_NOP 0xffffffff
 #define MDP_ALPHA_NOP 0xff
+
+#define MDP_BLIT_SRC_GEM	0x02000000 /* set for GEM, clear for PMEM */
+#define MDP_BLIT_DST_GEM	0x01000000 /* set for GEM, clear for PMEM */
 
 #define MDP_FB_PAGE_PROTECTION_NONCACHED         (0)
 #define MDP_FB_PAGE_PROTECTION_WRITECOMBINE      (1)
@@ -114,6 +121,7 @@ struct mdp_img {
 	uint32_t format;
 	uint32_t offset;
 	int memory_id;		/* the file descriptor */
+	uint32_t priv;
 };
 
 /*
@@ -131,6 +139,13 @@ struct mdp_ccs {
 	uint16_t ccs[MDP_CCS_SIZE];	/* 3x3 color coefficients */
 	uint16_t bv[MDP_BV_SIZE];	/* 1x3 bias vector */
 };
+
+/* The version of the mdp_blit_req structure so that
+ * user applications can selectively decide which functionality
+ * to include
+ */
+
+#define MDP_BLIT_REQ_VERSION 2
 
 struct mdp_blit_req {
 	struct mdp_img src;
@@ -190,6 +205,41 @@ struct mdp_histogram {
 
 struct mdp_page_protection {
 	uint32_t page_protection;
+};
+
+
+struct msm_panel_common_pdata {
+	int gpio;
+	int (*backlight_level)(int level, int max, int min);
+	int (*pmic_backlight)(int level);
+	int (*panel_num)(void);
+	void (*panel_config_gpio)(int);
+	int *gpio_num;
+};
+
+struct lcdc_platform_data {
+	int (*lcdc_gpio_config)(int on);
+	void (*lcdc_power_save)(int);
+};
+
+struct tvenc_platform_data {
+	int (*pm_vid_en)(int on);
+};
+
+struct mddi_platform_data {
+	void (*mddi_power_save)(int on);
+	int (*mddi_sel_clk)(u32 *clk_rate);
+};
+
+struct msm_fb_platform_data {
+	int (*detect_client)(const char *name);
+	int mddi_prescan;
+	int (*allow_set_offset)(void);
+};
+
+struct msm_hdmi_platform_data {
+	int irq;
+	int (*cable_detect)(int insert);
 };
 
 #endif /*_MSM_MDP_H_*/

@@ -62,8 +62,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.opengles.version=131072 \
    ro.ril.hsdpa.category=8 \
    ro.ril.hsupa.category=5 \
-   ro.telephony.call_ring.multiple=false \
-   windowsmgr.max_events_per_sec=260 \
    dalvik.vm.lockprof.threshold=500 \
    dalvik.vm.dexopt-flags=m=y \
    mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
@@ -86,12 +84,10 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderg/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
     device/lge/thunderg/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin
    
-# Board-specific init (Supports off-state charging) Still working on boot animation
+# Board-specific init
 PRODUCT_COPY_FILES += \
-    device/lge/thunderg/init:root/init \
     device/lge/thunderg/init.qcom.rc:root/init.qcom.rc \
     device/lge/thunderg/init.qcom.sh:root/init.qcom.sh \
-    device/lge/thunderg/init.rc:root/init.rc \
     device/lge/thunderg/init.thunderg.rc:root/init.thunderg.rc \
     device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
     device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle \
