@@ -57,9 +57,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.setupwizard.enable_bypass=1 \
    ro.ril.gprsclass=10 \
    ro.ril.hsxpa=2 \
-   wifi.supplicant_scan_interval=120 \
+   ro.ril.enable.dtm=0 \
+   wifi.supplicant_scan_interval=45 \
    debug.sf.hw=1 \
-   
+   debug.composition.type=mdp \
    ro.opengles.version=131072 \
    ro.ril.hsdpa.category=8 \
    ro.ril.hsupa.category=5 \
@@ -137,8 +138,9 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
-    vendor/lge/thunderg/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
-    vendor/lge/thunderg/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    #vendor/lge/thunderg/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
+    #vendor/lge/thunderg/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    vendor/lge/thunderg/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
    
 
 # Wifi
