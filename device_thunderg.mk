@@ -17,6 +17,7 @@
 # This is the product configuration for a T-Mobile GSM Optimus T,
 # Specifically for use in USA (This configuration is also used to enable Wifi Calling only on T-Mobile USA.
 #
+#
 
 $(call inherit-product, build/target/product/full_base.mk)
 
@@ -38,6 +39,7 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     lights.thunderg \
+    copybit.thunderg \
     gps.thunderg \
     libOmxVidEnc \
     com.android.future.usb.accessory
@@ -58,7 +60,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.ril.enable.dtm=0 \
    wifi.supplicant_scan_interval=45 \
    debug.sf.hw=1 \
-   debug.composition.type=mdp \
    ro.opengles.version=131072 \
    ro.ril.hsdpa.category=8 \
    ro.ril.hsupa.category=5 \
@@ -86,47 +87,47 @@ PRODUCT_COPY_FILES += \
    
 # Board-specific init
 PRODUCT_COPY_FILES += \
-    device/lge/thunderg/init.qcom.rc:root/init.qcom.rc \
-    device/lge/thunderg/init.qcom.sh:root/init.qcom.sh \
+    #device/lge/thunderg/init.qcom.rc:root/init.qcom.rc \
+    #device/lge/thunderg/init.qcom.sh:root/init.qcom.sh \
     device/lge/thunderg/init.thunderg.rc:root/init.thunderg.rc \
     device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
     device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle \
-    device/lge/thunderg/ramdisk/sbin/chargerlogo:root/sbin/chargerlogo \
-    device/lge/thunderg/ramdisk/sbin/ftm_power:root/sbin/ftm_power \
-    device/lge/thunderg/ramdisk/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_ani_02.rle:root/chargerimages/battery_ani_02.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_ani_03.rle:root/chargerimages/battery_ani_03.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_ani_04.rle:root/chargerimages/battery_ani_04.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_ani_05.rle:root/chargerimages/battery_ani_05.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_charging_01.rle:root/chargerimages/battery_charging_01.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_charging_02.rle:root/chargerimages/battery_charging_02.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_charging_03.rle:root/chargerimages/battery_charging_03.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_charging_04.rle:root/chargerimages/battery_charging_04.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_charging_05.rle:root/chargerimages/battery_charging_05.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_charging_06.rle:root/chargerimages/battery_charging_06.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_01.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_02.rle \
-    device/lge/thunderg/ramdisk/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
-    device/lge/thunderg/ramdisk/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle
+    #device/lge/thunderg/ramdisk/sbin/chargerlogo:root/sbin/chargerlogo \
+    #device/lge/thunderg/ramdisk/sbin/ftm_power:root/sbin/ftm_power \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_ani_02.rle:root/chargerimages/battery_ani_02.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_ani_03.rle:root/chargerimages/battery_ani_03.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_ani_04.rle:root/chargerimages/battery_ani_04.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_ani_05.rle:root/chargerimages/battery_ani_05.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_01.rle:root/chargerimages/battery_charging_01.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_02.rle:root/chargerimages/battery_charging_02.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_03.rle:root/chargerimages/battery_charging_03.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_04.rle:root/chargerimages/battery_charging_04.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_05.rle:root/chargerimages/battery_charging_05.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_06.rle:root/chargerimages/battery_charging_06.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_01.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_02.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
+    #device/lge/thunderg/ramdisk/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle
 
 # Graphics
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.msm7k.so \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/copybit.msm7k.so 
+    vendor/lge/thunderg/proprietary/lib/hw/gralloc.thunderg.so:system/lib/hw/gralloc.thunderg.so \
+
 # CND
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/bin/cnd:system/bin/cnd \
+    #vendor/lge/thunderg/proprietary/bin/cnd:system/bin/cnd \
 
 
 # Media Configuration XML File
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/media_profiles.xml:system/etc/media_profiles.xml
 
-# Sensors
+# Sensors (Proprietary V20G)
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/hw/sensors.thunderg.so:system/lib/hw/sensors.thunderg.so \
-    vendor/lge/thunderg/proprietary/bin/ami304d:system/bin/ami304d \
+    device/lge/thunderg/prebuilt/lib/hw/sensors.thunderg.so:system/lib/hw/sensors.thunderg.so \
+    device/lge/thunderg/prebuilt/bin/ami304d:system/bin/ami304d \
 
 # 3D
 PRODUCT_COPY_FILES += \
@@ -158,11 +159,11 @@ PRODUCT_COPY_FILES += \
 
 # Qualcomm Libra Wireless Firmware
 PROUDCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/etc/firmware/wlan/cfg.dat:system/etc/firmware/wlan/cfg.dat \
-    vendor/lge/thunderg/proprietary/etc/firmware/wlan/qcom_cfg.ini:system/etc/firmware/wlan/qcom_cfg.ini \
-    vendor/lge/thunderg/proprietary/etc/firmware/wlan/qcom_fw.bin:system/etc/firmware/wlan/qcom_fw.bin \
-    device/lge/thunderg/prebuilt/lib/modules/librasdioif.ko:system/lib/modules/librasdioif.so \
-    vendor/lge/thunderg/proprietary/lib/modules/libra.ko:system/lib/modules/libra.ko \
+    #vendor/lge/thunderg/proprietary/etc/firmware/wlan/cfg.dat:system/etc/firmware/wlan/cfg.dat \
+    #vendor/lge/thunderg/proprietary/etc/firmware/wlan/qcom_cfg.ini:system/etc/firmware/wlan/qcom_cfg.ini \
+    #vendor/lge/thunderg/proprietary/etc/firmware/wlan/qcom_fw.bin:system/etc/firmware/wlan/qcom_fw.bin \
+    #device/lge/thunderg/prebuilt/lib/modules/librasdioif.ko:system/lib/modules/librasdioif.so \
+    #vendor/lge/thunderg/proprietary/lib/modules/libra.ko:system/lib/modules/libra.ko \
    
 # SD Card
 PRODUCT_COPY_FILES += \
@@ -171,7 +172,7 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
-    vendor/lge/thunderg/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    device/lge/thunderg/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -201,45 +202,43 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 # RIL
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/bin/qmuxd:system/bin/qmuxd \
-    vendor/lge/thunderg/proprietary/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
-    vendor/lge/thunderg/proprietary/lib/libril-qc-qmi-1.so:system/lib/libril-qc-qmi-1.so \
-    vendor/lge/thunderg/proprietary/lib/liboncrpc.so:system/lib/liboncrpc.so \
-    vendor/lge/thunderg/proprietary/lib/libdsm.so:system/lib/libdsm.so \
-    vendor/lge/thunderg/proprietary/lib/libqueue.so:system/lib/libqueue.so \
-    vendor/lge/thunderg/proprietary/lib/libdiag.so:system/lib/libdiag.so \
-    vendor/lge/thunderg/proprietary/lib/libauth.so:system/lib/libauth.so \
-    vendor/lge/thunderg/proprietary/lib/libcm.so:system/lib/libcm.so \
-    vendor/lge/thunderg/proprietary/lib/libnv.so:system/lib/libnv.so \
-    vendor/lge/thunderg/proprietary/lib/libpbmlib.so:system/lib/libpbmlib.so \
-    vendor/lge/thunderg/proprietary/lib/libwms.so:system/lib/libwms.so \
-    vendor/lge/thunderg/proprietary/lib/libwmsts.so:system/lib/libwmsts.so \
-    vendor/lge/thunderg/proprietary/lib/libmmgsdilib.so:system/lib/libmmgsdilib.so \
-    vendor/lge/thunderg/proprietary/lib/libgsdi_exp.so:system/lib/libgsdi_exp.so \
-    vendor/lge/thunderg/proprietary/lib/libgstk_exp.so:system/lib/libgstk_exp.so \
-    vendor/lge/thunderg/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
-    vendor/lge/thunderg/proprietary/lib/liboem_rapi.so:system/lib/liboem_rapi.so \
-    vendor/lge/thunderg/proprietary/lib/libsnd.so:system/lib/libsnd.so \
-    vendor/lge/thunderg/proprietary/lib/libqmi.so:system/lib/libqmi.so \
-    vendor/lge/thunderg/proprietary/lib/libbcmwl.so:system/lib/libbcmwl.so \
-    vendor/lge/thunderg/proprietary/lib/libdss.so:system/lib/libdss.so \
-    vendor/lge/thunderg/proprietary/bin/rild:system/bin/rild \
+    device/lge/thunderg/proprietary/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
+    device/lge/thunderg/proprietary/lib/liboncrpc.so:system/lib/liboncrpc.so \
+    device/lge/thunderg/proprietary/lib/libdsm.so:system/lib/libdsm.so \
+    device/lge/thunderg/proprietary/lib/libqueue.so:system/lib/libqueue.so \
+    device/lge/thunderg/proprietary/lib/libdiag.so:system/lib/libdiag.so \
+    device/lge/thunderg/proprietary/lib/libauth.so:system/lib/libauth.so \
+    device/lge/thunderg/proprietary/lib/libcm.so:system/lib/libcm.so \
+    device/lge/thunderg/proprietary/lib/libnv.so:system/lib/libnv.so \
+    device/lge/thunderg/proprietary/lib/libpbmlib.so:system/lib/libpbmlib.so \
+    device/lge/thunderg/proprietary/lib/libwms.so:system/lib/libwms.so \
+    device/lge/thunderg/proprietary/lib/libwmsts.so:system/lib/libwmsts.so \
+    device/lge/thunderg/proprietary/lib/libmmgsdilib.so:system/lib/libmmgsdilib.so \
+    device/lge/thunderg/proprietary/lib/libgsdi_exp.so:system/lib/libgsdi_exp.so \
+    device/lge/thunderg/proprietary/lib/libgstk_exp.so:system/lib/libgstk_exp.so \
+    device/lge/thunderg/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
+    device/lge/thunderg/proprietary/lib/liboem_rapi.so:system/lib/liboem_rapi.so \
+    device/lge/thunderg/proprietary/lib/libsnd.so:system/lib/libsnd.so \
+    device/lge/thunderg/proprietary/lib/libqmi.so:system/lib/libqmi.so \
+    device/lge/thunderg/proprietary/lib/libdll.so:system/lib/libdll.so \
+    device/lge/thunderg/proprietary/lib/liblgeat.so:system/lib/liblgeat.so \
+    device/lge/thunderg/proprietary/lib/liblgdrm.so:system/lib/liblgdrm.so \
+    device/lge/thunderg/proprietary/lib/liblgdrmwbxml.so:system/lib/liblgdrmwbxml.so \
+    device/lge/thunderg/proprietary/lib/liblgerft.so:system/lib/liblgerft.so \
+    device/lge/thunderg/proprietary/lib/libbcmwl.so:system/lib/libbcmwl.so \
+    device/lge/thunderg/proprietary/lib/libdss.so:system/lib/libdss.so \
+    device/lge/thunderg/proprietary/lib/libril.so:system/lib/libril.so \
+    device/lge/thunderg/proprietary/bin/rild:system/bin/rild \
 
 # LG DivX
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/liblgeat.so:system/lib/liblgeat.so \
-    vendor/lge/thunderg/proprietary/lib/liblgdrm.so:system/lib/liblgdrm.so \
-    vendor/lge/thunderg/proprietary/lib/libdivxdrmdecrypt.so:system/lib/libdivxdrmdecrypt.so \
-    vendor/lge/thunderg/proprietary/lib/liblgerft.so:system/lib/liblgerft.so \
-    vendor/lge/thunderg/proprietary/lib/libmmparser_divxdrmlib.so:system/lib/libmmparser_divxdrmlib.so \
-    vendor/lge/thunderg/proprietary/lib/libnextreaming_divx_drm16_service.so:system/lib/libnextreaming_divx_drm16_service.so \
+    #vendor/lge/thunderg/proprietary/lib/liblgeat.so:system/lib/liblgeat.so \
+    #vendor/lge/thunderg/proprietary/lib/liblgdrm.so:system/lib/liblgdrm.so \
+    #vendor/lge/thunderg/proprietary/lib/libdivxdrmdecrypt.so:system/lib/libdivxdrmdecrypt.so \
+    #vendor/lge/thunderg/proprietary/lib/liblgerft.so:system/lib/liblgerft.so \
+    #vendor/lge/thunderg/proprietary/lib/libmmparser_divxdrmlib.so:system/lib/libmmparser_divxdrmlib.so \
+    #vendor/lge/thunderg/proprietary/lib/libnextreaming_divx_drm16_service.so:system/lib/libnextreaming_divx_drm16_service.so \
     
-     
-
-# propietary libril
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/libril.so:system/lib/libril.so \
-
 # OMX
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
@@ -250,13 +249,13 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libOmxAmrEnc.so:system/lib/libOmxAmrEnc.so \
     vendor/lge/thunderg/proprietary/lib/libOmxAmrRtpDec.so:system/lib/libOmxAmrRtpDec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxAmrwbDec.so:system/lib/libOmxAmrwbDec.so \
-    vendor/lge/thunderg/proprietary/lib/libOmxEvrcHwDec.so:system/lib/libOmxEvrcDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxEvrcDec.so:system/lib/libOmxEvrcDec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxEvrcEnc.so:system/lib/libOmxEvrcEnc.so \
     vendor/lge/thunderg/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxMp3Dec.so:system/lib/libOmxMp3Dec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxQcelp13Enc.so:system/lib/libOmxQcelp13Enc.so \
-    vendor/lge/thunderg/proprietary/lib/libOmxQcelpHwDec.so:system/lib/libOmxQcelpDec.so \
+    vendor/lge/thunderg/proprietary/lib/libOmxQcelpDec.so:system/lib/libOmxQcelpDec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
     vendor/lge/thunderg/proprietary/lib/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \
     vendor/lge/thunderg/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so \
@@ -267,18 +266,18 @@ PRODUCT_COPY_FILES += \
 
 # Files Needed For Wifi Calling
 PRODUCT_COPY_FILES += \
-    #device/lge/thunderg/Kineto/libganril.so:system/lib/libganril.so \
-    #device/lge/thunderg/Kineto/librilswitch.so:system/lib/librilswitch.so \
-    #device/lge/thunderg/Kineto/libkineto.so:system/lib/libkineto.so \
-    #device/lge/thunderg/Kineto/Kineto.apk:system/app/Kineto.apk 
+    device/lge/thunderg/Kineto/libganril.so:system/lib/libganril.so \
+    device/lge/thunderg/Kineto/librilswitch.so:system/lib/librilswitch.so \
+    device/lge/thunderg/Kineto/libkineto.so:system/lib/libkineto.so \
+    device/lge/thunderg/Kineto/Kineto.apk:system/app/Kineto.apk 
 
 # LG Scripts
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/etc/init.brcm.sh:system/etc/init.brcm.sh \
-    vendor/lge/thunderg/proprietary/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    vendor/lge/thunderg/proprietary/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
-    vendor/lge/thunderg/proprietary/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
-    vendor/lge/thunderg/proprietary/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh 
+    #vendor/lge/thunderg/proprietary/etc/init.brcm.sh:system/etc/init.brcm.sh \
+    #vendor/lge/thunderg/proprietary/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+    #vendor/lge/thunderg/proprietary/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
+    #vendor/lge/thunderg/proprietary/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
+    #vendor/lge/thunderg/proprietary/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh 
     
 # Flex
 PRODUCT_COPY_FILES += \
