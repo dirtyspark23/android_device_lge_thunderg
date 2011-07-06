@@ -202,6 +202,7 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 # RIL
 PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/bin/qmuxd:system/bin/qmuxd \
     device/lge/thunderg/proprietary/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
     device/lge/thunderg/proprietary/lib/liboncrpc.so:system/lib/liboncrpc.so \
     device/lge/thunderg/proprietary/lib/libdsm.so:system/lib/libdsm.so \
