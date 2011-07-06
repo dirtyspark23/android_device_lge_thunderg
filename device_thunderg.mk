@@ -15,7 +15,7 @@
 #
 #
 # This is the product configuration for a T-Mobile GSM Optimus T,
-# Specifically for use in USA.
+# Specifically for use in USA (This configuration is also used to enable Wifi Calling only on T-Mobile USA.
 #
 
 $(call inherit-product, build/target/product/full_base.mk)
@@ -38,8 +38,6 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     lights.thunderg \
-    gralloc.msm7k \
-    copybit.msm7k \
     gps.thunderg \
     libOmxVidEnc \
     com.android.future.usb.accessory
@@ -111,6 +109,11 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderg/ramdisk/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
     device/lge/thunderg/ramdisk/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle
 
+# Graphics
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
+    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.msm7k.so \
+    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/copybit.msm7k.so 
 # CND
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/bin/cnd:system/bin/cnd \
