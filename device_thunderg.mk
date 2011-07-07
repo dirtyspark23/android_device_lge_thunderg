@@ -38,6 +38,8 @@ PRODUCT_PACKAGES += \
     librs_jni \
     libmm-omxcore \
     libOmxCore \
+    copybit.thunderg \
+    gralloc.thunderg \
     lights.thunderg \
     gps.thunderg \
     libOmxVidEnc \
@@ -90,13 +92,6 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
     device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle \
     device/lge/thunderg/init.rc:root/init.rc \
-
-# Graphics
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietaryging/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
-    vendor/lge/thunderg/proprietaryging/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
-    vendor/lge/thunderg/proprietaryging/lib/hw/gralloc.msm7k.so:system/lib/hw/copybit.msm7k.so
-    
 
 # Media Configuration XML File
 PRODUCT_COPY_FILES += \
