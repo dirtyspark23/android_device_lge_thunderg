@@ -20,6 +20,7 @@ TARGET_SF_NEEDS_REAL_DIMENSIONS := true
 TARGET_ELECTRONBEAM_FRAMES := 10
 
 TARGET_PROVIDES_INIT_TARGET_RC := true
+TARGET_PROVIDES_INIT_RC := true
 
 TARGET_OTA_ASSERT_DEVICE := thunderg
 
@@ -51,6 +52,8 @@ WIFI_DRIVER_MODULE_NAME := "wireless"
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
 WIFI_DRIVER_HAS_LGE_SOFTAP := true
+
+BOARD_EGL_CFG := device/lge/thunderg/egl.cfg
 
 BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderg
 BOARD_KERNEL_BASE := 0x12800000

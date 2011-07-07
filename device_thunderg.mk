@@ -39,7 +39,6 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     lights.thunderg \
-    copybit.thunderg \
     gps.thunderg \
     libOmxVidEnc \
     com.android.future.usb.accessory
@@ -53,7 +52,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.com.google.clientidbase.vs=android-lge \
    ro.com.google.locationfeatures=1 \
    ro.com.google.networklocation=1 \
-   ro.com.google.gmsversion=2.3_r3 \
+   ro.com.google.gmsversion=2.3_r4 \
    ro.setupwizard.enable_bypass=1 \
    ro.ril.gprsclass=10 \
    ro.ril.hsxpa=2 \
@@ -87,38 +86,17 @@ PRODUCT_COPY_FILES += \
    
 # Board-specific init
 PRODUCT_COPY_FILES += \
-    #device/lge/thunderg/init.qcom.rc:root/init.qcom.rc \
-    #device/lge/thunderg/init.qcom.sh:root/init.qcom.sh \
     device/lge/thunderg/init.thunderg.rc:root/init.thunderg.rc \
     device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
     device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle \
-    #device/lge/thunderg/ramdisk/sbin/chargerlogo:root/sbin/chargerlogo \
-    #device/lge/thunderg/ramdisk/sbin/ftm_power:root/sbin/ftm_power \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_ani_02.rle:root/chargerimages/battery_ani_02.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_ani_03.rle:root/chargerimages/battery_ani_03.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_ani_04.rle:root/chargerimages/battery_ani_04.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_ani_05.rle:root/chargerimages/battery_ani_05.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_01.rle:root/chargerimages/battery_charging_01.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_02.rle:root/chargerimages/battery_charging_02.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_03.rle:root/chargerimages/battery_charging_03.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_04.rle:root/chargerimages/battery_charging_04.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_05.rle:root/chargerimages/battery_charging_05.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_charging_06.rle:root/chargerimages/battery_charging_06.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_01.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_02.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
-    #device/lge/thunderg/ramdisk/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle
+    device/lge/thunderg/init.rc:root/init.rc \
 
 # Graphics
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.thunderg.so:system/lib/hw/gralloc.thunderg.so \
-
-# CND
-PRODUCT_COPY_FILES += \
-    #vendor/lge/thunderg/proprietary/bin/cnd:system/bin/cnd \
-
+    vendor/lge/thunderg/proprietaryging/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
+    vendor/lge/thunderg/proprietaryging/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
+    vendor/lge/thunderg/proprietaryging/lib/hw/gralloc.msm7k.so:system/lib/hw/copybit.msm7k.so
+    
 
 # Media Configuration XML File
 PRODUCT_COPY_FILES += \
@@ -157,14 +135,6 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
     vendor/lge/thunderg/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin 
 
-# Qualcomm Libra Wireless Firmware
-PROUDCT_COPY_FILES += \
-    #vendor/lge/thunderg/proprietary/etc/firmware/wlan/cfg.dat:system/etc/firmware/wlan/cfg.dat \
-    #vendor/lge/thunderg/proprietary/etc/firmware/wlan/qcom_cfg.ini:system/etc/firmware/wlan/qcom_cfg.ini \
-    #vendor/lge/thunderg/proprietary/etc/firmware/wlan/qcom_fw.bin:system/etc/firmware/wlan/qcom_fw.bin \
-    #device/lge/thunderg/prebuilt/lib/modules/librasdioif.ko:system/lib/modules/librasdioif.so \
-    #vendor/lge/thunderg/proprietary/lib/modules/libra.ko:system/lib/modules/libra.ko \
-   
 # SD Card
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/vold.fstab:system/etc/vold.fstab \
@@ -228,18 +198,9 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/liblgerft.so:system/lib/liblgerft.so \
     vendor/lge/thunderg/proprietary/lib/libbcmwl.so:system/lib/libbcmwl.so \
     vendor/lge/thunderg/proprietary/lib/libdss.so:system/lib/libdss.so \
-    vendor/lge/thunderg/proprietary/lib/libril.so:system/lib/libril.so \
     vendor/lge/thunderg/proprietary/bin/rild:system/bin/rild \
-
-# LG DivX
-PRODUCT_COPY_FILES += \
-    #vendor/lge/thunderg/proprietary/lib/liblgeat.so:system/lib/liblgeat.so \
-    #vendor/lge/thunderg/proprietary/lib/liblgdrm.so:system/lib/liblgdrm.so \
-    #vendor/lge/thunderg/proprietary/lib/libdivxdrmdecrypt.so:system/lib/libdivxdrmdecrypt.so \
-    #vendor/lge/thunderg/proprietary/lib/liblgerft.so:system/lib/liblgerft.so \
-    #vendor/lge/thunderg/proprietary/lib/libmmparser_divxdrmlib.so:system/lib/libmmparser_divxdrmlib.so \
-    #vendor/lge/thunderg/proprietary/lib/libnextreaming_divx_drm16_service.so:system/lib/libnextreaming_divx_drm16_service.so \
-    
+    vendor/lge/thunderg/proprietary/lib/libril.so:system/lib/libril.so
+   
 # OMX
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
@@ -270,20 +231,12 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderg/Kineto/libganril.so:system/lib/libganril.so \
     device/lge/thunderg/Kineto/librilswitch.so:system/lib/librilswitch.so \
     device/lge/thunderg/Kineto/libkineto.so:system/lib/libkineto.so \
-    device/lge/thunderg/Kineto/Kineto.apk:system/app/Kineto.apk 
+    device/lge/thunderg/Kineto/Kineto.apk:system/app/Kineto.apk
 
-# LG Scripts
-PRODUCT_COPY_FILES += \
-    #vendor/lge/thunderg/proprietary/etc/init.brcm.sh:system/etc/init.brcm.sh \
-    #vendor/lge/thunderg/proprietary/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    #vendor/lge/thunderg/proprietary/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
-    #vendor/lge/thunderg/proprietary/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
-    #vendor/lge/thunderg/proprietary/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh 
-    
 # Flex
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/etc/flex/flex.db:system/etc/flex/flex.db \
-    vendor/lge/thunderg/proprietary/etc/flex/flex.xml:system/etc/flex/flex.xml \
+    vendor/lge/thunderg/proprietary/etc/flex/flex.xml:system/etc/flex/flex.xml
 
 # netmgr (What is this?)
 PRODUCT_COPY_FILES += \

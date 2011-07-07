@@ -9,49 +9,34 @@ on boot-pause
 
 on boot
 	chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
-	chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
-	chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
 	chown bluetooth bluetooth /proc/bluetooth/sleep/proto
 	chown system system /sys/module/sco/parameters/disable_esco
 	chmod 0660 /sys/module/bluetooth_power/parameters/power
-	chmod 0660 /sys/class/rfkill/rfkill0/state
+    chmod 0660 /sys/class/rfkill/rfkill0/state
 	chmod 0660 /proc/bluetooth/sleep/proto
 	chown bluetooth bluetooth /dev/ttyHS0
 	chmod 0660 /dev/ttyHS0
 	chmod 0666 /dev/msm_snd
 ## VIBRATOR
-    chmod 0660 /sys/class/timed_output/vibrator/amp
+    chmod 0666 /sys/class/timed_output/vibrator/amp
 ## SENSOR
-	chown compass system /dev/ami304
-	chmod 0640 dev/ami304
-	chown compass system /dev/ami304daemon
-	chmod 0640 dev/ami304daemon
-	chown compass system /dev/ami304hal
-	chmod 0640 dev/ami304hal
-	mkdir /data/amit 0777 ami304d ami304d
-	chmod 0666 /data/amit/AMI306_Config.ini
-	chown compass system /dev/KR3DH
-	chmod 0640 /dev/KR3DH
-	chown compass system /dev/KR3DM
-	chmod 0640 /dev/KR3DM	
+	chown system system /dev/ami304
+	chmod 0666 dev/ami304
+	chown system system /dev/ami304daemon
+	chmod 0666 dev/ami304daemon
+	chown system system /dev/ami304hal
+	chmod 0666 dev/ami304hal
+	mkdir /data/amit 0770 ami304d ami304d
+	chown system system /dev/KR3DH
+	chmod 0666 /dev/KR3DH
+	chown system system /dev/KR3DM
+	chmod 0666 /dev/KR3DM	
 ## PROXIMITY SENSOR
-	chown compass system /sys/bus/i2c/drivers/proximity_gp2ap/4-0044/enable
-	chmod 0660 /sys/bus/i2c/drivers/proximity_gp2ap/4-0044/enable
-
-## LGE_DEV_PORTING
-## LGE_CHANGE
-## For mass storage only mode(in GB Version).
-## 2011-02-11, hyunhui.park@lge.com
-	chown root system /sys/class/usb_composite/usb_mass_storage/enable
-	chmod 0660 /sys/class/usb_composite/usb_mass_storage/enable
-
-## port-bridge(with system permission)
-	chmod 0660 /dev/smd0
-	chown system system /dev/smd0
-	chmod 0660 /dev/ttyGS0
-	chown system system /dev/ttyGS0
-	chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
-## LGE_DEV_END
+	chmod 0666 /sys/bus/i2c/drivers/proximity_gp2ap/4-0044/enable
+## USB
+	chmod 0666 /sys/devices/platform/msm_hsusb_periphera/composition
 
 	chown system graphics /dev/hw3d
 	chmod 0660 /dev/hw3d
@@ -96,11 +81,8 @@ on boot
 	chmod 0660 /dev/msm_vidc_enc
 
 	chmod 0666 /dev/graphics/fb0
-	chmod 0664 /sys/class/leds/lcd-backlight/alc
+	chmod 0666 /sys/class/leds/lcd-backlight/alc
 
-	chown system system /sys/devices/platform/mddi_hitachi_hvga.10/lcd_onoff
-	chmod 0664 /sys/devices/platform/mddi_hitachi_hvga.10/lcd_onoff
-	
 	chown system system /dev/system_bus_freq
 	chmod 0660 /dev/system_bus_freq
 	chown system system /dev/cpu_dma_latency
@@ -120,12 +102,12 @@ on boot
     mkdir /data/misc/dhcp 0777 system system
 # LGE_CHANGE_E, [jisung.yang@lge.com] 2010-04-24, <make wifi directory> 
 
-# +++ BRCM
+# +++ BRCM +++
 # Make sure the property critical to Bluetooth functionality to be reserved by creating while booting up.
     setprop service.brcm.bt.srv_active 0
-    setprop service.brcm.bt.hcid_active 0
-    setprop sys.settings_secure_version 0
-# --- BRCM
+	setprop service.brcm.bt.hcid_active 0
+	setprop sys.settings_secure_version 0
+# --- BRCM ---
 
 ## ERS
     mkdir /data/data/com.lge.ers
@@ -150,16 +132,15 @@ on boot
 	mkdir /data/logger 0771 system system
 # LGE_CHANGE_E suntae.joo@lge.com 2010-07-14
 ## Hidden reset for the kernel interface
-   chmod 0664 /sys/module/lge_handle_panic/parameters/hidden_reset_enable
-
-# DBCHECK
-	mkdir /data/dbcheck 0777 system system
-	   
+   chmod 0666 /sys/module/lge_handle_panic/parameters/hidden_reset_enable
 on property:ro.build.type=user
 	write /sys/module/lge_handle_panic/parameters/hidden_reset_enable 1
 
 on property:init.svc.hcid=running
 	write /sys/devices/virtual/bluetooth/hci0/idle_timeout 7000
+
+# DBCHECK
+        mkdir /data/dbcheck 0777 system system
 
 # LG_FW_AUDIO_BROADCOM_BT , not used below lines
 #service hci_qcomm_init /system/bin/log -t qcom-bluetooth -p i "hci_qcomm_init service requested"
@@ -168,56 +149,68 @@ on property:init.svc.hcid=running
 #    disabled
 #    oneshot
 
-# +++ BRCM
+# +++ BRCM +++
 # Make sure we startup btld before bluetoothd
 # Set target address to emulator host loopback IF
 # Limit baudrate to 460800 to ensure reliable uart operation
 service btld /system/bin/logwrapper /system/bin/btld -pf /system/bin/BCM4325D1_004.002.004.0218.0248.hcd -hb 4000000 -lpm 1
-    user root
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
+    user root			
+    group bluetooth net_bt_admin			
+    disabled			
+    oneshot			
+				
+service bluetoothd /system/bin/bluetoothd -n			
+    socket bluetooth stream 660 bluetooth bluetooth			
+    socket dbus_bluetooth stream 660 bluetooth bluetooth			
+    # init.rc does not yet support applying capabilities, so run as root and			
+    # let bluetoothd drop uid to bluetooth with the right linux capabilities			
+    group bluetooth net_bt_admin misc			
+    disabled			
 
-service bluetoothd /system/bin/bluetoothd -n
-    socket bluetooth stream 660 bluetooth bluetooth
-    socket dbus_bluetooth stream 660 bluetooth bluetooth
-    # init.rc does not yet support applying capabilities, so run as root and
-    # let bluetoothd drop uid to bluetooth with the right linux capabilities
-    group bluetooth net_bt_admin misc
-    disabled
-# --- BRCM
+#service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+#    user bluetooth
+#    group qcom_oncrpc bluetooth net_bt_admin
+#    disabled
+#    oneshot
+
+#service hcid /system/bin/hcid -s -n -f /etc/bluez/hcid.conf
+#    socket bluetooth stream 660 bluetooth bluetooth
+#    socket dbus_bluetooth stream 660 bluetooth bluetooth
+#    # init.rc does not yet support applying capabilities, so run as root and
+#    # let hcid drop uid to bluetooth with the right linux capabilities
+#    group bluetooth net_bt_admin misc
+#    disabled
+
+#service hfag /system/bin/sdptool add --channel=10 HFAG
+#    user bluetooth
+#    group bluetooth net_bt_admin
+#    disabled
+#    oneshot
+
+#service hsag /system/bin/sdptool add --channel=11 HSAG
+#    user bluetooth
+#    group bluetooth net_bt_admin
+#    disabled
+#    oneshot
+# --- BRCM ---
 
 service cnd /system/bin/cnd
     socket cnd stream 660 root radio
     socket cne stream 660 root radio
 
-# LGE_CHANGED_S
-# Non-root permission qmuxd (QCT solution 00481665)
 service qmuxd /system/bin/qmuxd 
-    user radio
-    group radio
-# LGE_CHANGED_E
-
 
 service ami304d /system/bin/ami304d
-		user compass
-		group system
 
-## LGE_DEV_PORTING
-## LGE_CHANGE
-## Enable port-bridge with system permission.
-## 2011-02-18, hyunhui.park@lge.com
 ## USB
 #service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyHSUSB0
 service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyGS0
     socket port_bridge stream 660 root radio
-	user system
-	group system inet
+	disabled
 
-#on property:init.svc.bootlogo=stopped
-#on property:init.svc.bootanim=stopped
-#	start port-bridge
-## LGE_DEV_END
+on property:init.svc.bootlogo=stopped
+on property:init.svc.bootanim=stopped
+	start port-bridge
 
 
 # LGE_CHANGE_S, [jisung.yang@lge.com], 2010-04-24,<register WLAN services>
@@ -334,10 +327,3 @@ service hidden-reset /system/bin/sh /init.lge.hidden_reset.sh
 on property:dev.bootdone=1
     start hidden-reset
 # LGE_CHANGE_E eric.bae@lge.com 2010-09-07
-
-# +++ BRCM_LOCAL : Thunder MR (root->bluetooth)
-# Required if and only if btld  & bluetoothd permission 
-# changed from root to bluetooth in MR (Mainitenance Release) 
-service brcm-permpatch /system/bin/sh /system/etc/init.brcm.sh
-    oneshot
-# --- BRCM_LOCAL

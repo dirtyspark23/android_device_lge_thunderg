@@ -104,13 +104,6 @@ on boot
 #DHCP
     mkdir /data/misc/dhcp 0777 system system
 
-# +++ BRCM
-# Make sure the property critical to Bluetooth functionality to be reserved by creating while booting up.
-    setprop service.brcm.bt.srv_active 0
-    setprop service.brcm.bt.hcid_active 0
-    setprop sys.settings_secure_version 0
-# --- BRCM
-
 # Collect ramconsole data
 	copy /proc/last_kmsg /data/dontpanic/last_kmsg
 	chown root log /data/dontpanic/last_kmsg
