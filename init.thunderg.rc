@@ -132,12 +132,8 @@ service cnd /system/bin/cnd
     socket cne stream 660 root radio
 
 service qmuxd /system/bin/qmuxd 
-    user radio
-    group radio
 
 service ami304d /system/bin/ami304d
-		user compass
-		group system
 
 service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf #-dd
 	socket wpa_wlan0 dgram 660 wifi wifi
@@ -146,8 +142,8 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wi
 	oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n wlan0
-    disabled
-    oneshot
+        disabled
+        oneshot
 
 service dhcpcd_wlan0 /system/bin/dhcpcd -BKLA wlan0 # disable ARP operation
 	disabled
