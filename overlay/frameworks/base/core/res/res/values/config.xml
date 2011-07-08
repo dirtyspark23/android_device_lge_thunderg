@@ -129,6 +129,9 @@
     <bool name="config_enableScreenOnAnimation">false</bool>
     <bool name="config_enableScreenOffAnimation">true</bool>
 
+   <!-- crespo doesn't handle this blur effect very quickly. -->
+    <bool name="config_sf_slowBlur">true</bool>
+
     <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
          specified -->
     <string name="default_wallpaper_component">com.android.wallpaper/.nexus.NexusWallpaper</string>
