@@ -22,13 +22,12 @@
 
 #include <utils/threads.h>
 #include <utils/SortedVector.h>
-#include <sysutils/NetlinkListener.h>
 
 #include <hardware_legacy/AudioHardwareBase.h>
 
 extern "C" {
-#include <msm_audio.h>
-#include <msm_audio_voicememo.h>
+#include "msm_audio.h"
+#include "msm_audio_voicememo.h"
 }
 
 namespace android {
@@ -50,13 +49,13 @@ namespace android {
 #define EQ_MAX_BAND_NUM 12
 
 #define ADRC_ENABLE  0x0001
-#define ADRC_DISABLE 0xFFFE
+#define ADRC_DISABLE 0x0000
 #define EQ_ENABLE    0x0002
-#define EQ_DISABLE   0xFFFD
+#define EQ_DISABLE   0x0000
 #define RX_IIR_ENABLE  0x0004
-#define RX_IIR_DISABLE 0xFFFB
+#define RX_IIR_DISABLE 0x0000
 #define MBADRC_ENABLE  0x0010
-#define MBADRC_DISABLE 0xFFEF
+#define MBADRC_DISABLE 0x0000
 
 #define AGC_ENABLE     0x0001
 #define NS_ENABLE      0x0002
@@ -153,7 +152,7 @@ enum tty_modes {
 #define AUDIO_HW_IN_FORMAT (AudioSystem::PCM_16_BIT)  // Default audio input sample format
 // ----------------------------------------------------------------------------
 
-class NetlinkHandler;
+
 class AudioHardware : public  AudioHardwareBase
 {
     class AudioStreamOutMSM72xx;
@@ -166,10 +165,6 @@ public:
 
     virtual status_t    setVoiceVolume(float volume);
     virtual status_t    setMasterVolume(float volume);
-#ifdef HAVE_FM_RADIO
-    virtual status_t    setFmVolume(float volume);
-#endif
-    void setHookMode(bool mode);
     virtual status_t    setMode(int mode);
 
     // mic mute
@@ -214,11 +209,6 @@ private:
     uint32_t    getInputSampleRate(uint32_t sampleRate);
     bool        checkOutputStandby();
     status_t    doRouting(AudioStreamInMSM72xx *input);
-#ifdef HAVE_FM_RADIO
-    status_t    setFmOnOff(bool onoff);
-#endif
-    NetlinkHandler* mHandler;
-    int mSock;
     AudioStreamInMSM72xx*   getActiveInput_l();
 
     class AudioStreamOutMSM72xx : public AudioStreamOut {
@@ -310,33 +300,14 @@ private:
             msm_snd_endpoint *mSndEndpoints;
             int mNumSndEndpoints;
             int mCurSndDevice;
-#ifdef HAVE_FM_RADIO
-            bool mFmRadioEnabled;
-#endif
             int m7xsnddriverfd;
             bool        mDualMicEnabled;
             int         mTtyMode;
 
+            bool        mBuiltinMicSelected;
+
      friend class AudioStreamInMSM72xx;
             Mutex       mLock;
-};
-
-
-#include <sysutils/NetlinkListener.h>
-
-class NetlinkHandler: public NetlinkListener {
-
-public:
-    NetlinkHandler(int listenerSocket, AudioHardware* audio);
-    virtual ~NetlinkHandler();
-
-    int start(void);
-    int stop(void);
-
-private:
-    AudioHardware* mAudio;
-protected:
-    virtual void onEvent(NetlinkEvent *evt);
 };
 
 // ----------------------------------------------------------------------------
