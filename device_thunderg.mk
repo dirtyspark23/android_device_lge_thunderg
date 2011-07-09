@@ -90,8 +90,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/init.thunderg.rc:root/init.thunderg.rc \
     device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
-    device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle \
-    device/lge/thunderg/init.rc:root/init.rc \
+    device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle
 
 # Media Configuration XML File
 PRODUCT_COPY_FILES += \
