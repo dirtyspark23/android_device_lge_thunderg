@@ -101,6 +101,11 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderg/prebuilt/lib/hw/sensors.thunderg.so:system/lib/hw/sensors.thunderg.so \
     device/lge/thunderg/prebuilt/bin/ami304d:system/bin/ami304d \
 
+# 2D (Damn you gralloc)
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietary/lib/hw/gralloc.thunderg.so:system/lib/hw/gralloc.thunderg.so \
+    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
+
 # 3D
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
@@ -122,12 +127,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/prebuilt/lib/modules/wireless.ko:system/lib/modules/wireless.ko \
     device/lge/thunderg/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    vendor/lge/thunderg/proprietary/etc/wl/nvram.txt:system/etc/wl/nvram.txt \
-    vendor/lge/thunderg/proprietary/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-    vendor/lge/thunderg/proprietary/etc/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
-    vendor/lge/thunderg/proprietary/bin/wl:system/bin/wl \
-    vendor/lge/thunderg/proprietary/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
-    vendor/lge/thunderg/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin 
+    vendor/lge/thunderg/proprietaryging/etc/wl/nvram.txt:system/etc/wl/nvram.txt \
+    vendor/lge/thunderg/proprietaryging/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    vendor/lge/thunderg/proprietaryging/etc/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
+    vendor/lge/thunderg/proprietaryging/bin/wl:system/bin/wl \
+    vendor/lge/thunderg/proprietaryging/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
+    vendor/lge/thunderg/proprietaryging/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin 
 
 # SD Card
 PRODUCT_COPY_FILES += \

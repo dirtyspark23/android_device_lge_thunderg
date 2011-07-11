@@ -94,6 +94,10 @@
     <!-- Component name of the service providing geocoder API support. -->
     <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
 
+    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
+         specified -->
+    <string name="default_wallpaper_component">@null</string>
+
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          USB interfaces.  If the device doesn't want to support tething over USB this should
          be empty.  An example would be "usb.*" -->
@@ -131,9 +135,5 @@
 
    <!-- crespo doesn't handle this blur effect very quickly. -->
     <bool name="config_sf_slowBlur">true</bool>
-
-    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
-         specified -->
-    <string name="default_wallpaper_component">com.android.wallpaper/.nexus.NexusWallpaper</string>
 
 </resources>
