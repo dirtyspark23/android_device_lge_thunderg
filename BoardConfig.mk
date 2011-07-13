@@ -11,10 +11,8 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_BOOTLOADER_BOARD_NAME := thunderg
 
-# Current drivers don't support new EGL config
+# Current drivers support new EGL config
 BOARD_NO_RGBX_8888 := true
-TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
-BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
 
 TARGET_PROVIDES_INIT_TARGET_RC := true
 
@@ -43,8 +41,11 @@ BOARD_WLAN_DEVICE := bcm4325
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
 WIFI_DRIVER_MODULE_NAME := "wireless"
+WIFI_EXT_MODULE_PATH    := "/system/lib/modules/librasdioif.ko"
+WIFI_EXT_MODULE_NAME    := "librasdioif"
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
+WIFI_FIRMWARE_LOADER   := "wlan_loader"
 WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
 BOARD_EGL_CFG := device/lge/thunderg/egl.cfg
