@@ -39,7 +39,7 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     copybit.thunderg \
-    gralloc.msm7k \
+    gralloc.thunderg \
     lights.thunderg \
     gps.thunderg \
     libOmxVidEnc \
