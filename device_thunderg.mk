@@ -39,7 +39,7 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     copybit.thunderg \
-    gralloc.thunderg \
+    gralloc.msm7k \
     lights.thunderg \
     gps.thunderg \
     libOmxVidEnc \
@@ -47,6 +47,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.sf.lcd_density=160 \
+   debug.sf.hw=1 \
+   debug.composition.type=mdp \
    ro.com.google.clientidbase=android-hms-tmobile-us \
    ro.com.google.clientidbase.gmm=android-lge \
    ro.com.google.clientidbase.yt=android-lge \
@@ -60,7 +62,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.ril.hsxpa=2 \
    ro.ril.enable.dtm=0 \
    wifi.supplicant_scan_interval=45 \
-   debug.sf.hw=1 \
    ro.opengles.version=131072 \
    ro.ril.hsdpa.category=8 \
    ro.ril.hsupa.category=5 \
@@ -71,7 +72,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Performences tweaks
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.execution-mode=int:jit \
-    ro.compcache.default=0 \
+    ro.compcache.default=1 \
     dalvik.vm.heapsize=24m \
     persist.sys.use_dithering=1 \
 
@@ -101,38 +102,39 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderg/prebuilt/lib/hw/sensors.thunderg.so:system/lib/hw/sensors.thunderg.so \
     device/lge/thunderg/prebuilt/bin/ami304d:system/bin/ami304d \
 
-# 2D (Damn you gralloc)
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.thunderg.so:system/lib/hw/gralloc.thunderg.so \
-    vendor/lge/thunderg/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
-
 # 3D
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
-    vendor/lge/thunderg/proprietary/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
-    vendor/lge/thunderg/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
-    vendor/lge/thunderg/proprietary/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
-    vendor/lge/thunderg/proprietary/lib/libgsl.so:system/lib/libgsl.so \
-    vendor/lge/thunderg/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-    vendor/lge/thunderg/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw 
+    vendor/lge/thunderg/proprietaryging/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
+    vendor/lge/thunderg/proprietaryging/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
+    vendor/lge/thunderg/proprietaryging/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
+    vendor/lge/thunderg/proprietaryging/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
+    vendor/lge/thunderg/proprietaryging/lib/libgsl.so:system/lib/libgsl.so \
+    vendor/lge/thunderg/proprietaryging/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    vendor/lge/thunderg/proprietaryging/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw 
 
 # Camera
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
-    vendor/lge/thunderg/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
-    vendor/lge/thunderg/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    vendor/lge/thunderg/proprietaryging/lib/liboemcamera.so:system/lib/liboemcamera.so \
+    vendor/lge/thunderg/proprietaryging/lib/libmmipl.so:system/lib/libmmipl.so \
+    vendor/lge/thunderg/proprietaryging/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
    
 
 # Wifi
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/prebuilt/lib/modules/wireless.ko:system/lib/modules/wireless.ko \
-    device/lge/thunderg/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    device/lge/thunderg/prebuilt/lib/modules/librasdioif.ko:system/lib/modules/librasdioif.ko \
+    vendor/lge/thunderg/proprietaryging/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     vendor/lge/thunderg/proprietaryging/etc/wl/nvram.txt:system/etc/wl/nvram.txt \
     vendor/lge/thunderg/proprietaryging/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     vendor/lge/thunderg/proprietaryging/etc/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
     vendor/lge/thunderg/proprietaryging/bin/wl:system/bin/wl \
     vendor/lge/thunderg/proprietaryging/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
-    vendor/lge/thunderg/proprietaryging/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin 
+    vendor/lge/thunderg/proprietaryging/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin
+
+# LG Scripts
+PRODUCT_COPY_FILES += \
+    device/lge/thunderg/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
+    device/lge/thunderg/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
 
 # SD Card
 PRODUCT_COPY_FILES += \
@@ -140,8 +142,8 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
-    device/lge/thunderg/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    vendor/lge/thunderg/proprietaryging/lib/libaudioeq.so:system/lib/libaudioeq.so \
+    vendor/lge/thunderg/proprietaryging/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
 
 # GPS
 PRODUCT_COPY_FILES += \
