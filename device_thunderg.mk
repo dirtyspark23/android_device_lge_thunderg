@@ -66,8 +66,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.ril.enable.dtm=0 \
    wifi.supplicant_scan_interval=45 \
    ro.opengles.version=131072 \
-   ro.ril.hsdpa.category=8 \
-   ro.ril.hsupa.category=5 \
    dalvik.vm.lockprof.threshold=500 \
    dalvik.vm.dexopt-flags=m=y \
    mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
@@ -93,6 +91,7 @@ PRODUCT_COPY_FILES += \
 # Board-specific init
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/init.thunderg.rc:root/init.thunderg.rc \
+    device/lge/thunderg/init.rc:root/init.rc \
     device/lge/thunderg/ueventd.thunderg.rc:root/ueventd.thunderg.rc \
     device/lge/thunderg/ramdisk/initlogo.rle:root/initlogo.rle
 
@@ -141,7 +140,14 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietaryging/lib/libaudioeq.so:system/lib/libaudioeq.so \
-    vendor/lge/thunderg/proprietaryging/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    device/lge/thunderg/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    device/lge/thunderg/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt
+
+# Audio Enhancements
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderg/proprietaryging/lib/soundfx/libbundlewrapper.so:system/lib/soundfx/libbundlewrapper.so \
+    vendor/lge/thunderg/proprietaryging/lib/soundfx/libreverbwrapper.so:system/lib/soundfx/libreverbwrapper.so \
+    vendor/lge/thunderg/proprietaryging/lib/soundfx/libvisualizer.so:system/lib/soundfx/libvisualizer.so \    
 
 # GPS
 PRODUCT_COPY_FILES += \

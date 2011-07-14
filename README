@@ -3,3 +3,5 @@ Device Configuration folder for LG Optimus T (P509)
 This code is based off of the release of V20G in Europe and the release of V10L in the USA.
 
 This is also a mix of Mik9 code changes and my very own to fit the best needs of the United States and T-Mobile.
+
+WARNING: This device setup is to be only used with the old baseband.

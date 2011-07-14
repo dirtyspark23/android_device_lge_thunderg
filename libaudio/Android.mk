@@ -1,7 +1,7 @@
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),thunderg)
 
+LOCAL_PATH := $(call my-dir)
 
-LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 
@@ -11,7 +11,7 @@ LOCAL_SHARED_LIBRARIES := \
     libcutils \
     libutils \
     libmedia \
-    libhardware_legacy
+    libhardware_legacy \
 
 ifeq ($TARGET_OS)-$(TARGET_SIMULATOR),linux-true)
 LOCAL_LDLIBS += -ldl
@@ -32,8 +32,6 @@ endif
 
 include $(BUILD_SHARED_LIBRARY)
 
-LOCAL_PATH := hardware/msm7k/libaudio
-
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES:=               \
@@ -44,7 +42,6 @@ LOCAL_SHARED_LIBRARIES := \
     libutils \
     libmedia
 
-LOCAL_MODULE_TAGS := optional
 LOCAL_STATIC_LIBRARIES := libaudiopolicybase
 
 LOCAL_MODULE:= libaudiopolicy
@@ -55,5 +52,4 @@ endif
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif
-
+endif # TARGET_BOOTLOADER_BOARD_NAME

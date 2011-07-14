@@ -1,5 +1,5 @@
 USE_CAMERA_STUB := false
-BOARD_USE_FROYO_LIBCAMERA := true
+BOARD_USE_CAF_LIBCAMERA := true
 
 # inherit from the proprietary version
 #-include vendor/lge/thunderg/BoardConfigVendor.mk
@@ -42,11 +42,8 @@ BOARD_WLAN_DEVICE := bcm4325
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
 WIFI_DRIVER_MODULE_NAME := "wireless"
-WIFI_EXT_MODULE_PATH    := "/system/lib/modules/librasdioif.ko"
-WIFI_EXT_MODULE_NAME    := "librasdioif"
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
-WIFI_FIRMWARE_LOADER   := "wlan_loader"
 WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
 BOARD_EGL_CFG := device/lge/thunderg/egl.cfg
