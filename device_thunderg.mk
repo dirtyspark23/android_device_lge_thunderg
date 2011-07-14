@@ -45,6 +45,10 @@ PRODUCT_PACKAGES += \
     libOmxVidEnc \
     com.android.future.usb.accessory
 
+# WiFi stuff
+PRODUCT_PACKAGES += \
+    wlan_loader \
+
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.sf.lcd_density=160 \
    debug.sf.hw=1 \
@@ -57,7 +61,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.com.google.networklocation=1 \
    ro.com.google.gmsversion=2.3_r4 \
    ro.setupwizard.enable_bypass=1 \
-   ro.ril.gprsclass=10 \
+   ro.ril.gprsclass=12 \
    ro.ril.hsxpa=2 \
    ro.ril.enable.dtm=0 \
    wifi.supplicant_scan_interval=45 \
@@ -235,9 +239,9 @@ PRODUCT_COPY_FILES += \
 
 # netmgr (What is this?)
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderg/proprietary/bin/netmgrd:system/bin/netmgrd \
-    vendor/lge/thunderg/proprietary/lib/libdsutils.so:system/lib/libdsutils.so \
-    vendor/lge/thunderg/proprietary/lib/libnetmgr.so:system/lib/libnetmgr.so
+    vendor/lge/thunderg/proprietaryging/bin/netmgrd:system/bin/netmgrd \
+    vendor/lge/thunderg/proprietaryging/lib/libdsutils.so:system/lib/libdsutils.so \
+    vendor/lge/thunderg/proprietaryging/lib/libnetmgr.so:system/lib/libnetmgr.so
 
 PRODUCT_LOCALES += mdpi
 
