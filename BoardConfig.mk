@@ -13,6 +13,7 @@ TARGET_BOOTLOADER_BOARD_NAME := thunderg
 
 # Current drivers support new EGL config
 BOARD_NO_RGBX_8888 := true
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 
 TARGET_PROVIDES_INIT_TARGET_RC := true
 

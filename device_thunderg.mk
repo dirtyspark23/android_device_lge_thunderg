@@ -48,7 +48,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.sf.lcd_density=160 \
    debug.sf.hw=1 \
-   debug.composition.type=mdp \
    ro.com.google.clientidbase=android-hms-tmobile-us \
    ro.com.google.clientidbase.gmm=android-lge \
    ro.com.google.clientidbase.yt=android-lge \
@@ -130,11 +129,6 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietaryging/bin/wl:system/bin/wl \
     vendor/lge/thunderg/proprietaryging/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
     vendor/lge/thunderg/proprietaryging/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin
-
-# LG Scripts
-PRODUCT_COPY_FILES += \
-    device/lge/thunderg/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
-    device/lge/thunderg/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
 
 # SD Card
 PRODUCT_COPY_FILES += \
