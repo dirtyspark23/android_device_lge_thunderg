@@ -45,10 +45,6 @@ PRODUCT_PACKAGES += \
     libOmxVidEnc \
     com.android.future.usb.accessory
 
-# WiFi stuff
-PRODUCT_PACKAGES += \
-    wlan_loader \
-
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.sf.lcd_density=160 \
    debug.sf.hw=1 \
@@ -147,7 +143,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderg/proprietaryging/lib/soundfx/libbundlewrapper.so:system/lib/soundfx/libbundlewrapper.so \
     vendor/lge/thunderg/proprietaryging/lib/soundfx/libreverbwrapper.so:system/lib/soundfx/libreverbwrapper.so \
-    vendor/lge/thunderg/proprietaryging/lib/soundfx/libvisualizer.so:system/lib/soundfx/libvisualizer.so \    
+    vendor/lge/thunderg/proprietaryging/lib/soundfx/libvisualizer.so:system/lib/soundfx/libvisualizer.so
 
 # GPS
 PRODUCT_COPY_FILES += \
