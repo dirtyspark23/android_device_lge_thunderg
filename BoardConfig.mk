@@ -37,7 +37,9 @@ BOARD_GPS_LIBRARIES := libloc_api
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := thunderg
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
-WPA_SUPPLICANT_VERSION := VER_0_6_X
+BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+
+WPA_SUPPLICANT_VERSION := VER_0_5_X
 BOARD_WLAN_DEVICE := bcm4325
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
