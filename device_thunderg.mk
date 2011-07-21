@@ -38,8 +38,8 @@ PRODUCT_PACKAGES += \
     librs_jni \
     libmm-omxcore \
     libOmxCore \
-    copybit.thunderg \
-    gralloc.thunderg \
+    #copybit.thunderg \
+    #gralloc.thunderg \
     lights.thunderg \
     gps.thunderg \
     libOmxVidEnc \
@@ -99,6 +99,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/thunderg/prebuilt/lib/hw/sensors.thunderg.so:system/lib/hw/sensors.thunderg.so \
     device/lge/thunderg/prebuilt/bin/ami304d:system/bin/ami304d \
+
+# 2D
+PRODUCT_COPY_FILES += \
+   device/lge/thunderg/proprietaryging/lib/hw/copybit.msm7k.so:system/lib/hw/copybit.msm7k.so \
+   device/lge/thunderg/proprietaryging/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
+   device/lge/thunderg/proprietaryging/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
 
 # 3D
 PRODUCT_COPY_FILES += \
